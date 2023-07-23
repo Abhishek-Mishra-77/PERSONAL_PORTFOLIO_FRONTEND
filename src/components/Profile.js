@@ -57,7 +57,7 @@ const Profile = () => {
             {social_media?.map(icon => (
               <div key={icon.id} className='text-gray-500 hover:text-white 
             cursor-pointer hover:text-white '>
-                <a target='_blank' href={icon.link}> <ion-icon name={icon.Symbol} ></ion-icon></a>
+                <a href={icon.link}> <ion-icon name={icon.Symbol} ></ion-icon></a>
               </div>
             ))}
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import emailjs from 'emailjs-com';
 
 
@@ -42,23 +42,23 @@ const Contact = () => {
 
   const social_media = [
     {
-      id:'a6',
+      id: 'a6',
       Symbol: 'logo-linkedin',
       link: 'https://www.linkedin.com/in/abhishek-mishra-342494237/',
 
     },
     {
-      id:'a7',
+      id: 'a7',
       Symbol: "logo-github",
       link: 'https://github.com/Abhishek-Mishra-77'
     },
     {
-      id:'a8',
+      id: 'a8',
       Symbol: 'logo-whatsapp',
       link: ''
     },
     {
-      id:'a9',
+      id: 'a9',
       Symbol: 'logo-instagram',
       link: ''
     }
@@ -73,7 +73,7 @@ const Contact = () => {
     <section id="contact" className="py-10 px-3 text-white">
       <div className="text-center mt-8">
         <h3 className="text-4xl font-semibold">
-          About <span className="text-cyan-600">Me</span> 
+          About <span className="text-cyan-600">Me</span>
         </h3>
         <p className="text-gray-400 mt-3 text-lg">Get in touch</p>
 
@@ -124,7 +124,7 @@ const Contact = () => {
               {social_media?.map(icon => (
                 <div key={icon.id} className='text-gray-500 hover:text-white 
                     cursor-pointer hover:text-white box2'>
-                  <a target='_blank' href={icon.link}> <ion-icon name={icon.Symbol} ></ion-icon></a>
+                  <a  href={icon.link}> <ion-icon name={icon.Symbol} ></ion-icon></a>
                 </div>
               ))}
             </div>

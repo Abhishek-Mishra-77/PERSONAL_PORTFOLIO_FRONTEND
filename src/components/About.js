@@ -24,9 +24,8 @@ const About = () => {
               </p>
               <a
                 download='./src/assets/AbhishekMishra_Resume.pdf'
-                target='_blank'
                 href='https://www.canva.com/design/DAFo3dcUKhU/NwaYziIm1a-4HQXbbZnjxg/view?utm_content=DAFo3dcUKhU&utm_campaign=share_your_design&utm_medium=link&utm_source=shareyourdesignpanelb'>
-                <button  className='btn-primary mt-5 ml-9'>Resume <ion-icon name="play-outline"></ion-icon></button> </a>
+                <button className='btn-primary mt-5 ml-9'>Resume <ion-icon name="play-outline"></ion-icon></button> </a>
             </div>
           </div>
 

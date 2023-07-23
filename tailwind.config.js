@@ -1,5 +1,5 @@
 module.exports = {
-  purge: [],
+  purge: ['./src/**/*.html', './src/**/*.js'], // Add the template paths you want to scan for used CSS classes
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -18,4 +18,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};
+
