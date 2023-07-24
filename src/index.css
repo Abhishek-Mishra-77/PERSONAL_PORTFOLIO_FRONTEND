@@ -66,6 +66,18 @@ body {
   transition: 1s ease-out;
 }
 
+.box3 {
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 cyan;
+  height: 30px;
+}
+
+.box3:hover {
+  background-color: cyan;
+  transform: scale(1.09);
+  transition: 1s ease-out;
+}
+
 input,
 textarea {
   background-color: #4a5568;

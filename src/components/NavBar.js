@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full left-0 top-0 z-[999] ${sticky ? "bg-white bg-opacity-60 text-gray-900 " : "text-white"
+      className={`fixed w-full left-0 top-0 z-[999] ${sticky ? "bg-white bg-opacity-60 text-gray-900 " : " text-white"
         }`}
     >
       <div className="flex items-center justify-between">
@@ -34,8 +34,8 @@ const Navbar = () => {
           </h4>
         </div>
         <div
-          className={`${sticky ? "md:bg-white/0 " : "bg-cyan-600 rounded-bl-full"
-            } text-gray-900 md:block hidden px-9 py-3 font-medium `}
+          className={`${sticky ? "md:bg-white/0 " : "bg-white rounded-bl-full"
+            } text-gray-900 md:block hidden px-9 py-2 font-medium `}
         >
           <ul className="flex items-center gap-1 py-2 text-lg">
             {menuLinks?.map((menu, i) => (

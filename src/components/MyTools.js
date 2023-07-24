@@ -21,9 +21,11 @@ const MyTools = () => {
             id: 'b4',
             level: 'Githup',
             logo: 'git-merge-outline'
+        }, {
+            id: 'b5',
+            level: 'Netlify',
+            logo: 'logo-slack'
         },
-
-
     ]
 
     // <a href={icon.link}> <ion-icon name={icon.Symbol} ></ion-icon></a>

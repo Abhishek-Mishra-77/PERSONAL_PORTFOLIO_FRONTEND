@@ -56,7 +56,7 @@ const Profile = () => {
         justify-center gap-5'>
             {social_media?.map(icon => (
               <div key={icon.id} className='text-gray-500 hover:text-white 
-            cursor-pointer hover:text-white '>
+            cursor-pointer hover:text-white box3'>
                 <a href={icon.link}> <ion-icon name={icon.Symbol} ></ion-icon></a>
               </div>
             ))}
