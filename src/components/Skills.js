@@ -36,13 +36,22 @@ const Skill = () => {
       level: 'Redux',
       count: '55'
     },
+
     {
       id: 'e6',
+      logo: 'logo-java',
+      level: <h2>Java</h2>,
+      count: '75'
+    }, {
+      id: 'e7',
       logo: 'logo-firebase',
       level: 'Firebase',
       count: '75'
     },
   ]
+
+
+
 
   return (
     <section id='skills' className='py-10 bg-gray-800 relative'>
@@ -56,9 +65,11 @@ const Skill = () => {
               <div style={{
                 background: `conic-gradient(rgb(8,145,170) 100%,#ddd 100%)`
               }} className='w-15 h-14 flex items-center justify-center rounded-full'>
-                <div className='text-6xl w-28 h-28 bg-gray-900 rounded-full
+                <div className='text-7xl w-28 h-28 bg-gray-900 rounded-full
                flex items-center justify-center group-hover:text-cyan-600'>
-                  <ion-icon name={skill.logo} className='logo'></ion-icon>
+                  {skill.id !== 'e6' ? <ion-icon name={skill.logo} className='logo'></ion-icon> :
+                    <img style={{height:'80px'}} src='https://cdn-icons-png.flaticon.com/128/226/226777.png' className='logo' />
+                  }
                 </div>
               </div>
               <p className='text-xl mt-3 group-hover:text-cyan-600'>{skill.level}</p>
