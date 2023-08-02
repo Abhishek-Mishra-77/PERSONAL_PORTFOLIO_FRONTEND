@@ -68,7 +68,11 @@ const Skill = () => {
                 <div className='text-7xl w-28 h-28 bg-gray-900 rounded-full
                flex items-center justify-center group-hover:text-cyan-600'>
                   {skill.id !== 'e6' ? <ion-icon name={skill.logo} className='logo'></ion-icon> :
-                    <img style={{height:'80px'}} src='https://cdn-icons-png.flaticon.com/128/226/226777.png' className='logo' />
+                    <img
+                      style={{ height: '80px' }}
+                      src='https://cdn-icons-png.flaticon.com/128/226/226777.png'
+                      className='logo'
+                      alt='JavaImage' />
                   }
                 </div>
               </div>
