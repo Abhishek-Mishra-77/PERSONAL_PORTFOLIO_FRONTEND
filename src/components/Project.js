@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Project1 from '../assets/Project1.jpg'
 import Project2 from '../assets/Project2.jpg'
 import Project3 from '../assets/Project3.jpg'
+import Project4 from '../assets/Project4.jpg'
 import 'swiper/css'
 
 
@@ -11,13 +12,13 @@ const Project = () => {
 
   const projects = [
     {
-      id: 'a2',
+      id: 'a4',
       development: 'FrontEnd Project',
-      img: Project2,
-      name: 'Zomato (Clone)',
-      githup_link: 'https://github.com/Abhishek-Mishra-77/Zomato-app',
-      live_link: 'https://abhishek-mishra-77.github.io/Zomato-app/',
-      para: 'Zomato Clone: Explore diverse food, add to cart, and order seamlessly with user-friendly interface.',
+      img: Project4,
+      name: 'Expense Tracker',
+      githup_link: 'https://github.com/Abhishek-Mishra-77/Expense_Tracker',
+      live_link: 'https://expense-tracker-40eba.web.app/',
+      para: 'Expense Tracker Pro: Experience seamless expense management with login,signUp ,  password control, profile updates, email verification, and easy daily expense handling including add, edit, and delete functions.'
     },
     {
       id: 'a3',
@@ -29,13 +30,23 @@ const Project = () => {
       para: 'The Generic: E-commerce site with authentication (login, signup, password change). Users browse, shop, view details, but login required; non-logged-in users redirected for access.'
     },
     {
+      id: 'a2',
+      development: 'FrontEnd Project',
+      img: Project2,
+      name: 'Zomato (Clone)',
+      githup_link: 'https://github.com/Abhishek-Mishra-77/Zomato-app',
+      live_link: 'https://abhishek-mishra-77.github.io/Zomato-app/',
+      para: 'Zomato Clone: Explore diverse food, add to cart, and order seamlessly with user-friendly interface.',
+    },
+
+    {
       id: 'a1',
       development: 'FrontEnd Project',
       img: Project1,
       name: 'Resturant-App',
       githup_link: 'https://github.com/Abhishek-Mishra-77/Resturant-meal-App',
       live_link: 'https://abhishek-mishra-77.github.io/Resturant-meal-App/',
-      para:'ReactMeal: Restaurant expenses & delivery site, diverse menu. Browse, purchase, customize orders easily. User-friendly for seamless selection, order, delivery/takeout'
+      para: 'ReactMeal: Restaurant expenses & delivery site, diverse menu. Browse, purchase, customize orders easily. User-friendly for seamless selection, order, delivery/takeout'
     },
 
   ]
