@@ -5,6 +5,7 @@ import Project2 from '../assets/Project2.jpg'
 import Project3 from '../assets/Project3.jpg'
 import Project4 from '../assets/Project4.jpg'
 import Project5 from '../assets/Project5.jpg'
+import Project6 from '../assets/Project6.jpg'
 import 'swiper/css'
 
 
@@ -58,6 +59,16 @@ const Project = () => {
       live_link: 'https://linkedin-clone-25e9a.web.app/',
       para: 'LinkedIn Clone: LinkedIn clone where anyone can create his accont and post anything  , sign up , login , post Create and etc.'
     },
+    {
+      id: 'a6',
+      development: 'FrontEnd Project',
+      img: Project6,
+      name: 'EmailBox',
+      githup_link: 'https://github.com/Abhishek-Mishra-77/MailBox',
+      live_link: 'https://mailbox-53339.web.app/',
+      para: 'EmailBox(userSpecific): EmailBox site with authentication(login, signup, password).Users browse, Compose, view Send Emails , And view Inbox Emails, but login required; non - logged -in users redirected for access.'
+    },
+
 
 
   ]
