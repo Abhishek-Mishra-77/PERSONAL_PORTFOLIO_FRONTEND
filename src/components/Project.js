@@ -4,6 +4,7 @@ import Project1 from '../assets/Project1.jpg'
 import Project2 from '../assets/Project2.jpg'
 import Project3 from '../assets/Project3.jpg'
 import Project4 from '../assets/Project4.jpg'
+import Project5 from '../assets/Project5.jpg'
 import 'swiper/css'
 
 
@@ -40,7 +41,7 @@ const Project = () => {
     },
 
     {
-      id: 'a1',
+      id: 'a5',
       development: 'FrontEnd Project',
       img: Project1,
       name: 'Resturant-App',
@@ -48,6 +49,16 @@ const Project = () => {
       live_link: 'https://abhishek-mishra-77.github.io/Resturant-meal-App/',
       para: 'ReactMeal: Restaurant expenses & delivery site, diverse menu. Browse, purchase, customize orders easily. User-friendly for seamless selection, order, delivery/takeout'
     },
+    {
+      id: 'a1',
+      development: 'FrontEnd Project',
+      img: Project5,
+      name: 'LinkedIn(Clone)',
+      githup_link: 'https://github.com/Abhishek-Mishra-77/LinkedIn_Clone',
+      live_link: 'https://linkedin-clone-25e9a.web.app/',
+      para: 'LinkedIn Clone: LinkedIn clone where anyone can create his accont and post anything  , sign up , login , post Create and etc.'
+    },
+
 
   ]
 
