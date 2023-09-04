@@ -1,10 +1,8 @@
 import React from 'react';
 import './About.css';
 
+
 const About = () => {
-
-
-
 
   return (
     <section id='about' className='py-10 text-white'>
@@ -23,8 +21,8 @@ const About = () => {
                 CSS, Javascript, React, and Redux. Looking for job opportunities in a technology-driven organization that helps to enhance career as well as knowledge.
               </p>
               <a
-                download='./src/assets/AbhishekMishra_Resume.pdf'
-                href='https://drive.google.com/file/d/1v3f98XwoS5yBXHVOZ_7CtJt7kdRVBU42/view?usp=sharing'>
+                download='https://drive.google.com/file/d/1cgz2DR8UrJMlUSkbuFwnSCplzsPzuhhO/view'
+                href='https://drive.google.com/file/d/1cgz2DR8UrJMlUSkbuFwnSCplzsPzuhhO/view'>
                 <button className='btn-primary mt-5 ml-9'>Resume <ion-icon name="play-outline"></ion-icon></button> </a>
             </div>
           </div>
