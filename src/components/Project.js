@@ -79,9 +79,9 @@ const Project = () => {
         <p className='text-gray-400 mt-3 text-lg'>My awesome works </p>
       </div>
       <br />
-      <div className='mt-12 max-w-4xl max-h-4xl mx-auto flex flex-wrap'>
+      <div className='p-6 mt-12 max-w-2xl max-h-4xl mx-auto flex flex-wrap'>
         {projects.map((project_Info) => (
-          <div className='p-2 bg-gray-700 max-h-4xl rounded-xl mt-7 border-2 border-rose-500' key={project_Info.id}>
+          <div className='p-4 bg-gray-700  rounded-xl mt-7 border-2 border-rose-500' key={project_Info.id}>
             <p>{project_Info.development}</p>
             <img src={project_Info.img} alt={project_Info.name} className='rounded-lg ' />
             <h3 className='text-xl my-4 name'>{project_Info.name}</h3>
