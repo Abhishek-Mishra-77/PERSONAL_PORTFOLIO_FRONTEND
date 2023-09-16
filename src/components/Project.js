@@ -4,7 +4,7 @@ import Project1 from '../assets/Project1.jpg'
 import Project2 from '../assets/Project2.jpg'
 import Project3 from '../assets/Project3.jpg'
 import Project4 from '../assets/Project4.jpg'
-import Project5 from '../assets/Project5.jpg'
+import Project7 from '../assets/Project7.jpg'
 import Project6 from '../assets/Project6.jpg'
 import 'swiper/css'
 
@@ -53,11 +53,11 @@ const Project = () => {
     {
       id: 'a1',
       development: 'FrontEnd Project',
-      img: Project5,
-      name: 'LinkedIn(Clone)',
-      githup_link: 'https://github.com/Abhishek-Mishra-77/LinkedIn_Clone',
-      live_link: 'https://linkedin-clone-25e9a.web.app/',
-      para: 'LinkedIn Clone: LinkedIn clone where anyone can create his accont and post anything  , sign up , login , post Create and etc.'
+      img: Project7,
+      name: 'Simple Javascprit',
+      githup_link: 'https://gitlab.com/abhishekmishra992016/nextlabassignment',
+      live_link: 'https://6505c4d0861a180008716afd--dainty-kringle-9a0523.netlify.app/',
+      para: 'simple javascript website , with lazy loading , form , slider highter , apis'
     },
     {
       id: 'a6',
@@ -68,9 +68,6 @@ const Project = () => {
       live_link: 'https://mailbox-53339.web.app/',
       para: 'EmailBox(userSpecific): EmailBox site with authentication(login, signup, password).Users browse, Compose, view Send Emails , And view Inbox Emails, but login required; non - logged -in users redirected for access.'
     },
-
-
-
   ]
 
 
@@ -83,49 +80,25 @@ const Project = () => {
         <p className='text-gray-400 mt-3 text-lg'>My awesome works </p>
       </div>
       <br />
-      <div className=' items-center justify-center mt-12 gap-10 flex-wrap flex max-w-6xl px-5 mx-auto items-center relative Project'>
-        <div className='w-full'>
-          <Swiper slidesPerView={2} spaceBetween={20}
-            breakpoints={{
-              768: {
-                slidesPerView: 2
-              }
-            }}
-            loop={true}
-            autoplay={{
-              delay: 3000,
-            }}
-          >
-
-            {projects.map((project_Info) => (
-              <SwiperSlide key={project_Info.id}>
-                <div className='h-fil w-full p-4 bg-gray-700 rounded-xl display-flex pro'>
-                  <p>{project_Info.development}</p>
-
-                  <img src={project_Info.img} alt={project_Info.name} className='rounded-lg' />
-                  <h3 className='text-xl my-4 name'>{project_Info.name}</h3>
-                  <p className='mt-2'>{project_Info.para}</p>
-
-                  <div className='flex gap-4 button1 mt-3'>
-                    <a
-                      href={project_Info.githup_link}
-
-                      className='text-cyan-600 text-center w-20 bg-gray-800 py-1 inline-block button btn box1'>Githup</a>
-
-                    <a
-                      href={project_Info.live_link}
-                      className='text-cyan-600 bg-gray-800 text-center py-1 w-20 inline-block button btn box1'>Live Demo</a>
-                  </div>
-
-                </div>
-              </SwiperSlide>
-            ))}
-
-          </Swiper>
-          <h1 style={{ float: 'right' }}>More......................</h1>
-        </div>
+      <div className='mt-12 max-w-4xl max-h-4xl mx-auto flex flex-wrap'>
+        {projects.map((project_Info) => (
+          <div className='p-2 bg-gray-700 max-h-4xl rounded-xl mt-7 border-2 border-rose-500' key={project_Info.id}>
+            <p>{project_Info.development}</p>
+            <img src={project_Info.img} alt={project_Info.name} className='rounded-lg ' />
+            <h3 className='text-xl my-4 name'>{project_Info.name}</h3>
+            <p className='mt-2'>{project_Info.para}</p>
+            <div className='flex gap-4 button1 mt-3'>
+              <a
+                href={project_Info.githup_link}
+                className='text-cyan-600 text-center w-20 bg-gray-800 py-1 inline-block button btn box1'>Githup</a>
+              <a
+                href={project_Info.live_link}
+                className='text-cyan-600 bg-gray-800 text-center py-1 w-20 inline-block button btn box1'>Live Demo</a>
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </section >
   )
 }
 

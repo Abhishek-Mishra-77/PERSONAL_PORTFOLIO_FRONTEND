@@ -28,7 +28,6 @@ const MyTools = () => {
         },
     ]
 
-    // <a href={icon.link}> <ion-icon name={icon.Symbol} ></ion-icon></a>
 
 
     return (
