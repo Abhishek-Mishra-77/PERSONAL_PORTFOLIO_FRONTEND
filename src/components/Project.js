@@ -1,10 +1,8 @@
 import React from 'react';
-import Project1 from '../assets/Project1.jpg'
-import Project2 from '../assets/Project2.jpg'
-import Project3 from '../assets/Project3.jpg'
 import Project4 from '../assets/Project4.jpg'
 import Project7 from '../assets/Project7.jpg'
 import Project6 from '../assets/Project6.jpg'
+import Project8 from '../assets/Project8.png'
 import 'swiper/css'
 
 
@@ -22,32 +20,13 @@ const Project = () => {
       para: 'Expense Tracker Pro: Experience seamless expense management with login,signUp ,  password control, profile updates, email verification, and easy daily expense handling including add, edit, and delete functions.'
     },
     {
-      id: 'a3',
-      development: 'FrontEnd Project',
-      img: Project3,
-      name: 'Ecommerce Website ',
-      githup_link: 'https://github.com/Abhishek-Mishra-77/Ecommerce_website',
-      live_link: 'https://ecommerceapp-121ff.firebaseapp.com/',
-      para: 'The Generic: E-commerce site with authentication (login, signup, password change). Users browse, shop, view details, but login required; non-logged-in users redirected for access.'
-    },
-    {
       id: 'a2',
       development: 'FrontEnd Project',
-      img: Project2,
-      name: 'Zomato (Clone)',
-      githup_link: 'https://github.com/Abhishek-Mishra-77/Zomato-app',
-      live_link: 'https://abhishek-mishra-77.github.io/Zomato-app/',
-      para: 'Zomato Clone: Explore diverse food, add to cart, and order seamlessly with user-friendly interface.',
-    },
-
-    {
-      id: 'a5',
-      development: 'FrontEnd Project',
-      img: Project1,
-      name: 'Resturant-App',
-      githup_link: 'https://github.com/Abhishek-Mishra-77/Resturant-meal-App',
-      live_link: 'https://abhishek-mishra-77.github.io/Resturant-meal-App/',
-      para: 'ReactMeal: Restaurant expenses & delivery site, diverse menu. Browse, purchase, customize orders easily. User-friendly for seamless selection, order, delivery/takeout'
+      img: Project8,
+      name: 'ShopifyClub (Ecommerce Website)',
+      githup_link: 'https://github.com/Abhishek-Mishra-77/Shopify',
+      live_link: 'https://650c146e6be4a40c415c65c8--bright-tapioca-1c8170.netlify.app/',
+      para: 'The ShopifyClub: E-commerce site with authentication (login, signup, password change). Users browser, shop, view details,add item, remove , buy, login required.',
     },
     {
       id: 'a1',
@@ -79,7 +58,7 @@ const Project = () => {
         <p className='text-gray-400 mt-3 text-lg'>My awesome works </p>
       </div>
       <br />
-      <div className='p-6 mt-12 max-w-2xl max-h-4xl mx-auto flex flex-wrap'>
+      <div className='p-6 mt-12 max-w-3xl max-h-3xl mx-auto flex flex-wrap'>
         {projects.map((project_Info) => (
           <div className='p-4 bg-gray-700  rounded-xl mt-7 border-2 border-rose-500' key={project_Info.id}>
             <p>{project_Info.development}</p>

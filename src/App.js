@@ -10,6 +10,8 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import './App.css';
 import MyTools from './components/MyTools';
+import MyContibution from './components/MyContibution';
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
       <MyTools />
       <HireMe />
       <Project />
+      <MyContibution />
       <Contact />
       <Footer />
     </div>

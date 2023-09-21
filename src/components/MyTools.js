@@ -21,10 +21,16 @@ const MyTools = () => {
             id: 'b4',
             level: 'Githup',
             logo: 'git-merge-outline'
-        }, {
+        },
+        {
             id: 'b5',
             level: 'Netlify',
             logo: 'logo-slack'
+        },
+        {
+            id: 'b6',
+            level: 'Firebase',
+            logo: 'logo-firebase'
         },
     ]
 
