@@ -25,7 +25,7 @@ const Project = () => {
       img: Project8,
       name: 'ShopifyClub (Ecommerce Website)',
       githup_link: 'https://github.com/Abhishek-Mishra-77/Shopify',
-      live_link: 'https://650c146e6be4a40c415c65c8--bright-tapioca-1c8170.netlify.app/',
+      live_link: 'https://650c7f0f3475a7000867489c--astounding-fenglisu-e58e0d.netlify.app/',
       para: 'The ShopifyClub: E-commerce site with authentication (login, signup, password change). Users browser, shop, view details,add item, remove , buy, login required.',
     },
     {
