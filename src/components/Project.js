@@ -1,8 +1,8 @@
 import React from 'react';
 import Project4 from '../assets/Project4.jpg'
 import Project7 from '../assets/Project7.jpg'
-import Project6 from '../assets/Project6.jpg'
-import Project8 from '../assets/Project8.png'
+import Project9 from '../assets/Project9.jpg'
+import Project8 from '../assets/Project8.jpg'
 import 'swiper/css'
 
 
@@ -40,11 +40,11 @@ const Project = () => {
     {
       id: 'a6',
       development: 'FrontEnd Project',
-      img: Project6,
-      name: 'EmailBox',
-      githup_link: 'https://github.com/Abhishek-Mishra-77/MailBox',
-      live_link: 'https://mailbox-53339.web.app/',
-      para: 'EmailBox(userSpecific): EmailBox site with authentication(login, signup, password).Users browse, Compose, view Send Emails , And view Inbox Emails, but login required; non - logged -in users redirected for access.'
+      img: Project9,
+      name: 'EmailOutLook(Email Clone)',
+      githup_link: 'https://github.com/Abhishek-Mishra-77/EmailOutLook',
+      live_link: 'https://651990d711fd766013605e02--lucent-dango-83c963.netlify.app/',
+      para: 'EmailOutLook(userSpecific): EmailBox site with authentication(login, signup, password).Users browse, Compose, view Send Emails , And view Inbox Emails, but login required; non - logged -in users redirected for access.'
     },
   ]
 
