@@ -21,7 +21,7 @@ const About = () => {
                 CSS, Javascript, React, and Redux. Looking for job opportunities in a technology-driven organization that helps to enhance career as well as knowledge.
               </p>
               <a
-                href='https://drive.google.com/file/d/17vke39HzSJOwZdw-wx8DmSI0E3e0-Hhx/view?usp=sharing'>
+                href='https://drive.google.com/file/d/1UwWB-KQCdDuY8auU4PjcjgmeC-aPFz4w/view?usp=sharing'>
                 <button className='btn-primary mt-5 ml-9'>Resume <ion-icon name="play-outline"></ion-icon></button> </a>
             </div>
           </div>
