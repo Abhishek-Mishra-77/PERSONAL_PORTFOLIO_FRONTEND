@@ -14,12 +14,12 @@ const MyTools = () => {
         },
         {
             id: 'b3',
-            level: 'Githup',
+            level: 'Github',
             logo: 'logo-github'
         },
         {
             id: 'b4',
-            level: 'Githup',
+            level: 'Github',
             logo: 'git-merge-outline'
         },
         {
