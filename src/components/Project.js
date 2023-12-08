@@ -68,7 +68,7 @@ const Project = () => {
             <div className='flex gap-4 button1 mt-3'>
               <a
                 href={project_Info.githup_link}
-                className='text-cyan-600 text-center w-20 bg-gray-800 py-1 inline-block button btn box1'>Githup</a>
+                className='text-cyan-600 text-center w-20 bg-gray-800 py-1 inline-block button btn box1'>Github</a>
               <a
                 href={project_Info.live_link}
                 className='text-cyan-600 bg-gray-800 text-center py-1 w-20 inline-block button btn box1'>Live Demo</a>
