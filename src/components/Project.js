@@ -2,7 +2,7 @@ import React from 'react';
 import Project4 from '../assets/Project4.jpg'
 import Project7 from '../assets/Project7.jpg'
 import Project9 from '../assets/Project9.jpg'
-import Project8 from '../assets/Project8.jpg'
+import Project8 from '../assets/project_9.png'
 import 'swiper/css'
 
 
@@ -23,10 +23,10 @@ const Project = () => {
       id: 'a2',
       development: 'FrontEnd Project',
       img: Project8,
-      name: 'ShopifyClub (Ecommerce Website)',
-      githup_link: 'https://github.com/Abhishek-Mishra-77/Shopify',
-      live_link: 'https://650c7f0f3475a7000867489c--astounding-fenglisu-e58e0d.netlify.app/',
-      para: 'The ShopifyClub: E-commerce site with authentication (login, signup, password change). Users browser, shop, view details,add item, remove , buy, login required.',
+      name: 'StoreCode (An e-commerce website)',
+      githup_link: 'https://github.com/Abhishek-Mishra-77/storecodeShop',
+      live_link: 'https://65728de94238a100081f7dff--clinquant-creponne-461534.netlify.app/',
+      para: 'The StoreCode: An e-commerce site with authentication (login/ signup/logout/ password change). Users browser, shop, view details,add item, remove , secure payment, buy, login required.',
     },
     {
       id: 'a1',
