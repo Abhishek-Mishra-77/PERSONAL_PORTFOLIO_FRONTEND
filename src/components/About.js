@@ -19,7 +19,8 @@ const About = () => {
                 I am From Bhadohi Uttar-Pradesh. Analytical and detail-oriented FrontEnd Developer who is proficient with the ReactJs and good at user-centric solutions. Collaborative, team player, and proficient in working with interdisciplinary teams and executing goal-oriented projects. Strongly interested in obtaining a Software Developer position to work on enhancing the product
               </p>
               <a
-                href='https://drive.google.com/file/d/1rUad28C8GBWLzRjtzzIiwhAcYxXKRHau/view?usp=drive_link'>
+                target="_blank" rel="noopener noreferrer"
+                href='https://drive.google.com/file/d/12WLF59MvlTxvIKE1QahpC3FRnQRuvLjZ/view?usp=sharing'>
                 <button className='btn-primary mt-5 ml-9'>Resume <ion-icon name="play-outline"></ion-icon></button> </a>
             </div>
           </div>
