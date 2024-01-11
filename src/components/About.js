@@ -15,10 +15,8 @@ const About = () => {
               max-w-6xl  mx-auto'>
           <div className='p-2 content'>
             <div className='text-gray-300 my-3'>
-              <p className='text-justify leading-7 w-11/12 mx-auto '>
-                Self-motivated, hard-working, and ambitious Front End Developer from Sharpener Tech with proficiency in javascript and React.
-                Experienced at creating apps in collaborative as well as individual capacities with React Framework and various web technologies including HTML,
-                CSS, Javascript, React, and Redux. Looking for job opportunities in a technology-driven organization that helps to enhance career as well as knowledge.
+              <p className='text-justify leading-7 w-11/12 mx-auto font-sans'>
+                I am From Bhadohi Uttar-Pradesh. Analytical and detail-oriented FrontEnd Developer who is proficient with the ReactJs and good at user-centric solutions. Collaborative, team player, and proficient in working with interdisciplinary teams and executing goal-oriented projects. Strongly interested in obtaining a Software Developer position to work on enhancing the product
               </p>
               <a
                 href='https://drive.google.com/file/d/1rUad28C8GBWLzRjtzzIiwhAcYxXKRHau/view?usp=drive_link'>

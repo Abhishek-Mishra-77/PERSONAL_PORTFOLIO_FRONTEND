@@ -94,17 +94,17 @@ textarea {
   background-color: #2b6cb0;
 }
 
-@media screen and (max-width : 470px) {
-   .btn {
-      font-size: 10px;
-      width: 50px;
-      height: 25px;
-   }
-}
-
-@media screen and (max-width : 400px) {
-  .name {
-     font-size: 16px;
-    
+@media screen and (max-width: 470px) {
+  .btn {
+    font-size: 10px;
+    width: 50px;
+    height: 25px;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .name {
+    font-size: 16px;
+  }
+}
+

@@ -14,7 +14,7 @@ const HireMe = () => {
       mx-auto min-h-[24rem] mt-24 flex gap-6 lg:flex-row flex-col-reverse items-center box1'>
         <div>
           <h2 className='text-2xl font-semibond'>Do you want any work from me?</h2>
-          <p className='lg:text-left text-justify max-w-lg text-sm mt-4 text-gray-200 leading-6'>
+          <p className='lg:text-left text-justify max-w-lg text-sm mt-4 text-gray-200 leading-6 font-sans'>
             Highly skilled Front End Developer with expertise in JavaScript and React.
             Proven track record of creating collaborative and individual apps using HTML, CSS, JavaScript, React, and Redux.
             Seeking growth and challenges in a technology-driven organization. Committed to delivering exceptional user experiences and staying up-to-date with industry trends. Eager to contribute my talents to drive impactful web development projects.

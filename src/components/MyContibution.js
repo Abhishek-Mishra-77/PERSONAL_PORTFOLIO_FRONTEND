@@ -7,7 +7,7 @@ const MyContibution = () => {
         <section id='hireme' className='py-10  px-3 text-white'>
             <div className='text-center'>
                 <h3 className='text-4xl font-semibold'>
-                    Githup <span className='text-cyan-600'>Submissions</span>
+                    Github <span className='text-cyan-600'>Submissions</span>
                 </h3>
                 <p className='text-gray-400 mt-3 text-lg'>Do you have any work ? </p>
             </div>

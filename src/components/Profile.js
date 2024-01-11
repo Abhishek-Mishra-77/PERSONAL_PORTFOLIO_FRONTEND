@@ -44,7 +44,7 @@ const Profile = () => {
               Hello!
               <br></br>
             </span>
-            My Name is <span>Abhishek Mishra</span>
+            I am <span>Abhishek Mishra</span>
           </h1>
 
           <h2 className='md:text-2xl text-lg md:leading-normal leading-5 mt-4
