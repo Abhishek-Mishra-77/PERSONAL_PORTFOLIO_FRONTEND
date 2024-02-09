@@ -20,7 +20,7 @@ const About = () => {
               </p>
               <a
                 target="_blank" rel="noopener noreferrer"
-                href='https://drive.google.com/file/d/12WLF59MvlTxvIKE1QahpC3FRnQRuvLjZ/view?usp=sharing'>
+                href='https://www.snapit.tech/abhishekmishra992016/abhishek-frontend'>
                 <button className='btn-primary mt-5 ml-9'>Resume <ion-icon name="play-outline"></ion-icon></button> </a>
             </div>
           </div>

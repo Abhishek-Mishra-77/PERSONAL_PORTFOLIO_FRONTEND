@@ -7,6 +7,7 @@ import Project2 from '../assets/Project2.jpg'
 import Project8 from '../assets/project_9.png'
 import Project10 from '../assets/Project10.jpeg'
 import Project3 from '../assets/Project3.jpg'
+import Project11 from '../assets/Project11.jpeg'
 import 'swiper/css'
 
 
@@ -77,11 +78,21 @@ const Project = () => {
       id: 'a7',
       development: 'FrontEnd Project',
       img: Project3,
-      tech: 'Reaxtjs Redux Firebase',
+      tech: 'Reactjs, Redux Firebase',
       name: 'The Generic (An e-commerce website)',
       githup_link: 'https://github.com/Abhishek-Mishra-77/Ecommerce_website',
       live_link: 'https://ecommerceapp-121ff.web.app/',
       para: 'The Generic: An e-commerce site with authentication (login/ signup/logout/ password change). Users browser, shop, view details,add item, remove , secure payment, buy, login required.'
+    },
+    {
+      id: 'a8',
+      development: 'FrontEnd Project',
+      img: Project11,
+      tech: 'Reactjs, Redux',
+      name: 'CryptoForge (Info About Cryptocurrency)',
+      githup_link: 'https://github.com/Abhishek-Mishra-77/CryptoForge',
+      live_link: 'https://65c5efb3c5ad1a000857650b--glowing-faloodeh-1aeafa.netlify.app/',
+      para: 'CryptoForge: A cryptocurrency education app where users can explore information about various cryptocurrencies, including their prices, all-time highs, and related news. No login is required, allowing users to freely access educational content on the world of cryptocurrency.'
     },
   ]
 
