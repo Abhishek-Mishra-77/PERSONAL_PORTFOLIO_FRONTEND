@@ -21,8 +21,8 @@ const HireMe = () => {
           </p>
           <button className='btn-primary mt-10'>Say Hello <ion-icon name="play-outline"></ion-icon></button>
         </div>
-        <img src={myImage} alt='' className='lg:h-[32rem] h-80 lg:absolute 
-        bottom-0 -right-3 object-cover'/>
+        {/* <img src={myImage} alt='' className='lg:h-[32rem] h-80 lg:absolute 
+        bottom-0 -right-3 object-cover'/> */}
       </div>
     </section>
   )
