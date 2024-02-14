@@ -12,8 +12,8 @@ import { FaNodeJs } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
 import { SiMui } from "react-icons/si";
-// import { FaBootstrap } from "react-icons/fa";
-const Skill = () => {
+
+const Skills = () => {
 
   const skills = [
     {
@@ -46,7 +46,6 @@ const Skill = () => {
       level: 'Redux',
       count: '55'
     },
-
     {
       id: 'e6',
       logo: <FaJava />,
@@ -58,32 +57,31 @@ const Skill = () => {
       level: 'Firebase',
       count: '75'
     },
-    , {
+    {
       id: 'e8',
       logo: <TbBrandReactNative />,
       level: 'React-Native',
       count: '75'
     },
-    , {
+    {
       id: 'e9',
       logo: <FaNodeJs />,
       level: 'NodeJs',
       count: '75'
     },
-    , {
+    {
       id: 'e10',
       logo: <SiExpress />,
       level: 'Express',
       count: '75'
     },
-    , {
+    {
       id: 'e11',
       logo: <SiMysql />,
       level: 'Mysql',
       count: '75'
     },
-
-    , {
+    {
       id: 'e12',
       logo: <SiMui />,
       level: 'MUI',
@@ -124,4 +122,4 @@ const Skill = () => {
   )
 }
 
-export default Skill
+export default Skills;
