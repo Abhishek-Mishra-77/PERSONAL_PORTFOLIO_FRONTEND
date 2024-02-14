@@ -12,7 +12,7 @@ import { FaNodeJs } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
 import { SiMui } from "react-icons/si";
-import { FaBootstrap } from "react-icons/fa";
+// import { FaBootstrap } from "react-icons/fa";
 const Skill = () => {
 
   const skills = [
