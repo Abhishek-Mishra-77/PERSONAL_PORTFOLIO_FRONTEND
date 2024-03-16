@@ -32,7 +32,7 @@ const Project = () => {
       tech: 'Reactjs Firebase Redux Stripe',
       name: 'StoreCode (An e-commerce website)',
       githup_link: 'https://github.com/Abhishek-Mishra-77/storecodeShop',
-      live_link: 'https://65728de94238a100081f7dff--clinquant-creponne-461534.netlify.app/',
+      live_link: 'https://65acaee72b4752246b0cc477--clinquant-creponne-461534.netlify.app/',
       para: 'The StoreCode: An e-commerce site with authentication (login/ signup/logout/ password change/ secure payment). Users browser, shop, view details,add item, remove , secure payment, buy, login required.',
     },
     {
