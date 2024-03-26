@@ -4,7 +4,7 @@ import Bot from './components/Bot'
 import Profile from './components/Profile';
 import About from './components/About';
 import Skills from './components/Skills'
-import HireMe from './components/HireMe'
+// import HireMe from './components/HireMe'
 import Project from './components/Project'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -22,7 +22,7 @@ function App() {
       <About />
       <Skills />
       <MyTools />
-      <HireMe />
+      {/* <HireMe /> */}
       <Project />
       <MyContibution />
       <Contact />

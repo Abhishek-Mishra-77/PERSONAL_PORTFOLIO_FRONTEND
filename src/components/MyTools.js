@@ -1,12 +1,8 @@
 import React from 'react'
-import { FaAndroid } from "react-icons/fa";
 import { TbBrandVscode } from "react-icons/tb";
 import { SiPostman } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
-import { IoIosGitMerge } from "react-icons/io";
 import { SiNetlify } from "react-icons/si";
-import { IoLogoFirebase } from "react-icons/io5";
-import { SiGooglesheets } from "react-icons/si";
 
 const MyTools = () => {
     const Tools = [
@@ -22,33 +18,14 @@ const MyTools = () => {
         },
         {
             id: 'b3',
-            level: 'Github',
+            level: 'GitHub',
             logo: <FaGithub />
         },
-        {
-            id: 'b4',
-            level: 'Git',
-            logo: <IoIosGitMerge />
-        },
+
         {
             id: 'b5',
             level: 'Netlify',
             logo: <SiNetlify />
-        },
-        {
-            id: 'b6',
-            level: 'Firebase',
-            logo: <IoLogoFirebase />
-        },
-        {
-            id: 'b7',
-            level: 'Android studio',
-            logo: <FaAndroid />
-        },
-        {
-            id: 'b8',
-            level: 'Google Sheet',
-            logo: <SiGooglesheets />
         },
     ]
 

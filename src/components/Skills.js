@@ -4,13 +4,14 @@ import { FaHtml5 } from "react-icons/fa";
 import { FaCss3Alt } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaReact } from "react-icons/fa";
-import { TbBrandReactNative } from "react-icons/tb";
+import { SiMongodb } from "react-icons/si";
 import { TbBrandRedux } from "react-icons/tb";
 import { FaJava } from "react-icons/fa";
 import { IoLogoFirebase } from "react-icons/io5";
 import { FaNodeJs } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
-import { SiMysql } from "react-icons/si";
+import { SiTailwindcss } from "react-icons/si";
+
 import { SiMui } from "react-icons/si";
 
 const Skills = () => {
@@ -57,12 +58,7 @@ const Skills = () => {
       level: 'Firebase',
       count: '75'
     },
-    {
-      id: 'e8',
-      logo: <TbBrandReactNative />,
-      level: 'React-Native',
-      count: '75'
-    },
+
     {
       id: 'e9',
       logo: <FaNodeJs />,
@@ -77,14 +73,20 @@ const Skills = () => {
     },
     {
       id: 'e11',
-      logo: <SiMysql />,
-      level: 'Mysql',
+      logo: <SiMongodb />,
+      level: 'MongoDB',
       count: '75'
     },
     {
       id: 'e12',
       logo: <SiMui />,
       level: 'MUI',
+      count: '75'
+    },
+    {
+      id: 'e13',
+      logo: <SiTailwindcss />,
+      level: 'Tailwind',
       count: '75'
     },
   ]

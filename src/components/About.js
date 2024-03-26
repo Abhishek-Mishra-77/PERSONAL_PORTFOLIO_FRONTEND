@@ -16,11 +16,11 @@ const About = () => {
           <div className='p-2 content'>
             <div className='text-gray-300 my-3'>
               <p className='text-justify leading-7 w-11/12 mx-auto font-sans'>
-                I am From Bhadohi Uttar-Pradesh. Analytical and detail-oriented FrontEnd Developer who is proficient with the ReactJs and good at user-centric solutions. Collaborative, team player, and proficient in working with interdisciplinary teams and executing goal-oriented projects. Strongly interested in obtaining a Software Developer position to work on enhancing the product
+                I am a dedicated Frontend Developer hailing from Bhadohi, Uttar Pradesh, currently employed at OMR India. With a keen analytical mindset and a meticulous eye for detail, I specialize in ReactJS, crafting user-centric solutions that seamlessly blend functionality with aesthetics. With a collaborative spirit and adeptness in interdisciplinary teamwork, I excel in driving goal-oriented projects to fruition. Passionate about enhancing products through innovative software development, I am eagerly seeking a challenging Software Developer position where I can contribute my expertise and further elevate project outcomes.
               </p>
               <a
                 target="_blank" rel="noopener noreferrer"
-                href='https://www.snapit.tech/abhishekmishra992016/abhishek-frontend'>
+                href='https://drive.google.com/file/d/1nkKiXcPVYgJdCBjJHYUdmaBUcQpWXuYx/view'>
                 <button className='btn-primary mt-5 ml-9'>Resume <ion-icon name="play-outline"></ion-icon></button> </a>
             </div>
           </div>
