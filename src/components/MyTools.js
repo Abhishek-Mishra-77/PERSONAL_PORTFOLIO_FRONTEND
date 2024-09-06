@@ -3,51 +3,55 @@ import { TbBrandVscode } from "react-icons/tb";
 import { SiPostman } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
 import { SiNetlify } from "react-icons/si";
+import { IoLogoVercel } from "react-icons/io5";
+import { SiRender } from "react-icons/si";
 
 const MyTools = () => {
     const Tools = [
         {
-            id: 'b1',
+            _id: 'b1',
             level: 'VS Code',
             logo: <TbBrandVscode />
         },
         {
-            id: 'b2',
+            _id: 'b2',
             level: 'Postman',
             logo: <SiPostman />
         },
         {
-            id: 'b3',
+            _id: 'b3',
             level: 'GitHub',
             logo: <FaGithub />
         },
-
         {
-            id: 'b5',
+            _id: 'b4',
             level: 'Netlify',
             logo: <SiNetlify />
         },
+        {
+            _id: 'b5',
+            level: 'Vercel',
+            logo: <IoLogoVercel />
+        },
+        {
+            _id: 'b6',
+            level: 'Render',
+            logo: <SiRender />
+        },
     ]
 
-
     return (
-        <section id='tools' className='py-40 bg-gradient-to-b from-gray-800 to-gray-700 relative'>
-            <div className='mt-8 text-gray-100 text-center'>
-                <h3 className='text-4xl font-semibold'>My <span className='text-cyan-600'>Tools</span></h3>
-                <p className='text-gray-400 mt-3 text-lg'>Working on....</p>
-                <div className='flex items-center justify-center mt-12 gap-10 flex-wrap '>
-                    {Tools?.map((Tool) => (
-                        <div key={Tool.id} className=' group border-cyan-600 relative min-w-[10rem] max-w-[16rem] 
-               bg-gray-900 p-10 rounded-xl box'>
-                            <div style={{
-                                background: `conic-gradient(rgb(8,145,170) 100%,#ddd 100%)`
-                            }} className='w-15 h-14 flex items-center justify-center rounded-full'>
-                                <div className='text-6xl w-28 h-28 bg-gray-900 rounded-full
-                   flex items-center justify-center group-hover:text-cyan-600'>
-                                    {Tool?.logo}
-                                </div>
+        <section id='skills' className='py-10 bg-white relative'>
+            <div className='mt-8 text-gray-100 text-center py-16 px-4 sm:px-6 lg:px-8'>
+                <p className='text-gray-500'>TOOLS & TECHNOLOGIES</p>
+                <h3 className='text-4xl font-bold text-gray-800 mt-4'> Development Toolkits</h3>
+                <div className='flex items-center justify-center mt-12 gap-6 flex-wrap'>
+                    {Tools.map((tool) => (
+                        <div key={tool._id} className='bg-gray-200 h-64 w-80 sm:w-96 rounded-xl cursor-pointer shadow-lg transition-transform transform hover:scale-105'>
+                            <div className='group relative min-w-[10rem] max-w-[16rem] p-6 sm:p-10 rounded-xl bg-gray-300 hover:bg-gray-400 transition-colors'>
+                                <h1 className='text-5xl sm:text-6xl md:text-7xl font-bold text-gray-600 group-hover:text-cyan-600'>{tool.logo}</h1>
+                                <p className='text-lg sm:text-xl mt-3 text-gray-700 group-hover:text-cyan-700'>{tool.level}</p>
                             </div>
-                            <p className='text-xl mt-3 group-hover:text-cyan-600'>{Tool.level}</p>
                         </div>
                     ))}
                 </div>

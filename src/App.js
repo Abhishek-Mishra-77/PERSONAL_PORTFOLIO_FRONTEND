@@ -2,13 +2,13 @@ import React from 'react';
 import NavBar from './components/NavBar'
 import Bot from './components/Bot'
 import Profile from './components/Profile';
-import About from './components/About';
 import Skills from './components/Skills'
 import Project from './components/Project'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import MyTools from './components/MyTools';
 import MyContibution from './components/MyContibution';
+import Experience from './components/Experience';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
       <NavBar />
       <Bot />
       <Profile />
+      <Experience />
       <Skills />
       <MyTools />
       <Project />

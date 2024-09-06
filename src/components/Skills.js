@@ -10,106 +10,105 @@ import { FaNodeJs } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
 import { SiTailwindcss } from "react-icons/si";
 import { TbBrandMysql } from "react-icons/tb";
-
-import { SiMui } from "react-icons/si";
+import { TbBrandNextjs } from "react-icons/tb";
 
 const Skills = () => {
 
   const skills = [
     {
-      id: 'e1',
+      _id: 'e1',
       logo: <FaHtml5 />,
       level: 'HTML',
       count: '86'
     },
     {
-      id: 'e2',
+      _id: 'e2',
       logo: <FaCss3Alt />,
       level: 'CSS',
       count: '90'
     },
     {
-      id: 'e3',
+      _id: 'e3',
       logo: <IoLogoJavascript />,
       level: 'JAVASCRIPT',
       count: '75'
     },
     {
-      id: 'e4',
+      _id: 'e4',
       logo: <FaReact />,
       level: 'REACT',
       count: '77'
     },
     {
-      id: 'e5',
+      _id: 'e5',
       logo: <TbBrandRedux />,
       level: 'REDUX',
       count: '55'
     },
     {
-      id: 'e6',
+      _id: 'e6',
       logo: <IoLogoFirebase />,
       level: 'FIREBASE',
       count: '75'
     },
 
     {
-      id: 'e7',
+      _id: 'e7',
       logo: <FaNodeJs />,
       level: 'NODEJS',
       count: '75'
     },
     {
-      id: 'e8',
+      _id: 'e8',
       logo: <SiExpress />,
       level: 'EXPRESS',
       count: '75'
     },
     {
-      id: 'e9',
+      _id: 'e9',
       logo: <SiMongodb />,
       level: 'MONGODB',
       count: '75'
     },
     {
-      id: 'e10',
-      logo: <SiMui />,
-      level: 'MUI',
+      _id: 'e10',
+      logo: <TbBrandNextjs />,
+      level: 'NEXTJS',
       count: '75'
     },
     {
-      id: 'e11',
+      _id: 'e11',
       logo: <SiTailwindcss />,
       level: 'TAILWIND',
       count: '75'
     },
     {
-      id: 'e12',
+      _id: 'e12',
       logo: <TbBrandMysql />,
       level: 'MYSQL',
       count: '75'
     },
-  ]
 
+  ]
 
   return (
     <section id='skills' className='py-10 bg-white relative'>
-      <div className='mt-8 text-gray-100 text-center py-16'>
-        <h3 className='text-4xl text-gray-500'>𝖬𝖸 𝖲𝖪𝖨𝖫𝖫𝖲</h3>
+      <div className='mt-8 text-gray-100 text-center py-16 px-4 sm:px-6 lg:px-8'>
+        <p className='text-gray-500'>TECHNOLOGIES</p>
+        <h3 className='text-4xl font-bold text-gray-800 mt-4'>Professional Skills</h3>
         <div className='flex items-center justify-center mt-12 gap-6 flex-wrap'>
           {skills.map((skill) => (
-            <div className='bg-gray-200 h-64 w-96 rounded-xl cursor-pointer shadow-lg transition-transform transform hover:scale-105'>
-              <div className='group relative min-w-[10rem] max-w-[16rem] p-10 rounded-xl bg-gray-300 hover:bg-gray-400 transition-colors'>
-                <h1 className='text-7xl font-bold text-gray-600 group-hover:text-cyan-600'>{skill.logo}</h1>
-                <p className='text-xl mt-3 text-gray-700 group-hover:text-cyan-700'>{skill.level}</p>
+            <div key={skill._id} className='bg-gray-200 h-64 w-80 sm:w-96 rounded-xl cursor-pointer shadow-lg transition-transform transform hover:scale-105'>
+              <div className='group relative min-w-[10rem] max-w-[16rem] p-6 sm:p-10 rounded-xl bg-gray-300 hover:bg-gray-400 transition-colors'>
+                <h1 className='text-5xl sm:text-6xl md:text-7xl font-bold text-gray-600 group-hover:text-cyan-600'>{skill.logo}</h1>
+                <p className='text-lg sm:text-xl mt-3 text-gray-700 group-hover:text-cyan-700'>{skill.level}</p>
               </div>
             </div>
           ))}
         </div>
-
-
       </div>
     </section>
+
   )
 }
 

@@ -7,17 +7,17 @@ const Profile = () => {
 
   const social_media = [
     {
-      id: 'd1',
+      _id: 'd1',
       Symbol: 'logo-linkedin',
       link: 'https://www.linkedin.com/in/abhishek-mishra-342494237/'
     },
     {
-      id: 'd2',
+      _id: 'd2',
       Symbol: "logo-github",
       link: 'https://github.com/Abhishek-Mishra-77'
     },
     {
-      id: 'd3',
+      _id: 'd3',
       Symbol: "logo-whatsapp",
       link: 'https://wa.me/8577887978'
     },
@@ -44,7 +44,7 @@ const Profile = () => {
             <div className='text-2xl sm:text-3xl mt-4 flex items-center justify-center md:justify-start gap-4 sm:gap-6'>
               {social_media?.map((icon) => (
                 <div
-                  key={icon.id}
+                  key={icon._id}
                   className='text-gray-500 bg-white rounded-2xl cursor-pointer flex justify-center items-center hover:text-cyan-500 transition-transform transform hover:scale-110 duration-300'
                 >
                   <a className='p-2' href={icon.link} target='_blank' rel='noopener noreferrer'>
