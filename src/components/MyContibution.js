@@ -4,7 +4,7 @@ import github from '../assets/github.jpeg'
 
 const MyContibution = () => {
     return (
-        <section id='hireme' className='py-10  px-3 text-white'>
+        <section id='hireme' className='py-10  px-3 text-white bg-gradient-to-b from-gray-800 to-gray-700'>
             <div className='text-center'>
                 <h3 className='text-4xl font-semibold'>
                     Code <span className='text-cyan-600'>Contributions</span>

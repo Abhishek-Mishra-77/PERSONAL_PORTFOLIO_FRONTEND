@@ -98,7 +98,7 @@ const Project = () => {
 
 
   return (
-    <section id='projects' className='py-20 text-white'>
+    <section id='projects' className='py-20 bg-gradient-to-b from-gray-800 to-gray-700 text-white'>
       <div className='text-center'>
         <h3 className='text-4xl font-semibold'>
           My <span className='text-cyan-600'>Projects</span>

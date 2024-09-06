@@ -1,16 +1,15 @@
 import React from 'react'
-
 import { FaHtml5 } from "react-icons/fa";
 import { FaCss3Alt } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaReact } from "react-icons/fa";
 import { SiMongodb } from "react-icons/si";
 import { TbBrandRedux } from "react-icons/tb";
-import { FaJava } from "react-icons/fa";
 import { IoLogoFirebase } from "react-icons/io5";
 import { FaNodeJs } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
 import { SiTailwindcss } from "react-icons/si";
+import { TbBrandMysql } from "react-icons/tb";
 
 import { SiMui } from "react-icons/si";
 
@@ -32,93 +31,83 @@ const Skills = () => {
     {
       id: 'e3',
       logo: <IoLogoJavascript />,
-      level: 'Javascript',
+      level: 'JAVASCRIPT',
       count: '75'
     },
     {
       id: 'e4',
       logo: <FaReact />,
-      level: 'React',
+      level: 'REACT',
       count: '77'
     },
     {
       id: 'e5',
       logo: <TbBrandRedux />,
-      level: 'Redux',
+      level: 'REDUX',
       count: '55'
     },
     {
       id: 'e6',
-      logo: <FaJava />,
-      level: <h2>Java</h2>,
-      count: '75'
-    }, {
-      id: 'e7',
       logo: <IoLogoFirebase />,
-      level: 'Firebase',
+      level: 'FIREBASE',
       count: '75'
     },
 
     {
-      id: 'e9',
+      id: 'e7',
       logo: <FaNodeJs />,
-      level: 'NodeJs',
+      level: 'NODEJS',
+      count: '75'
+    },
+    {
+      id: 'e8',
+      logo: <SiExpress />,
+      level: 'EXPRESS',
+      count: '75'
+    },
+    {
+      id: 'e9',
+      logo: <SiMongodb />,
+      level: 'MONGODB',
       count: '75'
     },
     {
       id: 'e10',
-      logo: <SiExpress />,
-      level: 'Express',
-      count: '75'
-    },
-    {
-      id: 'e11',
-      logo: <SiMongodb />,
-      level: 'MongoDB',
-      count: '75'
-    },
-    {
-      id: 'e12',
       logo: <SiMui />,
       level: 'MUI',
       count: '75'
     },
     {
-      id: 'e13',
+      id: 'e11',
       logo: <SiTailwindcss />,
-      level: 'Tailwind',
+      level: 'TAILWIND',
+      count: '75'
+    },
+    {
+      id: 'e12',
+      logo: <TbBrandMysql />,
+      level: 'MYSQL',
       count: '75'
     },
   ]
 
 
   return (
-    <section id='skills' className='py-10 bg-gray-800 relative'>
-      <div className='mt-8 text-gray-100 text-center'>
-        <h3 className='text-4xl font-semibold'>My <span className='text-cyan-600'>Skills</span></h3>
-        <p className='text-gray-400 mt-3 text-lg'>My Knowledge</p>
-        <div className='flex items-center justify-center mt-12 gap-10 flex-wrap'>
-          {skills?.map((skill) => (
-            <div key={skill.id} className='group  relative min-w-[10rem] max-w-[16rem] 
-           bg-gray-900 p-10 rounded-xl hover:bg-cyan-500 box'>
-              <div style={{
-                background: `conic-gradient(rgb(8,145,170) 100%,#ddd 100%)`
-              }} className='w-15 h-14 flex items-center justify-center rounded-full'>
-                <div className='text-7xl w-28 h-28 bg-gray-900 rounded-full
-               flex items-center justify-center group-hover:text-cyan-600'>
-                  {skill.id !== 'e6' ? skill.logo :
-                    <img
-                      style={{ height: '80px' }}
-                      src='https://cdn-icons-png.flaticon.com/128/226/226777.png'
-                      className='logo'
-                      alt='JavaImage' />
-                  }
-                </div>
+    <section id='skills' className='py-10 bg-white relative'>
+      <div className='mt-8 text-gray-100 text-center py-16'>
+        <h3 className='text-4xl text-gray-500'>𝖬𝖸 𝖲𝖪𝖨𝖫𝖫𝖲</h3>
+        <div className='flex items-center justify-center mt-12 gap-6 flex-wrap'>
+          {skills.map((skill) => (
+            <div className='bg-gray-200 h-64 w-96 rounded-xl cursor-pointer shadow-lg transition-transform transform hover:scale-105'>
+              <div className='group relative min-w-[10rem] max-w-[16rem] p-10 rounded-xl bg-gray-300 hover:bg-gray-400 transition-colors'>
+                <h1 className='text-7xl font-bold text-gray-600 group-hover:text-cyan-600'>{skill.logo}</h1>
+                <p className='text-xl mt-3 text-gray-700 group-hover:text-cyan-700'>{skill.level}</p>
               </div>
-              <p className='text-xl mt-3 group-hover:text-cyan-600'>{skill.level}</p>
             </div>
           ))}
         </div>
+
+
       </div>
     </section>
   )

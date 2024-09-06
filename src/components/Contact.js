@@ -65,12 +65,8 @@ const Contact = () => {
   ]
 
 
-
-
-
-
   return (
-    <section id="contact" className="py-10 px-3 text-white">
+    <section id="contact" className="py-10 px-3 text-white bg-gradient-to-b from-gray-800 to-gray-700">
       <div className="text-center mt-8">
         <h3 className="text-4xl font-semibold">
           About <span className="text-cyan-600">Me</span>
@@ -122,9 +118,9 @@ const Contact = () => {
             <div className='mt-2 ml-5 text-4xl flex  items-center md:justify-start
                   justify-center gap-7'>
               {social_media?.map(icon => (
-                <div key={icon.id} className='text-gray-500 hover:text-white 
+                <div key={icon.id} className='text-gray-500  
                     cursor-pointer hover:text-white box2'>
-                  <a  href={icon.link}> <ion-icon name={icon.Symbol} ></ion-icon></a>
+                  <a href={icon.link}> <ion-icon name={icon.Symbol} ></ion-icon></a>
                 </div>
               ))}
             </div>
