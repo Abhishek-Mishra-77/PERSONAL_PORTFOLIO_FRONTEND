@@ -18,8 +18,8 @@ function App() {
       <Profile />
       <Experience />
       <Skills />
-      <MyTools />
       <Project />
+      <MyTools />
       <MyContibution />
       <Contact />
       <Footer />

@@ -87,8 +87,7 @@ const Skills = () => {
       logo: <TbBrandMysql />,
       level: 'MYSQL',
       count: '75'
-    },
-
+    }
   ]
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import profile from "../assets/profilephoto.jpg"
+import profile from "../assets/profile/profilephoto.jpg"
 import { FaArrowDown } from "react-icons/fa";
 import { FaLocationArrow } from "react-icons/fa6";
 
@@ -108,7 +108,6 @@ const Profile = () => {
         </div>
       </div>
     </section>
-
   )
 }
 
