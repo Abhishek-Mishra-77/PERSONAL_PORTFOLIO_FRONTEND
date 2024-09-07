@@ -1,120 +1,93 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify'; 
-import 'react-toastify/dist/ReactToastify.css'; 
-// import CircleLoader from 'react-spinners/CircleLoader'; 
 
 const Auth = () => {
-  const [formClass, setFormClass] = useState("");
-  const [eyeSize, setEyeSize] = useState({ width: "50px", height: "50px" });
-  const [validationClass, setValidationClass] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false); // State for loading
-  const [isFormVisible, setIsFormVisible] = useState(true); // State for form visibility
-  const navigation = useNavigate();
 
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      const dw = document.documentElement.clientWidth / 15;
-      const dh = document.documentElement.clientHeight / 15;
-      const x = event.pageX / dw;
-      const y = event.pageY / dh;
-      setEyeSize({ width: `${x}px`, height: `${y}px` });
-    };
 
-    document.addEventListener("mousemove", handleMouseMove);
+    return (
+        <div className="mx-auto max-w-screen-xl px-4 py-40 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-lg">
+                <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">HI ABHISHEK </h1>
 
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+                <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
+                    GRATITUDE TURNS WHAT WE HAVE INTO ENOUGH AND BRINGS PEACE TO THE PRESENT.
+                </p>
 
-  const handleFocusIn = () => {
-    setFormClass("translate-y-[-180px]");
-  };
+                <form action="#" className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+                    <p className="text-center text-lg font-medium">Sign in to your account</p>
+                    <div>
+                        <label htmlFor="email" className="sr-only">Email</label>
+                        <div className="relative">
+                            <input
+                                type="email"
+                                required
+                                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                                placeholder="Enter email"
+                            />
+                            <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="size-4 text-gray-400"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                                    />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
 
-  const handleFocusOut = () => {
-    setFormClass("translate-y-[-100px]");
-  };
+                    <div>
+                        <label htmlFor="password" className="sr-only">Password</label>
 
-  const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevents the default form submission behavior
-    setLoading(true); // Show spinner
-    setIsFormVisible(false); // Hide form
-   
-  };
+                        <div className="relative">
+                            <input
+                                type="password"
+                                required
+                                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                                placeholder="Enter password"
+                            />
 
-  return (
-    <div className="relative">
-      {isFormVisible && (
-        <div className="flex flex-col items-center mt-12">
-          <div className="relative w-48 h-48 mx-auto mt-12">
-            <div className="absolute w-20 h-20 bg-black rounded-full border-4 border-white -left-6 -top-6"></div>
-            <div className="absolute w-20 h-20 bg-black rounded-full border-4 border-white -right-6 -top-6"></div>
-            <div className="w-48 h-48 bg-white rounded-full shadow-lg relative mx-auto">
-              <div className="w-12 h-20 bg-black rounded-full transform -rotate-45 absolute top-8 left-8"></div>
-              <div className="w-12 h-20 bg-black rounded-full transform rotate-45 absolute top-8 right-8"></div>
-              <div className="w-8 h-8 bg-white rounded-full absolute top-16 left-12">
-                <div className="w-4 h-4 bg-black rounded-full absolute top-1 left-1"></div>
-              </div>
-              <div className="w-8 h-8 bg-white rounded-full absolute top-16 right-12">
-                <div className="w-4 h-4 bg-black rounded-full absolute top-1 left-1"></div>
-              </div>
-              <div className="w-9 h-6 bg-black rounded-[50px 20px 30px 15px] rotate-15 absolute bottom-12 left-1/2 transform -translate-x-1/2"></div>
+                            <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="size-4 text-gray-400"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                    />
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                                    />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+                    >
+                        Sign in
+                    </button>
+
+                </form>
             </div>
-            <div className="w-64 h-72 bg-white rounded-t-full rounded-b-xl absolute top-1/2 -left-1/4 shadow-lg"></div>
-            <div className="w-20 h-24 bg-black rounded-[40px 40px 39px 40px/26px 26px 63px 63px] absolute top-72 -left-20 shadow-md"></div>
-            <div className="w-20 h-24 bg-black rounded-[40px 40px 39px 40px/26px 26px 63px 63px] absolute top-72 -right-20 shadow-md"></div>
-          </div>
-
-          <form
-            className={`relative bg-white p-8 max-w-md mx-auto rounded-lg shadow-lg transition-transform duration-300 ${formClass} ${validationClass}`}
-            onSubmit={handleSubmit} // Adds the handleSubmit function to form submission
-          >
-            <div className={`absolute w-10 h-10 bg-black rounded-full shadow-md transform -translate-y-1/2 transition-transform ${formClass}`}></div>
-            <h1 className="text-2xl font-bold text-center mb-8 text-gray-800">Admin Login</h1>
-            <div className="relative mb-6">
-              <input
-                required
-                className="w-full h-8 px-2 border-b border-gray-300 text-gray-700 focus:border-teal-400 focus:outline-none"
-                onBlur={handleFocusOut}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-              <label className="absolute top-0 left-0 text-gray-500 transform -translate-y-4 scale-75 origin-top-left transition-transform duration-300">Username</label>
-            </div>
-            <div className="relative mb-6">
-              <input
-                id="password"
-                type="password"
-                required
-                className="w-full h-8 px-2 border-b border-gray-300 text-gray-700 focus:border-teal-400 focus:outline-none"
-                onFocus={handleFocusIn}
-                onBlur={handleFocusOut}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <label className="absolute top-0 left-0 text-gray-500 transform -translate-y-4 scale-75 origin-top-left transition-transform duration-300">Password</label>
-              {validationClass === "shake" && (
-                <p className="text-red-500 text-sm absolute top-full mt-2">Invalid Credentials..!!</p>
-              )}
-              <button type="submit" className="w-full py-2 mt-4 bg-teal-500 text-white border border-teal-400 rounded hover:bg-teal-600 transition duration-300">
-                Login
-              </button>
-            </div>
-            <div className="text-center mt-2">
-              <a
-                href="/forgot-password"
-                className="text-teal-500 hover:text-teal-700 font-semibold"
-              >
-                Forgot Password?
-              </a>
-            </div>
-          </form>
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 export default Auth;
