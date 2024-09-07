@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import profile_img from "../../assets/profile/profilephoto.jpg"
+import { Outlet } from 'react-router-dom';
 
 const Admin = () => {
     const navigate = useNavigate();
@@ -12,7 +13,6 @@ const Admin = () => {
         }
     }, [token, navigate]);
 
-    
 
     return (
         <div className="flex h-screen">
@@ -20,32 +20,19 @@ const Admin = () => {
                 <aside className="flex-1 overflow-auto">
                     <div className="px-4 py-6">
                         <span className="grid h-10 w-full place-content-center font-bold rounded-lg bg-gray-200 text-xl text-gray-400">
-                            SLOW DOWN
+                            ABHISHEK MISHRA
                         </span>
                         <ul className="mt-6 space-y-1">
                             <li>
-                                <div className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
+                                <div className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-xl text-gray-400 cursor-pointer">
                                     ABOUT
                                 </div>
                             </li>
                             <li>
                                 <details className="group [&_summary::-webkit-details-marker]:hidden">
                                     <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700" >
-                                        <span className="text-sm font-medium">EXPERIENCE</span>
-                                        <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-5 w-5"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        </span>
+                                        <span className="text-sm font-xl text-gray-400">EXPERIENCE</span>
+
                                     </summary>
                                     <ul className="mt-2 space-y-1 px-4">
                                         <li>
@@ -68,21 +55,8 @@ const Admin = () => {
                             <li>
                                 <details className="group [&_summary::-webkit-details-marker]:hidden">
                                     <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700" >
-                                        <span className="text-sm font-medium">SKILLS</span>
-                                        <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-5 w-5"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        </span>
+                                        <span className="text-sm font-xl text-gray-400">SKILLS</span>
+
                                     </summary>
                                     <ul className="mt-2 space-y-1 px-4">
                                         <li>
@@ -105,21 +79,8 @@ const Admin = () => {
                             <li>
                                 <details className="group [&_summary::-webkit-details-marker]:hidden">
                                     <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700" >
-                                        <span className="text-sm font-medium">PROJECTS</span>
-                                        <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-5 w-5"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        </span>
+                                        <span className="text-sm font-xl text-gray-400">PROJECTS</span>
+
                                     </summary>
                                     <ul className="mt-2 space-y-1 px-4">
                                         <li>
@@ -142,21 +103,8 @@ const Admin = () => {
                             <li>
                                 <details className="group [&_summary::-webkit-details-marker]:hidden">
                                     <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700" >
-                                        <span className="text-sm font-medium">TOOLS</span>
-                                        <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-5 w-5"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        </span>
+                                        <span className="text-sm font-xl text-gray-400">TOOLS</span>
+
                                     </summary>
                                     <ul className="mt-2 space-y-1 px-4">
                                         <li>
@@ -179,21 +127,8 @@ const Admin = () => {
                             <li>
                                 <details className="group [&_summary::-webkit-details-marker]:hidden">
                                     <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700" >
-                                        <span className="text-sm font-medium">CONTRIBUTIONS</span>
-                                        <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-5 w-5"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        </span>
+                                        <span className="text-sm font-xl text-gray-400">CONTRIBUTIONS</span>
+
                                     </summary>
                                     <ul className="mt-2 space-y-1 px-4">
                                         <li>
@@ -216,21 +151,8 @@ const Admin = () => {
                             <li>
                                 <details className="group [&_summary::-webkit-details-marker]:hidden">
                                     <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                                        <span className="text-sm font-medium">CONTACT</span>
-                                        <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-5 w-5"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        </span>
+                                        <span className="text-sm font-xl text-gray-400">CONTACT</span>
+
                                     </summary>
                                     <ul className="mt-2 space-y-1 px-4">
                                         <li>
@@ -244,21 +166,7 @@ const Admin = () => {
                             <li>
                                 <details className="group [&_summary::-webkit-details-marker]:hidden">
                                     <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                                        <span className="text-sm font-medium">ACCOUNT</span>
-                                        <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-5 w-5"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        </span>
+                                        <span className="text-sm font-xl text-gray-400">ACCOUNT</span>
                                     </summary>
                                     <ul className="mt-2 space-y-1 px-4">
                                         <li>
@@ -330,7 +238,7 @@ const Admin = () => {
                 </div>
             </div>
             <main className="flex-1 overflow-auto bg-gray-50">
-                dasdasd
+                <Outlet/>
             </main>
         </div>
     )

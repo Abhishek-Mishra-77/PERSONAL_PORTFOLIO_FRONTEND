@@ -44,7 +44,7 @@ const MyTools = () => {
         <section id='skills' className='py-10 bg-white relative'>
             <div className='mt-8 text-gray-100 text-center py-16 px-4 sm:px-6 lg:px-8'>
                 <p className='text-gray-500'>TOOLS & TECHNOLOGIES</p>
-                <h3 className='text-4xl font-bold text-gray-800 mt-4'> Development Toolkits</h3>
+                <h3 className='text-4xl font-bold text-gray-800 mt-4'>Development Toolkits</h3>
                 <div className='flex items-center justify-center mt-12 gap-6 flex-wrap'>
                     {Tools.map((tool) => (
                         <div key={tool._id} className='bg-gray-200 h-64 w-80 sm:w-96 rounded-xl cursor-pointer shadow-lg transition-transform transform hover:scale-105'>

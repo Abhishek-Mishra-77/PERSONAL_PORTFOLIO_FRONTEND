@@ -14,81 +14,162 @@ import { TbBrandNextjs } from "react-icons/tb";
 
 const Skills = () => {
 
-  const skills = [
-    {
-      _id: 'e1',
-      logo: <FaHtml5 />,
-      level: 'HTML',
-      count: '86'
-    },
-    {
-      _id: 'e2',
-      logo: <FaCss3Alt />,
-      level: 'CSS',
-      count: '90'
-    },
-    {
-      _id: 'e3',
-      logo: <IoLogoJavascript />,
-      level: 'JAVASCRIPT',
-      count: '75'
-    },
-    {
-      _id: 'e4',
-      logo: <FaReact />,
-      level: 'REACT',
-      count: '77'
-    },
-    {
-      _id: 'e5',
-      logo: <TbBrandRedux />,
-      level: 'REDUX',
-      count: '55'
-    },
-    {
-      _id: 'e6',
-      logo: <IoLogoFirebase />,
-      level: 'FIREBASE',
-      count: '75'
-    },
+  // const skillDetails = {
+  //   skills: [
+  //     {
+  //       _id: 'e1',
+  //       logo: '📄', // HTML symbol (HTML file)
+  //       level: 'HTML',
+  //       count: '86',
+  //     },
+  //     {
+  //       _id: 'e2',
+  //       logo: '🎨',
+  //       level: 'CSS',
+  //       count: '90',
+  //     },
+  //     {
+  //       _id: 'e3',
+  //       logo: '🖥️',
+  //       level: 'JAVASCRIPT',
+  //       count: '75',
+  //     },
+  //     {
+  //       _id: 'e4',
+  //       logo: '⚛️',
+  //       level: 'REACT',
+  //       count: '77',
+  //     },
+  //     {
+  //       _id: 'e5',
+  //       logo: '🔄',
+  //       level: 'REDUX',
+  //       count: '55',
+  //     },
+  //     {
+  //       _id: 'e6',
+  //       logo: '🔥',
+  //       level: 'FIREBASE',
+  //       count: '75',
+  //     },
+  //     {
+  //       _id: 'e7',
+  //       logo: '🌲',
+  //       level: 'NODEJS',
+  //       count: '75',
+  //     },
+  //     {
+  //       _id: 'e8',
+  //       logo: '⚙️',
+  //       level: 'EXPRESS',
+  //       count: '75',
+  //     },
+  //     {
+  //       _id: 'e9',
+  //       logo: '📦',
+  //       level: 'MONGODB',
+  //       count: '75',
+  //     },
+  //     {
+  //       _id: 'e10',
+  //       logo: '📈',
+  //       level: 'NEXTJS',
+  //       count: '75',
+  //     },
+  //     {
+  //       _id: 'e11',
+  //       logo: '✨',
+  //       level: 'TAILWIND',
+  //       count: '75',
+  //     },
+  //     {
+  //       _id: 'e12',
+  //       logo: '💽',
+  //       level: 'MYSQL',
+  //       count: '75',
+  //     },
+  //   ],
+  // };
 
-    {
-      _id: 'e7',
-      logo: <FaNodeJs />,
-      level: 'NODEJS',
-      count: '75'
-    },
-    {
-      _id: 'e8',
-      logo: <SiExpress />,
-      level: 'EXPRESS',
-      count: '75'
-    },
-    {
-      _id: 'e9',
-      logo: <SiMongodb />,
-      level: 'MONGODB',
-      count: '75'
-    },
-    {
-      _id: 'e10',
-      logo: <TbBrandNextjs />,
-      level: 'NEXTJS',
-      count: '75'
-    },
-    {
-      _id: 'e11',
-      logo: <SiTailwindcss />,
-      level: 'TAILWIND',
-      count: '75'
-    },
-    {
-      _id: 'e12',
-      logo: <TbBrandMysql />,
-      level: 'MYSQL',
-      count: '75'
-    }
-  ]
+  const skillDetails = {
+    skills: [
+      {
+        _id: 'e1',
+        logo: <FaHtml5 />,
+        level: 'HTML',
+        count: '86',
+      },
+      {
+        _id: 'e2',
+        logo: <FaCss3Alt />,
+        level: 'CSS',
+        count: '90',
+      },
+      {
+        _id: 'e3',
+        logo: <IoLogoJavascript />,
+        level: 'JAVASCRIPT',
+        count: '75',
+      },
+      {
+        _id: 'e4',
+        logo: <FaReact />,
+        level: 'REACT',
+        count: '77',
+      },
+      {
+        _id: 'e5',
+        logo: <TbBrandRedux />,
+        level: 'REDUX',
+        count: '55',
+      },
+      {
+        _id: 'e6',
+        logo: <IoLogoFirebase />,
+        level: 'FIREBASE',
+        count: '75',
+      },
+      {
+        _id: 'e7',
+        logo: <FaNodeJs />,
+        level: 'NODEJS',
+        count: '75',
+      },
+      {
+        _id: 'e8',
+        logo: <SiExpress />,
+        level: 'EXPRESS',
+        count: '75',
+      },
+      {
+        _id: 'e9',
+        logo: <SiMongodb />,
+        level: 'MONGODB',
+        count: '75',
+      },
+      {
+        _id: 'e10',
+        logo: <TbBrandNextjs />,
+        level: 'NEXTJS',
+        count: '75',
+      },
+      {
+        _id: 'e11',
+        logo: <SiTailwindcss />,
+        level: 'TAILWIND',
+        count: '75',
+      },
+      {
+        _id: 'e12',
+        logo: <TbBrandMysql />,
+        level: 'MYSQL',
+        count: '75',
+      },
+    ],
+  };
+
+
+
 
   return (
     <section id='skills' className='py-10 bg-white relative'>
@@ -96,7 +177,7 @@ const Skills = () => {
         <p className='text-gray-500'>TECHNOLOGIES</p>
         <h3 className='text-4xl font-bold text-gray-800 mt-4'>Professional Skills</h3>
         <div className='flex items-center justify-center mt-12 gap-6 flex-wrap'>
-          {skills.map((skill) => (
+          {skillDetails?.skills.map((skill) => (
             <div key={skill._id} className='bg-gray-200 h-64 w-80 sm:w-96 rounded-xl cursor-pointer shadow-lg transition-transform transform hover:scale-105'>
               <div className='group relative min-w-[10rem] max-w-[16rem] p-6 sm:p-10 rounded-xl bg-gray-300 hover:bg-gray-400 transition-colors'>
                 <h1 className='text-5xl sm:text-6xl md:text-7xl font-bold text-gray-600 group-hover:text-cyan-600'>{skill.logo}</h1>
