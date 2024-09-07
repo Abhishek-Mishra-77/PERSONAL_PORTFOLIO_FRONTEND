@@ -7,23 +7,7 @@ const Profile = () => {
 
 
   const profileDetails = {
-    social_media: [
-      {
-        _id: 'd1',
-        Symbol: 'logo-linkedin',
-        link: 'https://www.linkedin.com/in/abhishek-mishra-342494237/'
-      },
-      {
-        _id: 'd2',
-        Symbol: "logo-github",
-        link: 'https://github.com/Abhishek-Mishra-77'
-      },
-      {
-        _id: 'd3',
-        Symbol: "logo-whatsapp",
-        link: 'https://wa.me/8577887978'
-      },
-    ],
+
     skills: [
       "MERN STACK DEVELOPER",
       "FRONTEND DEVELOPER",
@@ -39,6 +23,25 @@ const Profile = () => {
       ResumeLink: "https://wa.me/8577887978"
     }
   }
+
+
+  const social_media = [
+    {
+      _id: 'd1',
+      Symbol: 'logo-linkedin',
+      link: 'https://www.linkedin.com/in/abhishek-mishra-342494237/'
+    },
+    {
+      _id: 'd2',
+      Symbol: "logo-github",
+      link: 'https://github.com/Abhishek-Mishra-77'
+    },
+    {
+      _id: 'd3',
+      Symbol: "logo-whatsapp",
+      link: 'https://wa.me/8577887978'
+    },
+  ]
 
   return (
     <section id="about" className='mt-16 md:mt-32 mb-10 flex flex-col md:flex-row justify-center items-center px-4 sm:px-6 md:px-12'>
@@ -57,7 +60,7 @@ const Profile = () => {
               <p className='text text-gray-400'>{profileDetails?.personalInfo?.Available}</p>
             </div>
             <div className='text-2xl sm:text-3xl mt-4 flex items-center justify-center md:justify-start gap-4 sm:gap-6'>
-              {profileDetails?.social_media?.map((icon) => (
+              {social_media?.map((icon) => (
                 <div
                   key={icon._id}
                   className='text-gray-500 bg-white rounded-2xl cursor-pointer flex justify-center items-center hover:text-cyan-500 transition-transform transform hover:scale-110 duration-300'
