@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import { FaEnvelope, FaPhone, FaLocationArrow } from 'react-icons/fa';
-import { FaLinkedin, FaGithub, FaWhatsapp, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
 
 const Contact = () => {
   const form = useRef();
@@ -63,11 +63,7 @@ const Contact = () => {
       Symbol: <FaWhatsapp />,
       link: 'https://wa.me/919999999999' // Replace with your WhatsApp link
     },
-    {
-      _id: 'a9',
-      Symbol: <FaInstagram />,
-      link: 'https://www.instagram.com/yourprofile' // Replace with your Instagram link
-    }
+
   ]
 
   return (
