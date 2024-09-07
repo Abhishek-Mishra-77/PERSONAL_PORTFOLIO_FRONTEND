@@ -5,8 +5,9 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const menuLinks = [
-    { name: "HOME", link: "#home" },
+    { name: "HOME", link: "#about" },
     { name: "ABOUT", link: "#about" },
+    { name: "EXPERIENCE", link: "#experience" },
     { name: "SKILLS", link: "#skills" },
     { name: "PROJECTS", link: "#projects" },
     { name: "CONTACT", link: "#contact" },

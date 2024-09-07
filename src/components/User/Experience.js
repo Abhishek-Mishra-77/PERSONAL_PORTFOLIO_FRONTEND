@@ -60,7 +60,7 @@ const experiences = [
 
 const Experience = () => {
     return (
-        <section id='skills' className='py-10 relative'>
+        <section id='experience' className='py-10 relative'>
             <div className='mt-8 text-gray-800 text-center py-16 px-4 sm:px-6 lg:px-8'>
                 <p className='text-gray-600 text-lg uppercase tracking-wider'>Experience</p>
                 <h3 className='text-4xl font-bold text-gray-800 mt-4'>Professional Experience</h3>

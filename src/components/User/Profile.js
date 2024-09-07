@@ -1,5 +1,5 @@
 import React from 'react';
-import profile from "../assets/profile/profilephoto.jpg"
+import profile from "../../assets/profile/profilephoto.jpg"
 import { FaArrowDown } from "react-icons/fa";
 import { FaLocationArrow } from "react-icons/fa6";
 
@@ -30,7 +30,7 @@ const Profile = () => {
   ];
 
   return (
-    <section className='mt-16 md:mt-32 mb-10 flex flex-col md:flex-row justify-center items-center px-4 sm:px-6 md:px-12'>
+    <section id="about" className='mt-16 md:mt-32 mb-10 flex flex-col md:flex-row justify-center items-center px-4 sm:px-6 md:px-12'>
       {/* Profile Picture */}
       <div className='flex flex-col md:flex-row justify-around bg-gray-200 p-6 sm:p-8 rounded-2xl w-full md:w-auto'>
         <div>

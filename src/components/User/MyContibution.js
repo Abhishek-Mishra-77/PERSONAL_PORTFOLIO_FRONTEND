@@ -1,6 +1,6 @@
 import React from 'react';
-import leetcodeImage from '../assets/contributions/leetcode.jpeg';
-import githubImage from '../assets/contributions/github.png';
+import leetcodeImage from '../../assets/contributions/leetcode.jpeg';
+import githubImage from '../../assets/contributions/github.png';
 
 const contributions = [
     {

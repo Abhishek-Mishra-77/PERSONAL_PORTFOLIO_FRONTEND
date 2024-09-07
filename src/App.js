@@ -1,30 +1,15 @@
 import React from 'react';
-import NavBar from './components/NavBar'
-import Bot from './components/Bot'
-import Profile from './components/Profile';
-import Skills from './components/Skills'
-import Project from './components/Project'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import MyTools from './components/MyTools';
-import MyContibution from './components/MyContibution';
-import Experience from './components/Experience';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import User from "./components/User/User";
+import Admin from "./components/Admin/Admin"
 
 function App() {
-  return (
-    <>
-      <NavBar />
-      <Bot />
-      <Profile />
-      <Experience />
-      <Skills />
-      <Project />
-      <MyTools />
-      <MyContibution />
-      <Contact />
-      <Footer />
-    </>
-  );
+  return <Router>
+    <Routes>
+      <Route path="/*" element={<User />} />
+      <Route path="/admin" element={<Admin />} />
+    </Routes>
+  </Router>
 }
 
 export default App;

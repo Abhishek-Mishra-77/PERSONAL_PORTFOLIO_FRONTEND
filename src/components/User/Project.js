@@ -1,8 +1,8 @@
 
 import React from 'react';
-import Project2 from '../assets/projects/project_9.png'
-import OmrImage from "../assets/projects/omr.png";
-import webinfomatrix from "../assets/projects/webinfomatrix.png";
+import Project2 from '../../assets/projects/project_9.png'
+import OmrImage from "../../assets/projects/omr.png";
+import webinfomatrix from "../../assets/projects/webinfomatrix.png";
 import 'swiper/css'
 
 const projects = [
