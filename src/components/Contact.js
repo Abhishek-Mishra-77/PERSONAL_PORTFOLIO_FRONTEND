@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
-
-
+import { FaEnvelope, FaPhone, FaLocationArrow } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaWhatsapp, FaInstagram } from 'react-icons/fa';
 
 const Contact = () => {
-
   const form = useRef();
+  const [status, setStatus] = useState('');
 
   const sendEmail = (event) => {
     event.preventDefault();
@@ -13,123 +13,130 @@ const Contact = () => {
     emailjs.sendForm('service_jvphkxf', 'template_5dn0ct6', form.current, '3TvETU3bOiknAbwhr')
       .then((result) => {
         console.log(result.text);
-        console.log('Success')
+        setStatus('Message sent successfully!');
+        form.current.reset();
       },
         (error) => {
           console.log(error.text);
+          setStatus('Failed to send message.');
         }
       )
   }
 
-
   const contact_info = [
     {
       id: 'a3',
-      logo: 'mail-outline',
+      logo: <FaEnvelope />,
       text: 'abhishekmishra992016@gmail.com'
     },
     {
       id: 'a4',
-      logo: 'call',
+      logo: <FaPhone />,
       text: '+91 8577887978'
     },
     {
       id: 'a5',
-      logo: 'location',
-      text: 'Bhadohi , Uttar Pradesh'
+      logo: <FaLocationArrow />,
+      text: 'Bhadohi, Uttar Pradesh'
     },
   ]
 
   const social_media = [
     {
       id: 'a6',
-      Symbol: 'logo-linkedin',
+      Symbol: <FaLinkedin />,
       link: 'https://www.linkedin.com/in/abhishek-mishra-342494237/',
-
     },
     {
       id: 'a7',
-      Symbol: "logo-github",
+      Symbol: <FaGithub />,
       link: 'https://github.com/Abhishek-Mishra-77'
     },
     {
       id: 'a8',
-      Symbol: 'logo-whatsapp',
-      link: ''
+      Symbol: <FaWhatsapp />,
+      link: 'https://wa.me/919999999999' // Replace with your WhatsApp link
     },
     {
       id: 'a9',
-      Symbol: 'logo-instagram',
-      link: ''
+      Symbol: <FaInstagram />,
+      link: 'https://www.instagram.com/yourprofile' // Replace with your Instagram link
     }
   ]
 
-
   return (
-    <section id="contact" className="py-10 px-3 text-white bg-gradient-to-b from-gray-800 to-gray-700">
-      <div className="text-center mt-8">
-        <h3 className="text-4xl font-semibold">
-          About <span className="text-cyan-600">Me</span>
-        </h3>
-        <p className="text-gray-400 mt-3 text-lg">Get in touch</p>
+    <section id='contact' className='py-10 bg-white'>
+      <div className='text-gray-800 text-center py-16 px-4 sm:px-6 lg:px-8'>
+        <p className='text-gray-600 text-lg uppercase tracking-wider'>CONTACT ME</p>
+        <h3 className='text-4xl font-bold text-gray-800 mt-4'>Get In Touch</h3>
 
-        <div
-          className="mt-16 flex md:flex-row flex-col
-       gap-6 max-w-5xl bg-gray-800 md:p-6 p-2 rounded-lg mx-auto make-res box1"
-        >
-          <form onSubmit={sendEmail} ref={form} className="flex flex-col flex-1 gap-5">
-            <input
-              type="text"
-              placeholder="Your Name"
-              name="user_name" />
-            <input
-              type="Email"
-              placeholder="Your Email Address"
-              name='user_email' />
-            <textarea
-              placeholder="Your Message"
-              rows={11} name='message'></textarea>
-            <button
-              type='submit'
-              className="btn-primary w-fit ml-3"
-              value='Send'>Send Message</button>
-
-          </form>
-          <div className="flex flex-col  gap-7 ">
-            <h3 className="text-4xl font-semibold">
-              Contact <span className="text-cyan-600">Me</span>
-            </h3>
-            <p className="text-gray-400  text-lg">Fill up the form below to contact</p>
-            {contact_info.map((contact) => (
-              <div
-                key={contact.id}
-                className="flex flex-row  
-                text-left gap-4 flex-wrap items-center"
-              >
-                <div className="min-w-[5rem] min-h-[5rem] text-4xl  flex items-center justify-center text-white box ">
-                  <ion-icon name={contact.logo}></ion-icon>
-                </div>
-                <p className="md:text-base text-sm  break-words">
-                  {contact.text}
-                </p>
+        <div className='mt-12 mx-auto max-w-6xl bg-gray-200 p-8 sm:p-12 rounded-lg shadow-lg'>
+          <div className='flex flex-col md:flex-row justify-around items-start'>
+            <div className='w-full md:w-1/2 flex flex-col items-start mb-8 md:mb-0'>
+              <h4 className='text-2xl font-semibold text-gray-500 mb-4'>Contact Information</h4>
+              <div className='space-y-4'>
+                {contact_info.map(info => (
+                  <div key={info.id} className='flex items-center space-x-3 overflow-x-auto cursor-pointer'>
+                    <div className='text-2xl text-gray-500'>{info.logo}</div>
+                    <p className='text-lg text-gray-500 break-all'>{info.text}</p>
+                  </div>
+                ))}
               </div>
-            ))}
 
-            <div className='mt-2 ml-5 text-4xl flex  items-center md:justify-start
-                  justify-center gap-7'>
-              {social_media?.map(icon => (
-                <div key={icon.id} className='text-gray-500  
-                    cursor-pointer hover:text-white box2'>
-                  <a href={icon.link}> <ion-icon name={icon.Symbol} ></ion-icon></a>
-                </div>
-              ))}
             </div>
+
+            <div className='w-full md:w-1/2'>
+              <h4 className='text-2xl font-semibold text-gray-500 mb-4'>Send a Message</h4>
+              <form ref={form} onSubmit={sendEmail} className='space-y-4'>
+                <input
+                  type='text'
+                  name='user_name'
+                  placeholder='Your Name'
+                  required
+                  className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                />
+                <input
+                  type='email'
+                  name='user_email'
+                  placeholder='Your Email'
+                  required
+                  className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                />
+                <input
+                  type='tel'
+                  name='user_phone'
+                  placeholder='Your Phone Number'
+                  className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                  pattern='[0-9]{10}'
+                  maxLength='10'
+                />
+
+                <textarea
+                  name='message'
+                  placeholder='Your Message'
+                  required
+                  rows='4'
+                  className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                />
+                <button className='btn-primary flex w-full justify-center items-center mt-8 px-6 py-2 sm:px-8 sm:py-3 gap-4 bg-black text-white shadow-lg hover:bg-white hover:text-black border border-black transition-colors duration-300'>
+                  <h1 className='text-sm sm:text-xl font-semibold'>Send Message</h1>
+                </button>
+              </form>
+              {status && <p className='mt-4 text-center text-lg'>{status}</p>}
+            </div>
+          </div>
+
+          <div className='flex justify-center mt-12 space-x-6'>
+            {social_media.map(social => (
+              <a key={social.id} href={social.link} target="_blank" rel="noopener noreferrer" className='text-2xl text-gray-600 hover:text-blue-600'>
+                {social.Symbol}
+              </a>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
-
 }
 
-export default Contact
+export default Contact;

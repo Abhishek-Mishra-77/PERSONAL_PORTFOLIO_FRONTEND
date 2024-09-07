@@ -2,9 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='bg-gray-800 text-sm p-4 text-center text-white'>
-      {/* Contact Section */}
-      {/* Contact Section */}
+    <div className='bg-gray-200 text-sm p-2 text-center text-white '>
       <div className='mt-16'>
         <h4 className='text-2xl font-semibold mb-4'>Let's Connect</h4>
         <p className='text-gray-400 mb-6'>

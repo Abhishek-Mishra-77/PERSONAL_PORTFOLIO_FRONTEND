@@ -4,7 +4,6 @@ import { FaArrowDown } from "react-icons/fa";
 import { FaLocationArrow } from "react-icons/fa6";
 
 const Profile = () => {
-
   const social_media = [
     {
       _id: 'd1',
@@ -21,8 +20,14 @@ const Profile = () => {
       Symbol: "logo-whatsapp",
       link: 'https://wa.me/8577887978'
     },
-  ]
+  ];
 
+  const skills = [
+    "MERN STACK DEVELOPER",
+    "FRONTEND DEVELOPER",
+    "BACKEND DEVELOPER",
+    "MENTORSHIP SESSION"
+  ];
 
   return (
     <section className='mt-16 md:mt-32 mb-10 flex flex-col md:flex-row justify-center items-center px-4 sm:px-6 md:px-12'>
@@ -57,7 +62,7 @@ const Profile = () => {
         </div>
 
         {/* Text Section */}
-        <div className='flex mt-6 md:mt-0 md:ml-12 paragraph w-full md:w-1/2 text-center md:text-left'>
+        <div className='flex flex-col md:flex-row md:ml-12 w-full text-center md:text-left'>
           <div className='animate-fade-in'>
             <h1 className='text-white font-bold text-xl sm:text-2xl md:text-5xl leading-tight'>
               <span className='text-cyan-600 block md:inline md:text-6xl'>
@@ -82,26 +87,15 @@ const Profile = () => {
               </button>
             </a>
 
+            {/* Skills Section */}
             <div className='mt-8'>
-              <div className='flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-16'>
-                <div className='flex items-center gap-4'>
-                  <FaLocationArrow />
-                  <p className='text-gray-500 text-sm sm:text-base'>MERN STACK DEVELOPER</p>
-                </div>
-                <div className='flex items-center gap-4'>
-                  <FaLocationArrow />
-                  <p className='text-gray-500 text-sm sm:text-base'>FRONTEND DEVELOPER</p>
-                </div>
-              </div>
-              <div className='flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-16 mt-4 sm:mt-8'>
-                <div className='flex items-center gap-4'>
-                  <FaLocationArrow />
-                  <p className='text-gray-500 text-sm sm:text-base'>BACKEND DEVELOPER</p>
-                </div>
-                <div className='flex items-center gap-4'>
-                  <FaLocationArrow />
-                  <p className='text-gray-500 text-sm sm:text-base'>MENTORSHIP SESSION</p>
-                </div>
+              <div className='flex flex-col  justify-between sm:gap-4'>
+                {skills.map((skill, i) => (
+                  <div key={i} className='flex items-center gap-4'>
+                    <FaLocationArrow />
+                    <p className='text-gray-500 text-sm sm:text-base'>{skill}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
