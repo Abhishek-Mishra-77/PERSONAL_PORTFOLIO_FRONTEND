@@ -11,19 +11,19 @@ const coursesDetails = {
             _id: 1,
             title: "Top DSA Questions for Interview Preparation",
             subtitle: "DSA Mastery #101",
-            description: "Master the most commonly asked Data Structures and Algorithms (DSA) questions to ace your technical interviews. This curated list covers essential topics such as arrays, linked lists, dynamic programming, and more. By working through these questions, you will build a solid foundation for tackling any coding challenge with confidence.",
+            description: "Master the most commonly asked Data Structures and Algorithms (DSA) questions to ace your technical interviews. This curated list covers essential topics such as arrays, linked lists, dynamic programming, and more. Build a solid foundation for coding challenges.",
             duration: "Thousands of Questions",
             imageUrl: "path/to/dsa-image.jpg",
-            link: "#"
+            link: "/dsa"
         },
         {
             _id: 2,
             title: "React Essentials",
-            subtitle: "React Basics #201",
-            description: "Learn the core concepts of React including components, hooks, and state management. This course is designed to provide a strong foundation in building interactive UIs with React.",
+            subtitle: "React #201",
+            description: "Learn the core concepts of React including components, hooks, and state management. This course provides a strong foundation for building interactive UIs with React.",
             duration: "10+ Hours of Content",
             imageUrl: "path/to/react-image.jpg",
-            link: "#"
+            link: "/react"
         },
         {
             _id: 3,
@@ -32,25 +32,25 @@ const coursesDetails = {
             description: "Understand the basics of Node.js, including its asynchronous nature, event-driven architecture, and how to build scalable server-side applications.",
             duration: "12+ Hours of Content",
             imageUrl: "path/to/nodejs-image.jpg",
-            link: "#"
+            link: "/nodejs"
         },
         {
             _id: 4,
             title: "Express.js for Backend Development",
             subtitle: "Express.js Guide #401",
-            description: "Dive into Express.js and learn how to build robust and scalable APIs with this powerful web framework. This course covers routing, middleware, and best practices.",
+            description: "Learn how to build robust and scalable APIs with Express.js. This course covers routing, middleware, and best practices for backend development.",
             duration: "8+ Hours of Content",
             imageUrl: "path/to/express-image.jpg",
-            link: "#"
+            link: "/express"
         },
         {
             _id: 5,
             title: "MySQL Database Management",
-            subtitle: "MySQL Basics #501",
-            description: "Get a comprehensive introduction to MySQL, including SQL queries, database design, and data manipulation. Perfect for those looking to manage and query relational databases effectively.",
+            subtitle: "MySQL #501",
+            description: "Get a comprehensive introduction to MySQL, including SQL queries, database design, and data manipulation. Perfect for managing and querying relational databases.",
             duration: "15+ Hours of Content",
             imageUrl: "path/to/mysql-image.jpg",
-            link: "#"
+            link: "/mysql"
         },
         {
             _id: 6,
@@ -59,20 +59,29 @@ const coursesDetails = {
             description: "Explore the fundamentals of MongoDB, a NoSQL database, including its document-oriented structure, queries, and aggregation framework. Ideal for modern web applications.",
             duration: "11+ Hours of Content",
             imageUrl: "path/to/mongodb-image.jpg",
-            link: "#"
+            link: "/mongodb"
+        },
+        {
+            _id: 7,
+            title: "JavaScript for Foundations",
+            subtitle: "JavaScript Essentials #701",
+            description: "Learn the foundations of JavaScript, the essential language of the web. This course covers core topics like variables, functions, and DOM manipulation, providing the building blocks for modern web development.",
+            duration: "10+ Hours of Content",
+            imageUrl: "path/to/javascript-image.jpg",
+            link: "/javascript"
         }
     ]
 };
 
 const Courses = () => {
     return (
-        <section id='experience' className='py-10 relative'>
-            <div className='mt-8 text-gray-800 text-center py-16 px-4 sm:px-6 lg:px-8'>
+        <section id='courses' className='py-10 bg-gray-100 relative'>
+            <div className='text-center py-16 px-4 sm:px-6 lg:px-8'>
                 <p className='text-gray-600 text-lg uppercase tracking-wider'>{coursesDetails?.courseInfo?.title}</p>
                 <h3 className='text-4xl font-bold text-gray-500 mt-4'>{coursesDetails?.courseInfo?.description}</h3>
                 <div className='flex flex-wrap justify-center mt-8 gap-8'>
                     {coursesDetails?.courseData?.map((course) => (
-                        <article className="rounded-xl cursor-pointer bg-white shadow-lg p-6 ring ring-indigo-50 sm:p-8 lg:p-12 w-full max-w-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                        <article key={course._id} className="rounded-xl cursor-pointer bg-white shadow-lg p-6 ring ring-indigo-50 sm:p-8 lg:p-12 w-full max-w-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
                             <div className="sm:gap-8">
                                 <div className='flex justify-around items-center'>
                                     <div
@@ -95,13 +104,12 @@ const Courses = () => {
                                 </div>
                                 <div>
                                     <h3 className="mt-4 text-xl font-semibold sm:text-2xl">
-                                        <a href="#" className="hover:underline text-indigo-600">{course?.title}</a>
+                                        <a href={course?.link} className="hover:underline text-indigo-600">{course?.title}</a>
                                     </h3>
 
                                     <p className="mt-3 text-sm text-gray-700 leading-relaxed text-left">
                                         {course?.description}
                                     </p>
-
 
                                     <div className="mt-6 sm:flex sm:items-center sm:gap-4">
                                         <div className="flex items-center gap-2 text-gray-500">
