@@ -30,9 +30,8 @@ function App() {
         <Route path="Contact" element={<Contact />} />
         <Route path="account" element={<Account />} />
       </Route>
-      <Route path="/courses" element={<Courses />}>
-        <Route path=":name" element={<StartedCourse />} />
-      </Route>
+      <Route path="/courses" element={<Courses />} />
+      <Route path="/courses/:id" element={<StartedCourse />} />
       <Route path="/serviceform" element={<ServiceForm />} />
       <Route path="/auth" element={<Auth />} />
     </Routes>
