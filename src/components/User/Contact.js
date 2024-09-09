@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import { FaEnvelope, FaPhone, FaLocationArrow } from 'react-icons/fa';
-import { FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
+import { social_media } from '../Common/Common';
 
 const Contact = () => {
   const form = useRef();
@@ -47,30 +47,12 @@ const Contact = () => {
     }
   }
 
-  const social_media = [
-    {
-      _id: 'a6',
-      Symbol: <FaLinkedin />,
-      link: 'https://www.linkedin.com/in/abhishek-mishra-342494237/',
-    },
-    {
-      _id: 'a7',
-      Symbol: <FaGithub />,
-      link: 'https://github.com/Abhishek-Mishra-77'
-    },
-    {
-      _id: 'a8',
-      Symbol: <FaWhatsapp />,
-      link: 'https://wa.me/919999999999' // Replace with your WhatsApp link
-    },
-
-  ]
 
   return (
     <section id='contact' className='py-10 bg-white'>
       <div className='text-gray-800 text-center py-16 px-4 sm:px-6 lg:px-8'>
         <p className='text-gray-600 text-lg uppercase tracking-wider'>{contact_Details?.Info?.title}</p>
-        <h3 className='text-4xl font-bold text-gray-800 mt-4'>{contact_Details?.Info?.description}</h3>
+        <h3 className='text-4xl font-bold text-gray-500 mt-4'>{contact_Details?.Info?.description}</h3>
 
         <div className='mt-12 mx-auto max-w-6xl bg-gray-200 p-8 sm:p-12 rounded-lg shadow-lg'>
           <div className='flex flex-col md:flex-row justify-around items-start'>
@@ -112,7 +94,6 @@ const Contact = () => {
                   pattern='[0-9]{10}'
                   maxLength='10'
                 />
-
                 <textarea
                   name='message'
                   placeholder='Your Message'
@@ -128,10 +109,10 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className='flex justify-center mt-12 space-x-6'>
+          <div className='flex justify-center mt-12 '>
             {social_media.map(social => (
-              <a key={social._id} href={social.link} target="_blank" rel="noopener noreferrer" className='text-2xl text-gray-600 hover:text-blue-600'>
-                {social.Symbol}
+              <a className='p-4 text-4xl hover:text-blue-500 transition-colors duration-300' href={social.link} target='_blank' rel='noopener noreferrer'>
+                <ion-icon name={social.Symbol}></ion-icon>
               </a>
             ))}
           </div>

@@ -9,6 +9,7 @@ import MyTools from './MyTools'
 import MyContribution from './MyContibution'
 import Contact from './Contact'
 import Footer from '../Footer/Footer'
+import Services from './Services'
 
 const User = () => {
     return (
@@ -19,6 +20,7 @@ const User = () => {
             <Experience />
             <Skills />
             <Project />
+            <Services />
             <MyTools />
             <MyContribution />
             <Contact />
