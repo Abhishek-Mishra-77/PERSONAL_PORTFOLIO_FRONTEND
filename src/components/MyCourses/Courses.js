@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const coursesDetails = {
     courseInfo: {
         title: 'COURSES',
@@ -14,7 +14,6 @@ const coursesDetails = {
             description: "Master the most commonly asked Data Structures and Algorithms (DSA) questions to ace your technical interviews. This curated list covers essential topics such as arrays, linked lists, dynamic programming, and more. Build a solid foundation for coding challenges.",
             duration: "Thousands of Questions",
             imageUrl: "path/to/dsa-image.jpg",
-            link: "/dsa"
         },
         {
             _id: 2,
@@ -23,7 +22,6 @@ const coursesDetails = {
             description: "Learn the core concepts of React including components, hooks, and state management. This course provides a strong foundation for building interactive UIs with React.",
             duration: "10+ Hours of Content",
             imageUrl: "path/to/react-image.jpg",
-            link: "/react"
         },
         {
             _id: 3,
@@ -32,7 +30,6 @@ const coursesDetails = {
             description: "Understand the basics of Node.js, including its asynchronous nature, event-driven architecture, and how to build scalable server-side applications.",
             duration: "12+ Hours of Content",
             imageUrl: "path/to/nodejs-image.jpg",
-            link: "/nodejs"
         },
         {
             _id: 4,
@@ -41,7 +38,6 @@ const coursesDetails = {
             description: "Learn how to build robust and scalable APIs with Express.js. This course covers routing, middleware, and best practices for backend development.",
             duration: "8+ Hours of Content",
             imageUrl: "path/to/express-image.jpg",
-            link: "/express"
         },
         {
             _id: 5,
@@ -50,7 +46,6 @@ const coursesDetails = {
             description: "Get a comprehensive introduction to MySQL, including SQL queries, database design, and data manipulation. Perfect for managing and querying relational databases.",
             duration: "15+ Hours of Content",
             imageUrl: "path/to/mysql-image.jpg",
-            link: "/mysql"
         },
         {
             _id: 6,
@@ -59,7 +54,6 @@ const coursesDetails = {
             description: "Explore the fundamentals of MongoDB, a NoSQL database, including its document-oriented structure, queries, and aggregation framework. Ideal for modern web applications.",
             duration: "11+ Hours of Content",
             imageUrl: "path/to/mongodb-image.jpg",
-            link: "/mongodb"
         },
         {
             _id: 7,
@@ -68,7 +62,6 @@ const coursesDetails = {
             description: "Learn the foundations of JavaScript, the essential language of the web. This course covers core topics like variables, functions, and DOM manipulation, providing the building blocks for modern web development.",
             duration: "10+ Hours of Content",
             imageUrl: "path/to/javascript-image.jpg",
-            link: "/javascript"
         }
     ]
 };
@@ -81,7 +74,7 @@ const Courses = () => {
                 <h3 className='text-4xl font-bold text-gray-500 mt-4'>{coursesDetails?.courseInfo?.description}</h3>
                 <div className='flex flex-wrap justify-center mt-8 gap-8'>
                     {coursesDetails?.courseData?.map((course) => (
-                        <article key={course._id} className="rounded-xl cursor-pointer bg-white shadow-lg p-6 ring ring-indigo-50 sm:p-8 lg:p-12 w-full max-w-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                        <Link to={`/courses/${course._id}`} key={course._id} className="rounded-xl cursor-pointer bg-white shadow-lg p-6 ring ring-indigo-50 sm:p-8 lg:p-12 w-full max-w-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
                             <div className="sm:gap-8">
                                 <div className='flex justify-around items-center'>
                                     <div
@@ -104,7 +97,7 @@ const Courses = () => {
                                 </div>
                                 <div>
                                     <h3 className="mt-4 text-xl font-semibold sm:text-2xl">
-                                        <a href={course?.link} className="hover:underline text-indigo-600">{course?.title}</a>
+                                        <Link to={`/courses/${course?._id}`} className="hover:underline text-indigo-600">{course?.title}</Link>
                                     </h3>
 
                                     <p className="mt-3 text-sm text-gray-700 leading-relaxed text-left">
@@ -133,7 +126,7 @@ const Courses = () => {
                                     </div>
                                 </div>
                             </div>
-                        </article>
+                        </Link>
                     ))}
                 </div>
             </div>
