@@ -12,6 +12,7 @@ import Contributions from "./components/Admin/Contributions";
 import Contact from "./components/Admin/Contact";
 import Account from "./components/Admin/Account"
 import Courses from "./components/MyCourses/Courses"
+import ServiceForm from './components/ServiceForm/ServiceForm';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="account" element={<Account />} />
       </Route>
       <Route path="/courses" element={<Courses />} />
+      <Route path="/serviceform" element={<ServiceForm />} />
       <Route path="/auth" element={<Auth />} />
     </Routes>
   </Router>

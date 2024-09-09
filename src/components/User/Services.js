@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const servicesDetails = {
     serviceInfo: {
@@ -12,7 +13,7 @@ const servicesDetails = {
             description: "Expert freelance and web design services to build and enhance your online presence. From custom applications to responsive designs, I deliver high-quality solutions tailored to your needs.",
             imageUrl: "https://plus.unsplash.com/premium_photo-1683147638125-fd31a506a429?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2ViJTIwZGVzaWdufGVufDB8fDB8fHww",
             creator: "Abhishek Mishra",
-            link: "#",
+            link: "/serviceform",
             contactInfo: "For freelance projects, please fill out this form available on our website.",
         },
         {
@@ -21,7 +22,7 @@ const servicesDetails = {
             description: "Comprehensive courses designed to boost your skills in areas like Data Structures, React, and Node.js. Gain practical experience and theoretical knowledge to advance your career.",
             imageUrl: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y291cnNlfGVufDB8fDB8fHww",
             creator: "Abhishek Mishra",
-            link: "#",
+            link: "/courses",
             contactInfo: "For Courses visit, this website.",
         },
         {
@@ -30,11 +31,12 @@ const servicesDetails = {
             description: "Personalized mentorship to guide your growth, whether starting a new project or seeking career advice. Benefit from tailored guidance to achieve your professional goals.",
             imageUrl: "https://plus.unsplash.com/premium_photo-1682787494977-d013bb5a8773?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y291cnNlfGVufDB8fDB8fHww",
             creator: "Abhishek Mishra",
-            link: "#",
+            link: "/serviceform",
             contactInfo: "For mentorship sessions, please fill out this form available on our website.",
         },
     ],
 };
+
 
 const Services = () => {
     return (
@@ -44,9 +46,9 @@ const Services = () => {
                 <h3 className='text-4xl font-bold text-gray-500 mt-4'>{servicesDetails?.serviceInfo?.description}</h3>
                 <div className='flex flex-wrap justify-center mt-8 gap-8'>
                     {servicesDetails?.allServices?.map(service => (
-                        <a
+                        <Link
                             key={service.id}
-                            href={service.link}
+                            to={service.link}
                             className="relative block overflow-hidden rounded-lg border border-gray-100 p-6 sm:p-8 lg:p-10 w-full max-w-xs sm:max-w-sm lg:max-w-md transition-transform transform hover:scale-105 hover:shadow-2xl hover:border-gray-300"
                         >
                             <span
@@ -78,7 +80,7 @@ const Services = () => {
                                     {service.contactInfo}
                                 </p>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>
