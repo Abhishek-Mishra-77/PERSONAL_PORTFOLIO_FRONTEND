@@ -23,7 +23,6 @@ export const social_media = [
 
 const Profile = () => {
 
-
   const profileDetails = {
     skills: [
       "MERN STACK DEVELOPER",
