@@ -25,7 +25,6 @@ const Profile = () => {
 
 
   const profileDetails = {
-
     skills: [
       "MERN STACK DEVELOPER",
       "FRONTEND DEVELOPER",
@@ -35,13 +34,12 @@ const Profile = () => {
     personalInfo: {
       Name: "𝑨𝒃𝒉𝒊𝒔𝒉𝒆𝒌 𝑴𝒊𝒔𝒉𝒓𝒂",
       Available: "Available for Work",
-      imageUrl: "",
+      imageUrl: profile,
       designation: "Software Developer",
       description: "Experienced Software Developer specializing in MERN stack technologies, adept at delivering scalable and innovative web solutions.",
-      ResumeLink: "https://wa.me/8577887978"
+      ResumeLink: "https://drive.google.com/file/d/1n4DZ3XrYZxHenea2YJqiL9-Sc1AWiehW/view?usp=drive_link"
     }
   }
-
 
 
 
@@ -91,12 +89,18 @@ const Profile = () => {
             <p className='mt-4 text-gray-500 text-sm md:text-base leading-relaxed'>
               {profileDetails?.personalInfo?.description}
             </p>
-            <a href={profileDetails?.personalInfo?.ResumeLink} target="_blank" rel="noopener noreferrer">
+            <a
+              href={profileDetails?.personalInfo?.ResumeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Resume.pdf"
+            >
               <button className='btn-primary flex justify-center items-center mt-8 px-6 py-2 sm:px-8 sm:py-3 gap-4 bg-black text-white shadow-lg hover:bg-white hover:text-black border border-black transition-colors duration-300'>
                 <h1 className='text-sm sm:text-xl font-semibold'>Download CV</h1>
                 <FaArrowDown />
               </button>
             </a>
+
             <div className='mt-8'>
               <div className='flex flex-col  justify-between sm:gap-4'>
                 {profileDetails?.skills.map((skill, i) => (

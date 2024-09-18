@@ -1,20 +1,27 @@
 import React from 'react';
-import leetcodeImage from '../../assets/contributions/leetcode.jpeg';
+import leetcodeImage1 from '../../assets/contributions/leetcode.png';
 import githubImage from '../../assets/contributions/github.png';
+import geeksforgeeks from '../../assets/contributions/geeksforgeeks.png';
+
+
 
 const contributionDetails = {
+    contributionInfo: {
+        title: "Code Contributions",
+        description: "My Contribution Highlights"
+    },
     contributions: [
         {
             id: 1,
             name: 'LeetCode',
-            url: 'https://leetcode.com/yourprofile',
-            image: leetcodeImage,
+            url: 'https://leetcode.com/u/abhishekmishra992016/',
+            image: leetcodeImage1,
         },
         {
             id: 2,
             name: 'GeeksforGeeks',
-            url: 'https://www.geeksforgeeks.org/user/yourprofile',
-            image: githubImage,
+            url: 'https://www.geeksforgeeks.org/user/abhishekmissfie/',
+            image: geeksforgeeks,
         },
         {
             id: 3,
@@ -23,11 +30,8 @@ const contributionDetails = {
             image: githubImage,
         },
     ],
-    contributionInfo: {
-        title: "Code Contributions",
-        description: "My Contribution Highlights"
-    }
 }
+
 
 const MyContribution = () => {
     return (

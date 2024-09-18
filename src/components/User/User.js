@@ -20,7 +20,7 @@ const User = () => {
             <Experience />
             <Skills />
             <Project />
-            <Services />
+            {/* <Services /> */}
             <MyTools />
             <MyContribution />
             <Contact />

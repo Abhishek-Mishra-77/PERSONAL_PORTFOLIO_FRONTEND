@@ -3,6 +3,7 @@ import React from 'react';
 import Project2 from '../../assets/projects/project_9.png'
 import OmrImage from "../../assets/projects/omr.png";
 import webinfomatrix from "../../assets/projects/webinfomatrix.png";
+import onscreenmarking from "../../assets/projects/onscreen.png"
 import 'swiper/css'
 
 const projectDetails = {
@@ -11,7 +12,7 @@ const projectDetails = {
       _id: 'Project1',
       company: 'OMR India Outsources Pvt Ltd',
       title: 'Web Data Conversion',
-      role: 'Full Stack Developer',
+      role: 'Frontend Developer',
       description: `Developed and deployed a full-stack web application to streamline data entry and management processes, focusing on frontend development using React and Tailwind CSS.`,
       functionalities: [
         'Advanced system design for handling large-scale data',
@@ -34,13 +35,13 @@ const projectDetails = {
     {
       _id: 'proj2',
       company: 'OMR India Outsources Pvt Ltd',
-      title: 'Screening System',
-      role: 'Full Stack Developer',
-      description: 'Currently working on a web application to streamline business operations and enhance scalability.',
+      title: 'Onscreen Marking System',
+      role: 'Backend Developer',
+      description: 'Developing a comprehensive web application aimed at streamlining subject marking processes and improving operational efficiency for educational institutions. The project is designed to enhance scalability and optimize workflow through an integrated on-screen marking system.',
       functionalities: [
-        'New feature implementation',
-        'Codebase maintenance',
-        'Scalability improvements'
+        'Implementation of new features to support subject-specific evaluation and marking workflows.',
+        'Codebase maintenance to ensure system stability and seamless integration with the admin panel and evaluator panel.',
+        'Scalability improvements to accommodate growing user bases, including administrators and evaluators, ensuring efficient performance under increased workloads.'
       ],
       technologies: ['MERN Stack', 'Node.js', 'Express.js', 'MongoDB', 'React'],
       outcomes: 'In progress; expected to improve operational efficiency for business needs.',
@@ -49,7 +50,7 @@ const projectDetails = {
       showLinks: false,
       githubLink: 'https://github.com/yourusername/ongoing-project',
       liveLink: 'https://yourliveprojecturl.com',
-      imageUrl: ""
+      imageUrl: onscreenmarking
     },
     {
       _id: 'proj3',
