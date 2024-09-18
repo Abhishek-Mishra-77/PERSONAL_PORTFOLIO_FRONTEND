@@ -36,7 +36,7 @@ const Profile = () => {
       imageUrl: profile,
       designation: "Software Developer",
       description: "Experienced Software Developer specializing in MERN stack technologies, adept at delivering scalable and innovative web solutions.",
-      ResumeLink: "https://drive.google.com/file/d/1n4DZ3XrYZxHenea2YJqiL9-Sc1AWiehW/view?usp=drive_link"
+      ResumeLink: "https://drive.google.com/file/d/1BnulYrD4wZJYKckgOLqvwGFAtAAgp7PO/view"
     }
   }
 
