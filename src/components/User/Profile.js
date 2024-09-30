@@ -22,7 +22,6 @@ export const social_media = [
 ]
 
 const Profile = () => {
-
   const profileDetails = {
     skills: [
       "MERN STACK DEVELOPER",
@@ -39,8 +38,6 @@ const Profile = () => {
       ResumeLink: "https://drive.google.com/file/d/1LyVTiZ5_haRPmyspnops2lMbe6aJNrp1/view?usp=drive_link"
     }
   }
-
-
 
   return (
     <section id="about" className='mt-16 md:mt-32 mb-10 flex flex-col md:flex-row justify-center items-center px-4 sm:px-6 md:px-12'>

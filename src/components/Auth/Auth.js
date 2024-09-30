@@ -1,6 +1,19 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
+    const [user, setUser] = useState({
+        email: "",
+        password: ""
+    })
+    const navigate = useNavigate();
 
+    const onSignInHandler = (e) => {
+        e.preventDefault();
+        console.log(user);
+        localStorage.setItem("token", JSON.stringify(user.email))
+        navigate("/admin")
+    }
 
     return (
         <div className="mx-auto max-w-screen-xl px-4 py-40 sm:px-6 lg:px-8">
@@ -11,7 +24,7 @@ const Auth = () => {
                     GRATITUDE TURNS WHAT WE HAVE INTO ENOUGH AND BRINGS PEACE TO THE PRESENT.
                 </p>
 
-                <form action="#" className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+                <form onSubmit={onSignInHandler} className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
                     <p className="text-center text-lg font-medium">Sign in to your account</p>
                     <div>
                         <label htmlFor="email" className="sr-only">Email</label>
@@ -19,6 +32,8 @@ const Auth = () => {
                             <input
                                 type="email"
                                 required
+                                value={user.email}
+                                onChange={(e) => setUser({ ...user, email: e.target.value })}
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 placeholder="Enter email"
                             />
@@ -48,6 +63,8 @@ const Auth = () => {
                             <input
                                 type="password"
                                 required
+                                value={user.password}
+                                onChange={(e) => setUser({ ...user, password: e.target.value })}
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 placeholder="Enter password"
                             />
