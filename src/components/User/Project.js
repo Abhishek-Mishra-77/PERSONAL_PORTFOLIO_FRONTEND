@@ -64,7 +64,7 @@ const Project = () => {
         status: 'Completed',
         showLinks: true,
         githubLink: 'https://github.com/Abhishek-Mishra-77/storecodeShop',
-        liveLink: 'https://65acaee72b4752246b0cc477--clinquant-creponne-461534.netlify.app/',
+        liveLink: 'https://670fab394b48fd00096ba111--clinquant-creponne-461534.netlify.app/',
         imageUrl: Project2
       }
     ],
