@@ -10,7 +10,6 @@ import Projects from "./components/Admin/Projects";
 import Tools from "./components/Admin/Tools";
 import Contributions from "./components/Admin/Contributions";
 import Contact from "./components/Admin/Contact";
-import Account from "./components/Admin/Account"
 import Courses from "./components/MyCourses/Courses"
 import ServiceForm from './components/ServiceForm/ServiceForm';
 import StartedCourse from './components/MyCourses/StartedCourse';
@@ -28,7 +27,6 @@ function App() {
         <Route path="tool" element={<Tools />} />
         <Route path="contribution" element={<Contributions />} />
         <Route path="Contact" element={<Contact />} />
-        <Route path="account" element={<Account />} />
       </Route>
       <Route path="/courses" element={<Courses />} />
       <Route path="/courses/:id" element={<StartedCourse />} />

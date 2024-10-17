@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const Auth = () => {
     const [user, setUser] = useState({
@@ -8,12 +10,24 @@ const Auth = () => {
     })
     const navigate = useNavigate();
 
-    const onSignInHandler = (e) => {
+    const onSignInHandler = async (e) => {
         e.preventDefault();
-        console.log(user);
-        localStorage.setItem("token", JSON.stringify(user.email))
-        navigate("/admin")
-    }
+        try {
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_IP}/auth/login`, user);
+            const { token } = response.data;
+            console.log(token)
+            localStorage.setItem("token", token);
+            navigate("/admin/about");
+        } catch (error) {
+            if (error.response && error.response.data) {
+                toast.error(error.response.data);
+            } else {
+                toast.error("An unexpected error occurred");
+            }
+        }
+
+    };
+
 
     return (
         <div className="mx-auto max-w-screen-xl px-4 py-40 sm:px-6 lg:px-8">

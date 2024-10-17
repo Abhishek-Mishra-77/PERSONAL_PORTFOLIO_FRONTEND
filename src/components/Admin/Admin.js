@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+import { useNavigate, useLocation, Outlet, Link } from 'react-router-dom';
 import profile_img from "../../assets/profile/profilephoto.jpg";
 
 const Admin = () => {
@@ -16,7 +15,7 @@ const Admin = () => {
         }
     }, [token, navigate]);
 
-    const onChangePageHandler = (pageName) => {
+    const handleNavigation = (pageName) => {
         navigate(`/admin/${pageName}`);
         setMenuOpen(false); // Close mobile menu on navigation
     };
@@ -29,22 +28,32 @@ const Admin = () => {
         setMenuOpen((prev) => !prev);
     };
 
+    const menuItems = [
+        { name: 'ABOUT', path: 'about' },
+        { name: 'EXPERIENCE', path: 'experience' },
+        { name: 'SKILLS', path: 'skill' },
+        { name: 'PROJECTS', path: 'project' },
+        { name: 'TOOLS', path: 'tool' },
+        { name: 'CONTRIBUTIONS', path: 'contribution' },
+        { name: 'CONTACT', path: 'contact' },
+    ];
+
     return (
         <div>
             <header>
                 <nav className="bg-black border-gray-200 px-4 lg:px-6 py-2.5">
                     <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                        <a href="https://flowbite.com" className="flex items-center">
+                        <Link to="/admin/about" className="flex items-center">
                             <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="Logo" />
                             <span className="self-center text-xl font-semibold whitespace-nowrap text-white">ABHISHEK</span>
-                        </a>
+                        </Link>
                         <div className="flex items-center lg:order-2 relative">
                             <button onClick={toggleDropdown} className="relative text-white flex items-center focus:outline-none">
                                 <img src={profile_img} alt="Profile" className="rounded-full w-10 h-10" />
                             </button>
                             {dropdownOpen && (
                                 <div className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg z-10">
-                                    <button onClick={() => onChangePageHandler('settings')} className="block px-4 py-2 text-gray-800 w-full text-left rounded hover:bg-yellow-300">Profile</button>
+                                    <button onClick={() => handleNavigation('settings')} className="block px-4 py-2 text-gray-800 w-full text-left rounded hover:bg-yellow-300">Profile</button>
                                     <button onClick={() => { localStorage.removeItem('token'); navigate('/auth'); }} className="block px-4 py-2 w-full rounded text-left text-gray-800 hover:bg-red-300">Logout</button>
                                 </div>
                             )}
@@ -57,53 +66,15 @@ const Admin = () => {
                         </div>
                         <div className={`hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1 ${menuOpen ? "block" : "hidden"}`}>
                             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                                <li>
-                                    <button
-                                        onClick={() => onChangePageHandler("about")}
-                                        className={`block py-2 pr-4 pl-3 text-gray-200 hover:bg-yellow-200 lg:hover:bg-transparent ${location?.pathname === "/admin/about" ? "bg-gray-200 text-gray-700" : "text-gray-400 hover:bg-gray-100 hover:text-gray-700"} lg:border-0 lg:hover:text-yellow-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white`} aria-current="page">ABOUT</button>
-                                </li>
-                                <li>
-                                    <button
-                                        onClick={() => onChangePageHandler("experience")}
-                                        className={`block py-2 pr-4 pl-3 text-gray-200 hover:bg-yellow-200 lg:hover:bg-transparent ${location?.pathname === "/admin/experience" ? "bg-gray-200 text-gray-700" : "text-gray-400 hover:bg-gray-100 hover:text-gray-700"} lg:border-0 lg:hover:text-yellow-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white`}>
-                                        EXPERIENCE
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        onClick={() => onChangePageHandler("skill")}
-                                        className={`block py-2 pr-4 pl-3 text-gray-200 hover:bg-yellow-200 lg:hover:bg-transparent ${location?.pathname === "/admin/skill" ? "bg-gray-200 text-gray-700" : "text-gray-400 hover:bg-gray-100 hover:text-gray-700"} lg:border-0 lg:hover:text-yellow-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white`}>
-                                        SKILLS
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        onClick={() => onChangePageHandler("project")}
-                                        className={`block py-2 pr-4 pl-3 text-gray-200 hover:bg-yellow-200 lg:hover:bg-transparent ${location?.pathname === "/admin/project" ? "bg-gray-200 text-gray-700" : "text-gray-400 hover:bg-gray-100 hover:text-gray-700"} lg:border-0 lg:hover:text-yellow-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white`}>
-                                        PROJECTS
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        onClick={() => onChangePageHandler("tool")}
-                                        className={`block py-2 pr-4 pl-3 text-gray-200 hover:bg-yellow-200 lg:hover:bg-transparent ${location?.pathname === "/admin/tool" ? "bg-gray-200 text-gray-700" : "text-gray-400 hover:bg-gray-100 hover:text-gray-700"} lg:border-0 lg:hover:text-yellow-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white`}>
-                                        TOOLS
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        onClick={() => onChangePageHandler("tool")}
-                                        className={`block py-2 pr-4 pl-3 text-gray-200 hover:bg-yellow-200 lg:hover:bg-transparent ${location?.pathname === "/admin/tool" ? "bg-gray-200 text-gray-700" : "text-gray-400 hover:bg-gray-100 hover:text-gray-700"} lg:border-0 lg:hover:text-yellow-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white`}>
-                                        CONTRIBUTIONS
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        onClick={() => onChangePageHandler("contact")}
-                                        className={`block py-2 pr-4 pl-3 text-gray-200 hover:bg-yellow-200 lg:hover:bg-transparent ${location?.pathname === "/admin/contact" ? "bg-gray-200 text-gray-700" : "text-gray-400 hover:bg-gray-100 hover:text-gray-700"} lg:border-0 lg:hover:text-yellow-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white`}>
-                                        CONTACT
-                                    </button>
-                                </li>
+                                {menuItems.map(item => (
+                                    <li key={item.path}>
+                                        <button
+                                            onClick={() => handleNavigation(item.path)}
+                                            className={`block py-2 pr-4 pl-3 text-gray-200 hover:bg-yellow-200 lg:hover:bg-transparent ${location?.pathname === `/admin/${item.path}` ? " text-red-700" : "text-gray-400 hover:bg-gray-100 hover:text-gray-700"} lg:border-0 lg:hover:text-yellow-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white`}>
+                                            {item.name}
+                                        </button>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>

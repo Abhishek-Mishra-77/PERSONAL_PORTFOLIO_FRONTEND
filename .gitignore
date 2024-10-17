@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+# REACT_APP_SERVER_IP=http://localhost:9000
+
 # testing
 /coverage
 
