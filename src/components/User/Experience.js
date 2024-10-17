@@ -2,10 +2,6 @@ import React from 'react';
 import { FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 
 const experiencesDetails = {
-    ExperienceInfo: {
-        title: 'EXPERIENCE',
-        description: 'Professional Experience',
-    },
     experiences: [
         {
             _id: 1,
@@ -47,8 +43,8 @@ const Experience = () => {
     return (
         <section id="experience" className="py-10 relative bg-gray-50">
             <div className="mt-8 text-gray-800 text-center py-16 px-4 sm:px-6 lg:px-8">
-                <p className="text-gray-600 text-lg uppercase tracking-wider">{experiencesDetails?.ExperienceInfo?.title}</p>
-                <h3 className="text-4xl font-bold text-gray-800 mt-4">{experiencesDetails?.ExperienceInfo?.description}</h3>
+                <p className="text-gray-600 text-lg uppercase tracking-wider">EXPERIENCE</p>
+                <h3 className="text-4xl font-bold text-gray-800 mt-4">Professional Experience</h3>
                 <div className="flex flex-wrap justify-center mt-4 gap-8">
                     {experiencesDetails?.experiences.map((exp) => (
                         <article

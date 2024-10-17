@@ -6,10 +6,6 @@ import geeksforgeeks from '../../assets/contributions/geeksforgeeks.png';
 
 
 const contributionDetails = {
-    contributionInfo: {
-        title: "Code Contributions",
-        description: "My Contribution Highlights"
-    },
     contributions: [
         {
             id: 1,
@@ -37,8 +33,8 @@ const MyContribution = () => {
     return (
         <section id='contributions' className='py-10 bg-white relative'>
             <div className='mt-8 text-gray-800 text-center py-16 px-4 sm:px-6 lg:px-8'>
-                <p className='text-gray-600 text-lg uppercase tracking-wider'>{contributionDetails?.contributionInfo?.title}</p>
-                <h3 className='text-4xl font-bold text-gray-800 mt-4'>{contributionDetails?.contributionInfo?.description}</h3>
+                <p className='text-gray-600 text-lg uppercase tracking-wider'>Code Contributions</p>
+                <h3 className='text-4xl font-bold text-gray-800 mt-4'>My Contribution Highlights</h3>
                 <div className='flex flex-wrap justify-center mt-12 gap-8'>
                     {contributionDetails?.contributions.map((contribution) => (
                         <div

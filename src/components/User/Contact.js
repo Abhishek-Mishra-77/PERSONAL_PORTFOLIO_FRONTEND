@@ -1,27 +1,10 @@
-import React, { useRef, useState } from 'react';
-import emailjs from 'emailjs-com';
+import React, { useRef } from 'react';
 import { FaEnvelope, FaPhone, FaLocationArrow } from 'react-icons/fa';
 import { social_media } from '../Common/Common';
 
 const Contact = () => {
   const form = useRef();
-  const [status, setStatus] = useState('');
 
-  const sendEmail = (event) => {
-    event.preventDefault();
-
-    emailjs.sendForm('service_jvphkxf', 'template_5dn0ct6', form.current, '3TvETU3bOiknAbwhr')
-      .then((result) => {
-        console.log(result.text);
-        setStatus('Message sent successfully!');
-        form.current.reset();
-      },
-        (error) => {
-          console.log(error.text);
-          setStatus('Failed to send message.');
-        }
-      )
-  }
 
   const contact_Details = {
     contact_info: [
@@ -40,19 +23,15 @@ const Contact = () => {
         logo: <FaLocationArrow />,
         text: 'Bhadohi, Uttar Pradesh'
       },
-    ],
-    Info: {
-      title: "CONTACT ME",
-      description: "Get In Touch"
-    }
+    ]
   }
 
 
   return (
     <section id='contact' className='py-10 bg-white'>
       <div className='text-gray-800 text-center py-16 px-4 sm:px-6 lg:px-8'>
-        <p className='text-gray-600 text-lg uppercase tracking-wider'>{contact_Details?.Info?.title}</p>
-        <h3 className='text-4xl font-bold text-gray-500 mt-4'>{contact_Details?.Info?.description}</h3>
+        <p className='text-gray-600 text-lg uppercase tracking-wider'>CONTACT ME</p>
+        <h3 className='text-4xl font-bold text-gray-500 mt-4'>Get In Touch</h3>
 
         <div className='mt-12 mx-auto max-w-6xl bg-gray-200 p-8 sm:p-12 rounded-lg shadow-lg'>
           <div className='flex flex-col md:flex-row justify-around items-start'>
@@ -71,7 +50,7 @@ const Contact = () => {
 
             <div className='w-full md:w-1/2'>
               <h4 className='text-2xl font-semibold text-gray-500 mb-4'>Send a Message</h4>
-              <form ref={form} onSubmit={sendEmail} className='space-y-4'>
+              <form ref={form} className='space-y-4'>
                 <input
                   type='text'
                   name='user_name'
@@ -105,7 +84,7 @@ const Contact = () => {
                   <h1 className='text-sm sm:text-xl font-semibold'>Send Message</h1>
                 </button>
               </form>
-              {status && <p className='mt-4 text-center text-lg'>{status}</p>}
+
             </div>
           </div>
 
