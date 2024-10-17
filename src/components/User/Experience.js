@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBriefcase, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 
 const experiencesDetails = {
     ExperienceInfo: {
