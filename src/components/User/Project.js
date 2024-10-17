@@ -67,18 +67,14 @@ const Project = () => {
         liveLink: 'https://670fab394b48fd00096ba111--clinquant-creponne-461534.netlify.app/',
         imageUrl: Project2
       }
-    ],
-    projectInfo: {
-      title: 'KEY PROJECTS FROM MY CAREER',
-      description: "Projects"
-    }
+    ]
   };
 
   return (
     <section id="projects" className="py-10 relative">
       <div className="text-gray-800 text-center py-16 px-4 sm:px-6 lg:px-8">
-        <p className="text-lg text-gray-600 mt-2">{projectDetails?.projectInfo?.title}</p>
-        <h1 className="text-4xl font-bold text-gray-800 mt-5">{projectDetails?.projectInfo?.description}</h1>
+        <p className="text-lg text-gray-600 mt-2">KEY PROJECTS FROM MY CAREER</p>
+        <h1 className="text-4xl font-bold text-gray-800 mt-5">Projects</h1>
         <div className="flex flex-wrap justify-center gap-8 mt-12">
           {projectDetails?.projects.map((exp) => (
             <article

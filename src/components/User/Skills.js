@@ -14,9 +14,8 @@ import { TbBrandNextjs } from "react-icons/tb";
 import { FaAws } from "react-icons/fa";
 import { TbBrandReactNative } from "react-icons/tb";
 import { FaBootstrap } from "react-icons/fa";
-<FaBootstrap />
-const Skills = () => {
 
+const Skills = () => {
 
   const skillDetails = {
     skills: [
@@ -110,19 +109,15 @@ const Skills = () => {
         level: 'BOOTSTRAP',
         count: '75',
       }
-    ],
-    skillInfo: {
-      title: 'TECHNOLOGIES',
-      description: 'Professional Skills',
-    }
+    ]
   };
 
 
   return (
     <section id='skills' className='py-10 bg-white relative'>
       <div className='mt-8 text-gray-100 text-center py-16 px-4 sm:px-6 lg:px-8'>
-        <p className='text-gray-500'>{skillDetails?.skillInfo?.title}</p>
-        <h3 className='text-4xl font-bold text-gray-800 mt-4'>{skillDetails?.skillInfo?.description}</h3>
+        <p className='text-gray-500'>TECHNOLOGIES</p>
+        <h3 className='text-4xl font-bold text-gray-800 mt-4'>Professional Skills</h3>
         <div className='flex items-center justify-center mt-12 gap-6 flex-wrap'>
           {skillDetails?.skills.map((skill) => (
             <div
