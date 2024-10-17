@@ -13,8 +13,8 @@ import { TbBrandMysql } from "react-icons/tb";
 import { TbBrandNextjs } from "react-icons/tb";
 import { FaAws } from "react-icons/fa";
 import { TbBrandReactNative } from "react-icons/tb";
-
-
+import { FaBootstrap } from "react-icons/fa";
+<FaBootstrap />
 const Skills = () => {
 
 
@@ -104,6 +104,12 @@ const Skills = () => {
         level: 'REACTNATIVE',
         count: '75',
       },
+      {
+        _id: 'e15',
+        logo: <FaBootstrap />,
+        level: 'BOOTSTRAP',
+        count: '75',
+      }
     ],
     skillInfo: {
       title: 'TECHNOLOGIES',
@@ -119,10 +125,16 @@ const Skills = () => {
         <h3 className='text-4xl font-bold text-gray-800 mt-4'>{skillDetails?.skillInfo?.description}</h3>
         <div className='flex items-center justify-center mt-12 gap-6 flex-wrap'>
           {skillDetails?.skills.map((skill) => (
-            <div key={skill._id} className='bg-gray-200 h-64 w-80 sm:w-96 rounded-xl cursor-pointer shadow-lg transition-transform transform hover:scale-105'>
-              <div className='group relative min-w-[10rem] max-w-[16rem] p-6 sm:p-10 rounded-xl bg-gray-300 hover:bg-gray-400 transition-colors'>
-                <h1 className='text-5xl sm:text-6xl md:text-7xl font-bold text-gray-600 group-hover:text-cyan-600'>{skill.logo}</h1>
-                <p className='text-lg sm:text-xl mt-3 text-gray-700 group-hover:text-cyan-700'>{skill.level}</p>
+            <div
+              key={skill._id}
+              className='bg-gray-200 h-48 w-64 sm:w-72 rounded-xl cursor-pointer shadow-lg transition-transform transform hover:scale-105'>
+              <div className='group relative min-w-[8rem] max-w-[12rem] p-4 sm:p-6 rounded-xl bg-gray-300 hover:bg-gray-400 transition-colors'>
+                <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold text-gray-600 group-hover:text-cyan-600'>
+                  {skill.logo}
+                </h1>
+                <p className='text-base sm:text-lg mt-3 text-gray-700 group-hover:text-cyan-700'>
+                  {skill.level}
+                </p>
               </div>
             </div>
           ))}
