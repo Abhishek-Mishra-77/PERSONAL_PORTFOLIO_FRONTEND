@@ -16,7 +16,7 @@ const Auth = () => {
             const response = await axios.post(`${process.env.REACT_APP_SERVER_IP}/auth/login`, user);
             const { token } = response.data;
             console.log(token)
-            localStorage.setItem("token", token);
+            localStorage.setItem("token", JSON.stringify(token));
             navigate("/admin/about");
         } catch (error) {
             if (error.response && error.response.data) {

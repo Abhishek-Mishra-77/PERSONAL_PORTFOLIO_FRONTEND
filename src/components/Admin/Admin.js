@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FaBars, FaBell, FaTimes, FaUser, FaCogs, FaEnvelope } from 'react-icons/fa'; 
+import { FaBars, FaBell, FaTimes, FaUser, FaCogs, FaEnvelope } from 'react-icons/fa';
 import profile_img from "../../assets/profile/profilephoto.jpg";
 import { useNavigate, Outlet } from 'react-router-dom';
 
