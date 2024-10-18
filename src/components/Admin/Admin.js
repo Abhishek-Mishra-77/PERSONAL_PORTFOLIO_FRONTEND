@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FaBars, FaBell, FaTimes, FaUser, FaCogs, FaEnvelope } from 'react-icons/fa';
 import profile_img from "../../assets/profile/profilephoto.jpg";
-import { useNavigate, Outlet } from 'react-router-dom';
+import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 
 const user = {
     name: 'Abhishek Mishra',
@@ -29,18 +29,31 @@ function Admin() {
     const token = localStorage.getItem("token");
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         if (!token) {
             navigate('/auth');
         }
+        else {
+            if (location?.pathname) {
+                setCurrentPageName(location?.pathname.split('/')[2]);
+            }
+        }
+
     }, [token, navigate]);
+
+
+
 
     const handleNavigation = (pageName) => {
         navigate(`/admin/${pageName}`);
         setCurrentPageName(pageName);
         setMobileMenuOpen(false);
     };
+
+    
+
 
     return (
         <>

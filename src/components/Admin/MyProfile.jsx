@@ -39,9 +39,25 @@ const MyProfile = () => {
             toast.error("Can't delete last user")
             return;
         }
-        console.log('onRemoveUserHandler')
-        console.log(userId)
-        setOnConfirm(false)
+        try {
+            const token = JSON.parse(localStorage.getItem('token'));
+            axios.delete(`${process.env.REACT_APP_SERVER_IP}/auth/user/${userId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const filteredUsers = users.filter((user) => user._id !== userId);
+            setUsers(filteredUsers);
+            toast.success("User deleted successfully")
+        }
+        catch (error) {
+            console.log(error)
+            toast.error(error.response.data)
+        }
+        finally {
+            setOnConfirm(false)
+            setUserId("")
+        }
     }
 
 
