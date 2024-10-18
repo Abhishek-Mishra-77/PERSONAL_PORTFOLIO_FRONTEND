@@ -19,8 +19,9 @@ const Auth = () => {
             localStorage.setItem("token", JSON.stringify(token));
             navigate("/admin/about");
         } catch (error) {
+            console.log(error)
             if (error.response && error.response.data) {
-                toast.error(error.response.data);
+                toast.error(error.response.data?.message);
             } else {
                 toast.error("An unexpected error occurred");
             }

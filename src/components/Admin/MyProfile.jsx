@@ -5,13 +5,12 @@ import ConfirmationModal from '../Modals/ConfirmationModal';
 import { toast } from 'react-toastify';
 import UserCreate from '../Modals/UserCreate';
 
-
 const MyProfile = () => {
     const [users, setUsers] = useState([]);
     const [onConfirm, setOnConfirm] = useState(false);
-    const [userId, setUserId] = useState("")
+    const [userId, setUserId] = useState("");
     const [isUserCreated, setIsUserCreated] = useState(false);
-    const [isEditModal, setIsEditModal] = useState(false)
+    const [isEditModal, setIsEditModal] = useState(false);
     const [userDetails, setUserDetails] = useState({
         name: "",
         email: "",
@@ -20,12 +19,11 @@ const MyProfile = () => {
             admin: false,
             user: false,
         }
-    })
+    });
 
     const getInitials = (name) => {
         return name ? name.charAt(0).toUpperCase() : '';
     };
-
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -41,32 +39,30 @@ const MyProfile = () => {
                 console.log(error);
             }
         };
+
         fetchUsers();
-    }, []);
+    }, [isUserCreated, isEditModal]);
 
-
-    const onCreateUserHandler = (e) => {
+    const onCreateUserHandler = async (e) => {
         e.preventDefault();
         if (!userDetails.name || !userDetails.email || !userDetails.password) {
-            toast.error("All fields are required")
-            return
+            toast.error("All fields are required");
+            return;
         }
+
         try {
             const token = JSON.parse(localStorage.getItem('token'));
-            axios.post(`${process.env.REACT_APP_SERVER_IP}/auth/register`, userDetails, {
+            await axios.post(`${process.env.REACT_APP_SERVER_IP}/auth/register`, userDetails, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            setUsers([...users, userDetails]);
-            toast.success("User created successfully")
-        }
-        catch (error) {
-            console.log(error)
-            toast.error(error.response.data)
-        }
-        finally {
-            setIsUserCreated(false)
+            toast.success("User created successfully");
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response.data);
+        } finally {
+            setIsUserCreated((prev) => !prev);
             setUserDetails({
                 name: "",
                 email: "",
@@ -75,65 +71,58 @@ const MyProfile = () => {
                     admin: false,
                     user: false,
                 }
-            })
+            });
         }
-    }
+    };
 
-
-    const onRemoveUserHandler = () => {
-        if (users && users.length === 1) {
-            setOnConfirm(false)
-            toast.error("Can't delete last user")
+    const onRemoveUserHandler = async () => {
+        if (users.length === 1) {
+            setOnConfirm(false);
+            toast.error("Can't delete last user");
             return;
         }
         try {
             const token = JSON.parse(localStorage.getItem('token'));
-            axios.delete(`${process.env.REACT_APP_SERVER_IP}/auth/user/${userId}`, {
+            await axios.delete(`${process.env.REACT_APP_SERVER_IP}/auth/user/${userId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
             const filteredUsers = users.filter((user) => user._id !== userId);
-            setUsers(filteredUsers);
-            toast.success("User deleted successfully")
+            setUsers(filteredUsers); // Update local state
+            toast.success("User deleted successfully");
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response.data);
+        } finally {
+            setOnConfirm(false);
+            setUserId("");
         }
-        catch (error) {
-            console.log(error)
-            toast.error(error.response.data)
-        }
-        finally {
-            setOnConfirm(false)
-            setUserId("")
-        }
-    }
+    };
 
-
-    const onUserEditHandler = () => {
+    // Handler for editing a user
+    const onUserEditHandler = async () => {
         if (!userDetails.name || !userDetails.email || !userDetails.password) {
-            toast.error("All fields are required")
-            return
+            toast.error("All fields are required");
+            return;
         }
         if (!userId) {
-            toast.error("User not found")
-            return
+            toast.error("User not found");
+            return;
         }
         try {
             const token = JSON.parse(localStorage.getItem('token'));
-            axios.put(`${process.env.REACT_APP_SERVER_IP}/auth/user/${userId}`, userDetails, {
+            await axios.put(`${process.env.REACT_APP_SERVER_IP}/auth/user/${userId}`, userDetails, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            const filteredUsers = users.filter((user) => user._id !== userId);
-            setUsers([...filteredUsers, userDetails]);
-            toast.success("User updated successfully")
-        }
-        catch (error) {
-            console.log(error)
-            toast.error(error.response.data)
-        }
-        finally {
-            setIsEditModal(false)
+            toast.success("User updated successfully");
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response.data);
+        } finally {
+            setIsEditModal(false);
             setUserDetails({
                 name: "",
                 email: "",
@@ -142,12 +131,10 @@ const MyProfile = () => {
                     admin: false,
                     user: false,
                 }
-            })
-            setUserId("")
+            });
+            setUserId("");
         }
-    }
-
-
+    };
 
     return (
         <Fragment>
@@ -177,7 +164,7 @@ const MyProfile = () => {
             </button>
             <div className="p-4">
                 <ul className="divide-y divide-gray-100 ">
-                    {users && users?.map((user) => (
+                    {users?.map((user) => (
                         <li key={user._id} className="flex justify-between rounded-xl mt-2 gap-x-6 py-5 bg-gray-100 p-4">
                             <div className="flex min-w-0 gap-x-4">
                                 <div className="h-12 w-12 flex-none rounded-full bg-blue-500 text-white flex items-center justify-center text-lg font-semibold">
@@ -191,24 +178,23 @@ const MyProfile = () => {
                             <div className="flex gap-x-3 items-center text-gray-500 ">
                                 <FaEdit
                                     onClick={() => {
-                                        setIsEditModal(true)
-                                        setUserId(user._id)
+                                        setIsEditModal(true);
+                                        setUserId(user._id);
                                         setUserDetails((prev) => ({
                                             ...prev,
                                             name: user.name,
                                             email: user.email,
                                             roles: {
-                                                ...prev.roles,
-                                                admin: false,
-                                                user: false
+                                                admin: user.roles?.admin ?? false,
+                                                user: user.roles?.user ?? true, // defaults if missing
                                             }
                                         }));
                                     }}
                                     className="h-6 w-6 cursor-pointer hover:text-blue-500" />
                                 <FaTrashAlt
                                     onClick={() => {
-                                        setUserId(user._id)
-                                        setOnConfirm(true)
+                                        setUserId(user._id);
+                                        setOnConfirm(true);
                                     }}
                                     className="h-6 w-6 cursor-pointer hover:text-red-500" />
                             </div>
@@ -225,7 +211,6 @@ const MyProfile = () => {
                 setUserId={setUserId}
             />}
 
-
             {isUserCreated && <UserCreate
                 title="Create New User"
                 onClose={setIsUserCreated}
@@ -241,7 +226,6 @@ const MyProfile = () => {
                 setUserDetails={setUserDetails}
                 onFunctionHandler={onUserEditHandler}
             />}
-
         </Fragment>
     );
 };
