@@ -10,7 +10,7 @@ const MyProfile = () => {
     const [users, setUsers] = useState([]);
     const [onConfirm, setOnConfirm] = useState(false);
     const [userId, setUserId] = useState("")
-    const [isUserCreated, setIsUserCreated] = useState(true);
+    const [isUserCreated, setIsUserCreated] = useState(false);
     const [userDetails, setUserDetails] = useState({
         name: "",
         email: "",
@@ -44,6 +44,41 @@ const MyProfile = () => {
     }, []);
 
 
+    const onCreateUserHandler = (e) => {
+        e.preventDefault();
+        if (!userDetails.name || !userDetails.email || !userDetails.password) {
+            toast.error("All fields are required")
+            return
+        }
+        try {
+            const token = JSON.parse(localStorage.getItem('token'));
+            axios.post(`${process.env.REACT_APP_SERVER_IP}/auth/register`, userDetails, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            setUsers([...users, userDetails]);
+            toast.success("User created successfully")
+        }
+        catch (error) {
+            console.log(error)
+            toast.error(error.response.data)
+        }
+        finally {
+            setIsUserCreated(false)
+            setUserDetails({
+                name: "",
+                email: "",
+                password: "",
+                roles: {
+                    admin: false,
+                    user: false,
+                }
+            })
+        }
+    }
+
+
     const onRemoveUserHandler = () => {
         if (users && users.length === 1) {
             setOnConfirm(false)
@@ -74,6 +109,30 @@ const MyProfile = () => {
 
     return (
         <Fragment>
+            <button
+                onClick={() => setIsUserCreated(true)}
+                className="group flex ml-4 items-center justify-between gap-4 rounded-lg border border-current px-5 py-3 text-green-600 transition-colors hover:bg-green-600 focus:outline-none focus:ring active:bg-indigo-500"
+            >
+                <span className="font-medium transition-colors group-hover:text-white"> CREATE USER </span>
+                <span
+                    className="shrink-0 rounded-full border border-indigo-600 bg-white p-2 group-active:border-indigo-500"
+                >
+                    <svg
+                        className="size-5 rtl:rotate-180"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                    </svg>
+                </span>
+            </button>
             <div className="p-4">
                 <ul className="divide-y divide-gray-100 ">
                     {users && users?.map((user) => (
@@ -111,10 +170,11 @@ const MyProfile = () => {
 
 
             {isUserCreated && <UserCreate
-            title="Create New User"
+                title="Create New User"
                 setIsUserCreated={setIsUserCreated}
                 setUserDetails={setUserDetails}
                 userDetails={userDetails}
+                onCreateUserHandler={onCreateUserHandler}
             />}
 
         </Fragment>
