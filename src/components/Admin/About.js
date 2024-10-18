@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { IoMdAdd } from "react-icons/io";
 import { GiCrossMark } from "react-icons/gi";
 import axios from "axios";
+import profileImage from "../../assets/profile/profilephoto.jpg"
+import { toast } from "react-toastify";
 
 function ProfileEditor() {
     const [profileData, setProfileData] = useState(null);
@@ -63,8 +65,35 @@ function ProfileEditor() {
         }));
     };
 
-    const saveProfile = () => {
-        console.log("Profile data saved:", profileData);
+    const onEditAboutHandler = async () => {
+        if (!profileData) {
+            toast.error("Profile data not found");
+            return;
+        }
+        try {
+            const token = JSON.parse(localStorage.getItem("token"));
+            if (!token) {
+                toast.error("Token not found. Please log in again.");
+                return;
+            }
+
+            const response = await axios.put(
+                `${process.env.REACT_APP_SERVER_IP}/admin/profile/${profileData._id}`,
+                profileData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+            console.log(response)
+
+            toast.success("Profile updated successfully");
+        } catch (error) {
+            console.error(error);
+            const errorMessage = error.response?.data?.message || "An error occurred while updating the profile.";
+            toast.error(errorMessage);
+        }
     };
 
     if (!profileData) {
@@ -77,33 +106,31 @@ function ProfileEditor() {
 
             {/* Profile Info Section */}
             <div className="flex flex-col lg:flex-row gap-6">
-                {/* Profile Image */}
                 <div className="flex justify-center lg:justify-start">
                     <img
                         className="w-32 h-32 object-cover rounded-full"
-                        // src={profileData?.imageUrl}
-                        src="https://drive.google.com/uc?export=view&id=1x6QvQVLEW2bqz4ZJy2yYSjdSe3gHjTsv"
+                        src={profileImage}
                         alt="Profile"
                     />
+
                 </div>
 
                 {/* Profile Form */}
                 <div className="flex-1 space-y-4">
                     {/* Profile Image URL */}
-                    <div>
+                    {/* <div>
                         <label className="block text-sm font-medium text-gray-600">
                             Profile Image URL
                         </label>
                         <input
                             type="text"
                             name="imageUrl"
-                            value={"https://drive.google.com/file/d/1x6QvQVLEW2bqz4ZJy2yYSjdSe3gHjTsv/view"}
+                            value={profileImage}
                             // value={profileData?.imageUrl}
-                            onChange={handleChange}
                             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Paste new image URL here"
                         />
-                    </div>
+                    </div> */}
 
                     {/* Name Field */}
                     <div>
@@ -151,7 +178,6 @@ function ProfileEditor() {
                             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                         ></textarea>
                     </div>
-
                     {/* Resume Link */}
                     <div>
                         <label className="block text-sm font-medium text-gray-600">Resume Link</label>
@@ -162,7 +188,18 @@ function ProfileEditor() {
                             onChange={handleChange}
                             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                         />
+
+                        {/* Preview Button */}
+                        <button
+                            type="button"
+                            className="mt-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            onClick={() => window.open(profileData?.resumeLink, '_blank')}
+                            disabled={!profileData?.resumeLink}  // Disable if the link is empty
+                        >
+                            Preview Resume
+                        </button>
                     </div>
+
                 </div>
             </div>
 
@@ -198,7 +235,7 @@ function ProfileEditor() {
             {/* Save Profile Button */}
             <div className="flex justify-center mt-8">
                 <button
-                    onClick={saveProfile}
+                    onClick={onEditAboutHandler}
                     className="px-6 py-3 bg-green-500 text-white font-semibold rounded-md shadow-md hover:bg-green-600 transition duration-200 ease-in-out"
                 >
                     Save Profile
