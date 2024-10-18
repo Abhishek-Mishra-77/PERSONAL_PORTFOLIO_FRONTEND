@@ -3,12 +3,23 @@ import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import axios from 'axios';
 import ConfirmationModal from '../Modals/ConfirmationModal';
 import { toast } from 'react-toastify';
+import UserCreate from '../Modals/UserCreate';
 
 
 const MyProfile = () => {
     const [users, setUsers] = useState([]);
     const [onConfirm, setOnConfirm] = useState(false);
     const [userId, setUserId] = useState("")
+    const [isUserCreated, setIsUserCreated] = useState(true);
+    const [userDetails, setUserDetails] = useState({
+        name: "",
+        email: "",
+        password: "",
+        roles: {
+            admin: false,
+            user: false,
+        }
+    })
 
     const getInitials = (name) => {
         return name ? name.charAt(0).toUpperCase() : '';
@@ -97,6 +108,15 @@ const MyProfile = () => {
                 onFunctionHandler={onRemoveUserHandler}
                 setUserId={setUserId}
             />}
+
+
+            {isUserCreated && <UserCreate
+            title="Create New User"
+                setIsUserCreated={setIsUserCreated}
+                setUserDetails={setUserDetails}
+                userDetails={userDetails}
+            />}
+
         </Fragment>
     );
 };
