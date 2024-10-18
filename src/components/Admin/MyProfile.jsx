@@ -11,6 +11,7 @@ const MyProfile = () => {
     const [onConfirm, setOnConfirm] = useState(false);
     const [userId, setUserId] = useState("")
     const [isUserCreated, setIsUserCreated] = useState(false);
+    const [isEditModal, setIsEditModal] = useState(false)
     const [userDetails, setUserDetails] = useState({
         name: "",
         email: "",
@@ -107,6 +108,47 @@ const MyProfile = () => {
     }
 
 
+    const onUserEditHandler = () => {
+        if (!userDetails.name || !userDetails.email || !userDetails.password) {
+            toast.error("All fields are required")
+            return
+        }
+        if (!userId) {
+            toast.error("User not found")
+            return
+        }
+        try {
+            const token = JSON.parse(localStorage.getItem('token'));
+            axios.put(`${process.env.REACT_APP_SERVER_IP}/auth/user/${userId}`, userDetails, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const filteredUsers = users.filter((user) => user._id !== userId);
+            setUsers([...filteredUsers, userDetails]);
+            toast.success("User updated successfully")
+        }
+        catch (error) {
+            console.log(error)
+            toast.error(error.response.data)
+        }
+        finally {
+            setIsEditModal(false)
+            setUserDetails({
+                name: "",
+                email: "",
+                password: "",
+                roles: {
+                    admin: false,
+                    user: false,
+                }
+            })
+            setUserId("")
+        }
+    }
+
+
+
     return (
         <Fragment>
             <button
@@ -147,7 +189,22 @@ const MyProfile = () => {
                                 </div>
                             </div>
                             <div className="flex gap-x-3 items-center text-gray-500 ">
-                                <FaEdit className="h-6 w-6 cursor-pointer hover:text-blue-500" />
+                                <FaEdit
+                                    onClick={() => {
+                                        setIsEditModal(true)
+                                        setUserId(user._id)
+                                        setUserDetails((prev) => ({
+                                            ...prev,
+                                            name: user.name,
+                                            email: user.email,
+                                            roles: {
+                                                ...prev.roles,
+                                                admin: false,
+                                                user: false
+                                            }
+                                        }));
+                                    }}
+                                    className="h-6 w-6 cursor-pointer hover:text-blue-500" />
                                 <FaTrashAlt
                                     onClick={() => {
                                         setUserId(user._id)
@@ -171,10 +228,18 @@ const MyProfile = () => {
 
             {isUserCreated && <UserCreate
                 title="Create New User"
-                setIsUserCreated={setIsUserCreated}
+                onClose={setIsUserCreated}
                 setUserDetails={setUserDetails}
                 userDetails={userDetails}
-                onCreateUserHandler={onCreateUserHandler}
+                onFunctionHandler={onCreateUserHandler}
+            />}
+
+            {isEditModal && <UserCreate
+                title="Edit User"
+                onClose={setIsEditModal}
+                userDetails={userDetails}
+                setUserDetails={setUserDetails}
+                onFunctionHandler={onUserEditHandler}
             />}
 
         </Fragment>
