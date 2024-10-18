@@ -13,6 +13,7 @@ import Contact from "./components/Admin/Contact";
 import Courses from "./components/MyCourses/Courses"
 import ServiceForm from './components/ServiceForm/ServiceForm';
 import StartedCourse from './components/MyCourses/StartedCourse';
+import MyProfile from './components/Admin/MyProfile';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="tool" element={<Tools />} />
         <Route path="contribution" element={<Contributions />} />
         <Route path="Contact" element={<Contact />} />
+        <Route path="myprofile" element={<MyProfile />} />
       </Route>
       <Route path="/courses" element={<Courses />} />
       <Route path="/courses/:id" element={<StartedCourse />} />

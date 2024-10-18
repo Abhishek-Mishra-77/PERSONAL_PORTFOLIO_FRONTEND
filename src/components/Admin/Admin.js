@@ -1,13 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation, Outlet, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { FaBars, FaBell, FaTimes, FaUser, FaCogs, FaEnvelope } from 'react-icons/fa'; 
 import profile_img from "../../assets/profile/profilephoto.jpg";
+import { useNavigate, Outlet } from 'react-router-dom';
 
-const Admin = () => {
+const user = {
+    name: 'Abhishek Mishra',
+    email: 'abhishekmishra992016@gmail.com',
+    imageUrl: profile_img,
+};
+
+const navigation = [
+    { name: 'ABOUT', href: 'about', icon: <FaUser />, current: true },
+    { name: 'EXPERIENCE', href: 'experience', icon: <FaCogs />, current: false },
+    { name: 'SKILLS', href: 'skill', icon: <FaBell />, current: false },
+    { name: 'PROJECTS', href: 'project', icon: <FaCogs />, current: false },
+    { name: 'TOOLS', href: 'tool', icon: <FaCogs />, current: false },
+    { name: 'CONTRIBUTIONS', href: 'contribution', icon: <FaBell />, current: false },
+    { name: 'CONTACT', href: 'contact', icon: <FaEnvelope />, current: false },
+];
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ');
+}
+
+function Admin() {
+    const [currentPageName, setCurrentPageName] = useState("about");
     const navigate = useNavigate();
     const token = localStorage.getItem("token");
-    const location = useLocation();
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [menuOpen, setMenuOpen] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         if (!token) {
@@ -17,74 +38,153 @@ const Admin = () => {
 
     const handleNavigation = (pageName) => {
         navigate(`/admin/${pageName}`);
-        setMenuOpen(false); // Close mobile menu on navigation
+        setCurrentPageName(pageName);
+        setMobileMenuOpen(false);
     };
-
-    const toggleDropdown = () => {
-        setDropdownOpen((prev) => !prev);
-    };
-
-    const toggleMenu = () => {
-        setMenuOpen((prev) => !prev);
-    };
-
-    const menuItems = [
-        { name: 'ABOUT', path: 'about' },
-        { name: 'EXPERIENCE', path: 'experience' },
-        { name: 'SKILLS', path: 'skill' },
-        { name: 'PROJECTS', path: 'project' },
-        { name: 'TOOLS', path: 'tool' },
-        { name: 'CONTRIBUTIONS', path: 'contribution' },
-        { name: 'CONTACT', path: 'contact' },
-    ];
 
     return (
-        <div>
-            <header>
-                <nav className="bg-black border-gray-200 px-4 lg:px-6 py-2.5">
-                    <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                        <Link to="/admin/about" className="flex items-center">
-                            <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="Logo" />
-                            <span className="self-center text-xl font-semibold whitespace-nowrap text-white">ABHISHEK</span>
-                        </Link>
-                        <div className="flex items-center lg:order-2 relative">
-                            <button onClick={toggleDropdown} className="relative text-white flex items-center focus:outline-none">
-                                <img src={profile_img} alt="Profile" className="rounded-full w-10 h-10" />
-                            </button>
-                            {dropdownOpen && (
-                                <div className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg z-10">
-                                    <button onClick={() => handleNavigation('settings')} className="block px-4 py-2 text-gray-800 w-full text-left rounded hover:bg-yellow-300">Profile</button>
-                                    <button onClick={() => { localStorage.removeItem('token'); navigate('/auth'); }} className="block px-4 py-2 w-full rounded text-left text-gray-800 hover:bg-red-300">Logout</button>
+        <>
+            <div className="min-h-full">
+                {/* Navbar */}
+                <nav className="bg-gray-800">
+                    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div className="flex h-16 items-center justify-between">
+                            <div className="flex items-center">
+                                {/* Logo or Name */}
+                                <div className="flex-shrink-0">
+                                    <span className="text-2xl font-bold text-indigo-500">
+                                        ABHISHEK
+                                    </span>
                                 </div>
-                            )}
-                            <button onClick={toggleMenu} className="lg:hidden p-2 ml-1 text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none">
-                                <span className="sr-only">Open main menu</span>
-                                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div className={`hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1 ${menuOpen ? "block" : "hidden"}`}>
-                            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                                {menuItems.map(item => (
-                                    <li key={item.path}>
-                                        <button
-                                            onClick={() => handleNavigation(item.path)}
-                                            className={`block py-2 pr-4 pl-3 text-gray-200 hover:bg-yellow-200 lg:hover:bg-transparent ${location?.pathname === `/admin/${item.path}` ? " text-red-700" : "text-gray-400 hover:bg-gray-100 hover:text-gray-700"} lg:border-0 lg:hover:text-yellow-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white`}>
-                                            {item.name}
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
+
+                                {/* Desktop Menu */}
+                                <div className="hidden md:block">
+                                    <div className="ml-10 flex items-baseline space-x-4">
+                                        {navigation.map((item) => (
+                                            <button
+                                                key={item.name}
+                                                onClick={() => handleNavigation(item.href)}
+                                                className={classNames(
+                                                    item.href === currentPageName ? 'bg-gray-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                    'rounded-md px-3 py-2 text-sm font-medium'
+                                                )}
+                                            >
+                                                {item.name}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Profile and Notifications */}
+                            <div className="hidden md:flex items-center space-x-4">
+                                {/* Profile dropdown */}
+                                <div className="relative ml-3">
+                                    <button
+                                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                                        className="flex items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                    >
+                                        <span className="sr-only">Open user menu</span>
+                                        <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                                    </button>
+
+                                    {dropdownOpen && (
+                                        <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5">
+                                            <button
+                                                onClick={() => {
+                                                    handleNavigation('myprofile');
+                                                    setDropdownOpen(!dropdownOpen);
+                                                }}
+                                                className="block px-4 py-2 text-sm w-full text-left text-gray-700 hover:bg-gray-100"
+                                            >
+                                                Profile
+                                            </button>
+                                            <button
+                                                onClick={() => { localStorage.removeItem('token'); navigate('/auth'); }}
+                                                className="block px-4 py-2  w-full text-left text-sm text-gray-700 hover:bg-gray-100"
+                                            >
+                                                Sign out
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Mobile Menu Button */}
+                            <div className="flex md:hidden">
+                                <button
+                                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                    className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                >
+                                    <FaBars className={`${mobileMenuOpen ? 'hidden' : 'block'} h-6 w-6`} />
+                                    <FaTimes className={`${mobileMenuOpen ? 'block' : 'hidden'} h-6 w-6`} />
+                                </button>
+                            </div>
                         </div>
                     </div>
+
+                    {/* Mobile menu */}
+                    {mobileMenuOpen && (
+                        <div className="md:hidden">
+                            <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+                                {navigation.map((item) => (
+                                    <button
+                                        key={item.name}
+                                        onClick={() => handleNavigation(item.href)}
+                                        className={classNames(
+                                            item.href === currentPageName ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                            'flex items-center space-x-3 block rounded-md px-3 py-2 text-base font-medium'
+                                        )}
+                                    >
+                                        <span>{item.icon}</span>
+                                        <span>{item.name}</span>
+                                    </button>
+                                ))}
+                            </div>
+                            {/* Profile in mobile view */}
+                            <div className="border-t border-gray-700 pb-3 pt-4">
+                                <div className="flex items-center px-5">
+                                    <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                                    <div className="ml-3">
+                                        <div className="text-base font-medium text-white">{user.name}</div>
+                                        <div className="text-sm font-medium text-gray-400">{user.email}</div>
+                                    </div>
+
+                                </div>
+                                <div className="mt-3 space-y-1 px-2">
+                                    <button
+                                        onClick={() => handleNavigation('myprofile')}
+                                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    >
+                                        Profile
+                                    </button>
+                                    <button
+                                        onClick={() => { localStorage.removeItem('token'); navigate('/auth'); }}
+                                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    >
+                                        Sign out
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </nav>
-            </header>
-            <main className="p-4">
-                <Outlet />
-            </main>
-        </div>
+
+                {/* Header */}
+                <header className="bg-white shadow">
+                    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                        <h1 className="text-3xl font-bold tracking-tight text-gray-400">{currentPageName?.toUpperCase()}</h1>
+                    </div>
+                </header>
+
+                <main>
+                    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                        <Outlet />
+                    </div>
+                </main>
+            </div>
+        </>
     );
-};
+}
 
 export default Admin;
