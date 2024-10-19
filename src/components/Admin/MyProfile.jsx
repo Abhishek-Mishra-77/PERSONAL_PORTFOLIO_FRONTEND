@@ -220,7 +220,7 @@ const MyProfile = () => {
                 message="Are you sure you want to delete this user?"
                 setOnConfirm={setOnConfirm}
                 onFunctionHandler={onRemoveUserHandler}
-                setUserId={setUserId}
+                setRemoveId={setUserId}
             />}
 
             {isUserCreated && <UserCreate

@@ -1,7 +1,6 @@
 import React from 'react';
 
-const ConfirmationModal = ({ message, heading, setOnConfirm, onFunctionHandler , setUserId }) => {
-
+const ConfirmationModal = ({ message, heading, setOnConfirm, onFunctionHandler, setRemoveId }) => {
 
     return (
         <div>
@@ -66,7 +65,7 @@ const ConfirmationModal = ({ message, heading, setOnConfirm, onFunctionHandler ,
                                 type="button"
                                 onClick={() => {
                                     setOnConfirm(false);
-                                    setUserId('');
+                                    setRemoveId('');
                                 }}
                                 className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
                             >

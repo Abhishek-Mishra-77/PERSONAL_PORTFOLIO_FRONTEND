@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AllProjects = ({ projects, setIsProjectModal }) => {
+const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen }) => {
     return (
         <div>
             <button
@@ -42,6 +42,10 @@ const AllProjects = ({ projects, setIsProjectModal }) => {
                             </div>
                             <div className="flex gap-x-3 items-center text-gray-500 ">
                                 <button
+                                    onClick={() => {
+                                        setIsModalOpen(true)
+                                        setRemoveId(project?._id)
+                                    }}
                                     className="flex items-center gap-2 text-xs text-red-600 border border-red-600 px-3 py-1 rounded hover:bg-red-600 hover:text-white transition"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
