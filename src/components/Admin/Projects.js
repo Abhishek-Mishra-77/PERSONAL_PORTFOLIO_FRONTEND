@@ -25,6 +25,7 @@ const Projects = () => {
     const [isProjectModal, setIsProjectModal] = useState(false);
     const [removeId, setRemoveId] = useState("");
     const [isOpenModal, setIsModalOpen] = useState(false);
+    
 
 
     useEffect(() => {
