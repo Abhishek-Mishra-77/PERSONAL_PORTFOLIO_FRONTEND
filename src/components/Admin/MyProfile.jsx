@@ -1,5 +1,4 @@
 import React, { useEffect, useState, Fragment } from 'react';
-import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import axios from 'axios';
 import ConfirmationModal from '../Modals/ConfirmationModal';
 import { toast } from 'react-toastify';
@@ -177,7 +176,7 @@ const MyProfile = () => {
                                 </div>
                             </div>
                             <div className="flex gap-x-3 items-center text-gray-500 ">
-                                <FaEdit
+                                <button
                                     onClick={() => {
                                         setIsEditModal(true);
                                         setUserId(user._id);
@@ -187,17 +186,29 @@ const MyProfile = () => {
                                             email: user.email,
                                             roles: {
                                                 admin: user.roles?.admin ?? false,
-                                                user: user.roles?.user ?? true, // defaults if missing
+                                                user: user.roles?.user ?? true,
                                             }
                                         }));
                                     }}
-                                    className="h-6 w-6 cursor-pointer hover:text-blue-500" />
-                                <FaTrashAlt
+                                    className="flex items-center gap-2 text-xs text-yellow-500 border border-yellow-500 px-3 py-1 rounded hover:bg-yellow-500 hover:text-white transition"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+                                    </svg>
+                                    Edit
+                                </button>
+                                <button
                                     onClick={() => {
                                         setUserId(user._id);
                                         setOnConfirm(true);
                                     }}
-                                    className="h-6 w-6 cursor-pointer hover:text-red-500" />
+                                    className="flex items-center gap-2 text-xs text-red-600 border border-red-600 px-3 py-1 rounded hover:bg-red-600 hover:text-white transition"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                    Delete
+                                </button>
                             </div>
                         </li>
                     ))}
@@ -213,6 +224,7 @@ const MyProfile = () => {
             />}
 
             {isUserCreated && <UserCreate
+                setUserId={setUserId}
                 title="Create New User"
                 onClose={setIsUserCreated}
                 setUserDetails={setUserDetails}
@@ -221,6 +233,7 @@ const MyProfile = () => {
             />}
 
             {isEditModal && <UserCreate
+                setUserId={setUserId}
                 title="Edit User"
                 onClose={setIsEditModal}
                 userDetails={userDetails}

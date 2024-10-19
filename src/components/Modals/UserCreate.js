@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GiCrossMark } from 'react-icons/gi';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
-const UserFormModal = ({ title, userDetails, setUserDetails, onClose, onFunctionHandler }) => {
+const UserFormModal = ({ setUserId, title, userDetails, setUserDetails, onClose, onFunctionHandler }) => {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
@@ -10,7 +10,19 @@ const UserFormModal = ({ title, userDetails, setUserDetails, onClose, onFunction
             <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md transition-transform transform hover:scale-105">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-xl font-semibold">{title}</h2>
-                    <button onClick={() => onClose(false)} className="text-2xl hover:bg-gray-200 p-1 rounded-full">
+                    <button onClick={() => {
+                        onClose(false)
+                        setUserId("")
+                        setUserDetails({
+                            name: "",
+                            email: "",
+                            password: "",
+                            roles: {
+                                admin: false,
+                                user: false,
+                            }
+                        });
+                    }} className="text-2xl hover:bg-gray-200 p-1 rounded-full">
                         <GiCrossMark />
                     </button>
                 </div>
