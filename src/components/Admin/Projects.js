@@ -25,7 +25,7 @@ const Projects = () => {
     const [isProjectModal, setIsProjectModal] = useState(false);
     const [removeId, setRemoveId] = useState("");
     const [isOpenModal, setIsModalOpen] = useState(false);
-    
+
 
 
     useEffect(() => {
@@ -49,7 +49,7 @@ const Projects = () => {
     }, [setIsProjectModal, isProjectModal])
 
 
-    const onCreateProjectHandler = async (e) => {
+    const onCreateAndUpdateProjectHandler = async (e) => {
         e.preventDefault();
         if (
             !projectDetails.title ||
@@ -65,14 +65,16 @@ const Projects = () => {
         }
 
         if (projectDetails.showLinks) {
-            if (!projectDetails.githubLink || !projectDetails.liveLink) {
+            if (!projectDetails.githubLink && !projectDetails.liveLink) {
                 toast.error("Please provide both GitHub and Live links when 'Show Links' is enabled");
                 return;
             }
         }
+
         try {
             const token = JSON.parse(localStorage.getItem("token"));
-            await axios.post(`${process.env.REACT_APP_SERVER_IP}/project/create`, projectDetails, {
+            const URL = projectDetails?._id ? `${process.env.REACT_APP_SERVER_IP}/project/update/${projectDetails?._id}` : `${process.env.REACT_APP_SERVER_IP}/project/create`;
+            await axios.post(`${URL}`, projectDetails, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -98,8 +100,6 @@ const Projects = () => {
             console.log(error);
         }
     }
-
-    console.log(removeId)
 
     const onRemoveProjectHandler = async () => {
         try {
@@ -128,6 +128,7 @@ const Projects = () => {
         <Fragment>
             {!isProjectModal ?
                 <AllProjects
+                    setProjectDetails={setProjectDetails}
                     setRemoveId={setRemoveId}
                     projects={projects}
                     setIsModalOpen={setIsModalOpen}
@@ -136,7 +137,7 @@ const Projects = () => {
                 />
                 :
                 <CreateProject
-                    onCreateProjectHandler={onCreateProjectHandler}
+                    onCreateAndUpdateProjectHandler={onCreateAndUpdateProjectHandler}
                     projectDetails={projectDetails}
                     setProjectDetails={setProjectDetails}
                     setIsProjectModal={setIsProjectModal}

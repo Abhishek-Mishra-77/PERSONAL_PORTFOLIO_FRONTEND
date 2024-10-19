@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen }) => {
+const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen, setProjectDetails }) => {
     return (
         <div>
             <button
@@ -32,15 +32,24 @@ const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen 
                     {projects?.map((project) => (
                         <li key={project?._id} className="flex justify-between rounded-xl mt-2 gap-x-6 py-5 bg-gray-100 p-4">
                             <div className="flex min-w-0 gap-x-4">
-                                <div className="h-12 w-12 flex-none rounded-full bg-blue-500 text-white flex items-center justify-center text-lg font-semibold">
-                                    <img src={project?.imageUrl} alt='projectImg' />
+                                <div className="h-16 w-24 flex-none  rounded-xl bg-blue-500 text-white flex items-center justify-center overflow-hidden">
+                                    {project?.imageUrl ? (
+                                        <img
+                                            src={project.imageUrl}
+                                            alt="projectImg"
+                                            className="h-full w-full object-cover"
+                                        />
+                                    ) : (
+                                        <span className="text-lg font-semibold">P</span>
+                                    )}
                                 </div>
+
                                 <div className="min-w-0 flex-auto">
                                     <p className="text-sm font-semibold leading-6 text-gray-900">{project?.title}</p>
                                     <p className="mt-1 truncate text-xs leading-5 text-gray-500">{project?.company}</p>
                                 </div>
                             </div>
-                            <div className="flex gap-x-3 items-center text-gray-500 ">
+                            <div className="flex gap-x-3 items-center text-gray-500 flex-wrap">
                                 <button
                                     onClick={() => {
                                         setIsModalOpen(true)
@@ -54,7 +63,11 @@ const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen 
                                     Delete
                                 </button>
                                 <button
-                                    className="flex items-center gap-2 text-xs text-yellow-500 border border-yellow-500 px-3 py-1 rounded hover:bg-yellow-500 hover:text-white transition"
+                                    onClick={() => {
+                                        setProjectDetails(project)
+                                        setIsProjectModal(true)
+                                    }}
+                                    className="flex items-center gap-2 text-xs  text-yellow-500 border border-yellow-500 px-3 py-1 rounded hover:bg-yellow-500 hover:text-white transition"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />

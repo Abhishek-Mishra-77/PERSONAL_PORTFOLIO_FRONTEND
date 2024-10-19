@@ -4,7 +4,7 @@ import { GiCrossMark } from "react-icons/gi";
 const CreateProjectPage = ({ projectDetails,
     setProjectDetails,
     setIsProjectModal,
-    onCreateProjectHandler
+    onCreateAndUpdateProjectHandler
 }) => {
 
     const handleInputChange = (e) => {
@@ -48,7 +48,7 @@ const CreateProjectPage = ({ projectDetails,
                     <h2 className="text-2xl font-bold text-blue-600">Create Project</h2>
                     <button onClick={() => setIsProjectModal(false)} className="text-2xl">  <FaBackward /></button>
                 </div>
-                <form onSubmit={onCreateProjectHandler} className="mt-4">
+                <form onSubmit={onCreateAndUpdateProjectHandler} className="mt-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                         <input
                             type="text"
