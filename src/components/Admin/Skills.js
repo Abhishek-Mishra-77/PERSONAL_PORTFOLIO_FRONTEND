@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+
 
 
 const Skills = () => {

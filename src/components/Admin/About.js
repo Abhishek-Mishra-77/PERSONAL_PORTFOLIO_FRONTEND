@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { IoMdAdd } from "react-icons/io";
 import { GiCrossMark } from "react-icons/gi";
 import axios from "axios";
-import profileImage from "../../assets/profile/profilephoto.jpg"
+// import profileImage from "../../assets/profile/profilephoto.jpg"
 import { toast } from "react-toastify";
 
 function ProfileEditor() {
@@ -109,7 +109,7 @@ function ProfileEditor() {
                 <div className="flex justify-center lg:justify-start">
                     <img
                         className="w-32 h-32 object-cover rounded-full"
-                        src={profileImage}
+                        src={profileData?.imageUrl}
                         alt="Profile"
                     />
 
@@ -118,19 +118,19 @@ function ProfileEditor() {
                 {/* Profile Form */}
                 <div className="flex-1 space-y-4">
                     {/* Profile Image URL */}
-                    {/* <div>
+                    <div>
                         <label className="block text-sm font-medium text-gray-600">
                             Profile Image URL
                         </label>
                         <input
                             type="text"
                             name="imageUrl"
-                            value={profileImage}
-                            // value={profileData?.imageUrl}
+                            value={profileData?.imageUrl}
+                            onChange={handleChange}
                             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Paste new image URL here"
                         />
-                    </div> */}
+                    </div>
 
                     {/* Name Field */}
                     <div>
