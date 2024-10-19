@@ -1,9 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import axios from 'axios';
+import CreateProjectModal from '../Modals/createProjectModal';
 
 const Projects = () => {
     const [projects, setProjects] = useState([])
+    const [projectDetails, setProjectDetails] = useState(null);
+    const [isProjectModal, setIsProjectModal] = useState(false);
 
 
     useEffect(() => {
