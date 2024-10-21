@@ -87,7 +87,13 @@ const Project = () => {
                   <p className="text-sm font-medium text-gray-700 mt-2 border-1 p-2 rounded-xl w-[40px] bg-green-200">{exp.role}</p>
                 </span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-400 mt-2 text-left">{exp.company}</h3>
+              <div className="mb-4 p-4 bg-white shadow-lg rounded-lg">
+                <h3 className="text-xl font-bold text-blue-600 mb-2 text-left">{exp.company}</h3>
+                <p className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold p-1 rounded-lg shadow-sm text-left">
+                  Project: {exp.title}
+                </p>
+              </div>
+
               <p className="text-sm text-gray-500 mt-2 text-left">{exp.description}</p>
               <p className="text-sm text-gray-600 mt-1 text-left">
                 <strong>Technologies: </strong>{exp.technologies.join(', ')}
