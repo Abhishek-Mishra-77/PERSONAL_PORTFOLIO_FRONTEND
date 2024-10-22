@@ -1,7 +1,7 @@
 import React from 'react'
 import { GiCrossMark } from "react-icons/gi";
 
-const contributionModal = ({
+const ContributionModal = ({
     setIsContributionModalOpen,
     contribution,
     setContribution,
@@ -79,4 +79,4 @@ const contributionModal = ({
     )
 }
 
-export default contributionModal
+export default ContributionModal;
