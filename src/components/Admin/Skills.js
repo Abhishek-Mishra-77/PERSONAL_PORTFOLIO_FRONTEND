@@ -116,28 +116,28 @@ const Skills = () => {
             </button>
             <div className="p-4">
                 <ul className="divide-y divide-gray-100 ">
-                    {skills && skills?.map((skill) => (
+                    {skills && skills?.map((data) => (
                         <li className="flex justify-between rounded-xl mt-2 gap-x-6 py-5 bg-gray-100 p-4">
                             <div className="flex min-w-0 gap-x-4">
                                 <div className="h-12 w-12 flex-none rounded-full bg-blue-500 text-white flex items-center justify-center text-lg font-semibold">
-                                    {skill?.count}
+                                    {data?.count}
                                 </div>
                                 <div className="min-w-0 flex-auto">
-                                    <p className="text-sm font-semibold leading-6 text-gray-900">{skill?.level}</p>
-                                    <p className="mt-1 truncate text-xs leading-5 text-gray-500">{skill?.logo}</p>
+                                    <p className="text-sm font-semibold leading-6 text-gray-900">{data?.level}</p>
+                                    <p className="mt-1 truncate text-xs leading-5 text-gray-500">{data?.logo}</p>
                                 </div>
                             </div>
                             <div className="flex gap-x-3 items-center text-gray-500 ">
                                 <FaEdit
                                     onClick={() => {
                                         setIsSkillModalOpen(true)
-                                        setSkill(skill)
+                                        setSkill(data)
                                     }}
                                     className="h-6 w-6 cursor-pointer hover:text-blue-500" />
                                 <FaTrashAlt
                                     onClick={() => {
                                         setIsModalOpen(true)
-                                        setSkillId(skill._id)
+                                        setSkillId(data._id)
                                     }}
                                     className="h-6 w-6 cursor-pointer hover:text-red-500" />
                             </div>
@@ -147,10 +147,11 @@ const Skills = () => {
             </div>
 
             {isSkillModalOpen && <SkillModal
-                onCreateAndUpdateSkillHandler={onCreateAndUpdateSkillHandler}
-                skill={skill}
-                setSkill={setSkill}
-                setIsSkillModalOpen={setIsSkillModalOpen}
+                onCreateAndUpdateHandler={onCreateAndUpdateSkillHandler}
+                data={skill}
+                setData={setSkill}
+                setIsModalOpen={setIsSkillModalOpen}
+                heading={skill?._id ? "Update Skill" : "Create Skill"}
             />}
 
             {isModalOpen && <ConfirmationModal
