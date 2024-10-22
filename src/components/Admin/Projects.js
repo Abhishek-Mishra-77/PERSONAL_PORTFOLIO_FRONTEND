@@ -26,8 +26,6 @@ const Projects = () => {
     const [removeId, setRemoveId] = useState("");
     const [isOpenModal, setIsModalOpen] = useState(false);
 
-
-
     useEffect(() => {
         const fetchProjects = async () => {
             try {
@@ -146,8 +144,8 @@ const Projects = () => {
 
             {isOpenModal && (
                 <ConfirmationModal
-                    heading="Delete User"
-                    message="Are you sure you want to delete this user?"
+                    heading="Delete Project"
+                    message="Are you sure you want to delete this project?"
                     setOnConfirm={setIsModalOpen}
                     onFunctionHandler={onRemoveProjectHandler}
                     setRemoveId={setRemoveId}

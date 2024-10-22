@@ -32,7 +32,10 @@ const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen,
                     {projects?.map((project) => (
                         <li key={project?._id} className="flex justify-between rounded-xl mt-2 gap-x-6 py-5 bg-gray-100 p-4">
                             <div className="flex min-w-0 gap-x-4">
-                                <div className="h-16 w-24 flex-none  rounded-xl bg-blue-500 text-white flex items-center justify-center overflow-hidden">
+                                <a href={project?.imageUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="h-16 w-24 flex-none  rounded-xl bg-blue-500 text-white flex items-center justify-center overflow-hidden">
                                     {project?.imageUrl ? (
                                         <img
                                             src={project.imageUrl}
@@ -42,7 +45,7 @@ const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen,
                                     ) : (
                                         <span className="text-lg font-semibold">P</span>
                                     )}
-                                </div>
+                                </a>
 
                                 <div className="min-w-0 flex-auto">
                                     <p className="text-sm font-semibold leading-6 text-gray-900">{project?.title}</p>
@@ -80,7 +83,6 @@ const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen,
                 </ul>
             </div>
         </div>
-
     )
 }
 
