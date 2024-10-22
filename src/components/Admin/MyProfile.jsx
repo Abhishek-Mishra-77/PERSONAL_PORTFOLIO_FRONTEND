@@ -137,7 +137,6 @@ const MyProfile = () => {
 
     return (
         <Fragment>
-
             <button
                 onClick={() => setIsUserCreated(true)}
                 className="group flex ml-4 items-center justify-between gap-4 rounded-lg border border-current px-5 py-3 text-green-600 transition-colors hover:bg-green-600 focus:outline-none focus:ring active:bg-indigo-500"

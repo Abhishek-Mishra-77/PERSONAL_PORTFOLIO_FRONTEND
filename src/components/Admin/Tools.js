@@ -4,6 +4,12 @@ import { toast } from 'react-toastify'
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import ConfirmationModal from '../Modals/ConfirmationModal';
 import SkillModal from '../Modals/SkillModal';
+import * as FaIcons from 'react-icons/fa';
+import * as IoIcons from 'react-icons/io';
+import * as SiIcons from 'react-icons/si';
+import * as TbIcons from 'react-icons/tb';
+import * as IOIcons from 'react-icons/io5';
+import * as RIIcons from 'react-icons/ri';
 
 
 const Tools = () => {
@@ -92,6 +98,20 @@ const Tools = () => {
     }
 
 
+    const getIconComponent = (iconName) => {
+        const allIcons = {
+            ...FaIcons,
+            ...IoIcons,
+            ...SiIcons,
+            ...TbIcons,
+            ...IOIcons,
+            ...RIIcons
+        };
+        return allIcons[iconName] || FaIcons.FaQuestionCircle;
+    };
+
+
+
     return (
         <Fragment>
             <button
@@ -120,33 +140,36 @@ const Tools = () => {
             </button>
             <div className="p-4">
                 <ul className="divide-y divide-gray-100 ">
-                    {tools && tools?.map((data) => (
-                        <li className="flex justify-between rounded-xl mt-2 gap-x-6 py-5 bg-gray-100 p-4">
-                            <div className="flex min-w-0 gap-x-4">
-                                <div className="h-12 w-12 flex-none rounded-full bg-blue-500 text-white flex items-center justify-center text-lg font-semibold">
-                                    {data?.count}
+                    {tools && tools?.map((data) => {
+                        const LogoComponent = getIconComponent(data.logo);
+                        return (
+                            <li className="flex justify-between rounded-xl mt-2 gap-x-6 py-5 bg-gray-100 p-4">
+                                <div className="flex min-w-0 gap-x-4">
+                                    <div className="h-12 w-12 flex-none rounded-full bg-blue-500 text-white flex items-center justify-center text-lg font-semibold">
+                                        <LogoComponent />
+                                    </div>
+                                    <div className="min-w-0 flex-auto">
+                                        <p className="text-sm font-semibold leading-6 text-gray-900">{data?.level}</p>
+                                        <p className="mt-1 truncate text-xs leading-5 text-gray-500">{data?.logo}</p>
+                                    </div>
                                 </div>
-                                <div className="min-w-0 flex-auto">
-                                    <p className="text-sm font-semibold leading-6 text-gray-900">{data?.level}</p>
-                                    <p className="mt-1 truncate text-xs leading-5 text-gray-500">{data?.logo}</p>
+                                <div className="flex gap-x-3 items-center text-gray-500 ">
+                                    <FaEdit
+                                        onClick={() => {
+                                            setToolModalOpen(true)
+                                            setTool(data)
+                                        }}
+                                        className="h-6 w-6 cursor-pointer hover:text-blue-500" />
+                                    <FaTrashAlt
+                                        onClick={() => {
+                                            setIsModalOpen(true)
+                                            setToolId(data._id)
+                                        }}
+                                        className="h-6 w-6 cursor-pointer hover:text-red-500" />
                                 </div>
-                            </div>
-                            <div className="flex gap-x-3 items-center text-gray-500 ">
-                                <FaEdit
-                                    onClick={() => {
-                                        setToolModalOpen(true)
-                                        setTool(data)
-                                    }}
-                                    className="h-6 w-6 cursor-pointer hover:text-blue-500" />
-                                <FaTrashAlt
-                                    onClick={() => {
-                                        setIsModalOpen(true)
-                                        setToolId(data._id)
-                                    }}
-                                    className="h-6 w-6 cursor-pointer hover:text-red-500" />
-                            </div>
-                        </li>
-                    ))}
+                            </li>
+                        )
+                    })}
                 </ul>
             </div>
 
