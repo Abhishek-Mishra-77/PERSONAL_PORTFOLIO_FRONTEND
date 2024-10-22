@@ -1,11 +1,20 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import axios from 'axios';
-
-
+import SkillModal from '../Modals/SkillModal';
+import { toast } from 'react-toastify';
+import ConfirmationModal from '../Modals/ConfirmationModal';
 
 const Skills = () => {
     const [skills, setSkills] = useState([])
+    const [skill, setSkill] = useState({
+        logo: '',
+        level: '',
+        count: '50',
+    })
+    const [isSkillModalOpen, setIsSkillModalOpen] = useState(false);
+    const [skillId, setSkillId] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     useEffect(() => {
         const fetchSkills = async () => {
@@ -22,12 +31,67 @@ const Skills = () => {
             }
         }
         fetchSkills()
-    }, [])
+    }, [setIsSkillModalOpen, isSkillModalOpen])
 
+    const onCreateAndUpdateSkillHandler = async () => {
+        if (!skill.logo || !skill.level) {
+            toast.warning("All fields are required")
+            return;
+        }
+
+        try {
+            const token = JSON.parse(localStorage.getItem("token"));
+            const URL = skill?._id ? `${process.env.REACT_APP_SERVER_IP}/skill/update/${skill?._id}` : `${process.env.REACT_APP_SERVER_IP}/skill/create`;
+            await axios.post(URL, skill, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            toast.success("Skill added successfully")
+
+        } catch (error) {
+            console.log(error)
+            if (error?.response?.data?.message) {
+                toast.error(error.response.data.message)
+            }
+        }
+        finally {
+            setIsSkillModalOpen(false)
+            setSkill({
+                logo: '',
+                level: '',
+                count: '50'
+            })
+        }
+    }
+
+    const onRemoveSkillHandler = () => {
+        try {
+            const token = JSON.parse(localStorage.getItem("token"));
+            axios.delete(`${process.env.REACT_APP_SERVER_IP}/skill/remove/${skillId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            const filterdSkills = skills.filter(skill => skill._id !== skillId)
+            setSkills(filterdSkills)
+            toast.success("Skill removed successfully")
+        } catch (error) {
+            console.log(error)
+            if (error?.response?.data?.message) {
+                toast.error(error.response.data.message)
+            }
+        }
+        finally {
+            setIsModalOpen(false)
+            setSkillId("")
+        }
+    }
 
     return (
         <Fragment>
             <button
+                onClick={() => setIsSkillModalOpen(true)}
                 className="group flex ml-4 items-center justify-between gap-4 rounded-lg border border-current px-5 py-3 text-green-600 transition-colors hover:bg-green-600 focus:outline-none focus:ring active:bg-indigo-500"
             >
                 <span className="font-medium transition-colors group-hover:text-white"> CREATE SKILL </span>
@@ -65,10 +129,16 @@ const Skills = () => {
                             </div>
                             <div className="flex gap-x-3 items-center text-gray-500 ">
                                 <FaEdit
-
+                                    onClick={() => {
+                                        setIsSkillModalOpen(true)
+                                        setSkill(skill)
+                                    }}
                                     className="h-6 w-6 cursor-pointer hover:text-blue-500" />
                                 <FaTrashAlt
-
+                                    onClick={() => {
+                                        setIsModalOpen(true)
+                                        setSkillId(skill._id)
+                                    }}
                                     className="h-6 w-6 cursor-pointer hover:text-red-500" />
                             </div>
                         </li>
@@ -76,6 +146,21 @@ const Skills = () => {
                 </ul>
             </div>
 
+            {isSkillModalOpen && <SkillModal
+                onCreateAndUpdateSkillHandler={onCreateAndUpdateSkillHandler}
+                skill={skill}
+                setSkill={setSkill}
+                setIsSkillModalOpen={setIsSkillModalOpen}
+            />}
+
+            {isModalOpen && <ConfirmationModal
+                message={`Are you sure you want to delete this skill?`}
+                heading="Delete Skill"
+                setOnConfirm={setIsModalOpen}
+                onFunctionHandler={onRemoveSkillHandler}
+                setRemoveId={setSkillId}
+            />
+            }
         </Fragment>
     )
 }
