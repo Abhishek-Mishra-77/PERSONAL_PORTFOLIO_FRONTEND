@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { FaBars, FaBell, FaTimes, FaUser, FaCogs, FaEnvelope } from 'react-icons/fa';
-import profile_img from "../../assets/profile/profilephoto.jpg";
+// import profile_img from "../../assets/profile/profilephoto.jpg";
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import { getUserDetails } from "../../components/Common/Common";
 
 // const user = {
@@ -124,6 +124,10 @@ function Admin() {
                                                 Profile
                                             </button>
                                             <button
+                                                onClick={() => {
+                                                    handleNavigation('social');
+                                                    setDropdownOpen(!dropdownOpen);
+                                                }}
                                                 className="block px-4 py-2 text-sm w-full text-left text-gray-700 hover:bg-gray-100"
                                             >
                                                 Social

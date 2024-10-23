@@ -31,8 +31,9 @@ const SkillModal = ({ setIsModalOpen, data, heading,
                 </div>
 
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="logo">
-                        Logo (Copy from the react-icons)
+                    <label className="block flex justify-between text-gray-700 text-sm font-bold mb-2" htmlFor="logo">
+                        <p>Logo</p>
+                        <a href="https://react-icons.github.io/react-icons/" target="_blank" rel="noopener noreferrer" >Copy from the react-icons</a>
                     </label>
                     <input
                         id="logo"

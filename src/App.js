@@ -14,6 +14,7 @@ import Courses from "./components/MyCourses/Courses"
 import ServiceForm from './components/ServiceForm/ServiceForm';
 import StartedCourse from './components/MyCourses/StartedCourse';
 import MyProfile from './components/Admin/MyProfile';
+import SocialMedia from './components/Admin/SocialMedia';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="contribution" element={<Contributions />} />
         <Route path="Contact" element={<Contact />} />
         <Route path="myprofile" element={<MyProfile />} />
+        <Route path="social" element={<SocialMedia />} />
       </Route>
       <Route path="/courses" element={<Courses />} />
       <Route path="/courses/:id" element={<StartedCourse />} />
