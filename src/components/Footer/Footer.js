@@ -13,7 +13,7 @@ const Footer = () => {
         <div className='flex justify-center space-x-6'>
           {social_media.map((item, index) => (
             <a key={index} target='_blank' rel='noopener noreferrer' href={item.link} className='text-cyan-600 hover:text-cyan-400'>
-              <ion-icon name={item.Symbol} class="text-3xl"></ion-icon>
+              <ion-icon name={item.Symbol} class="text-3xl"></ion-icon> {item.name}
             </a>
           ))}
         </div>

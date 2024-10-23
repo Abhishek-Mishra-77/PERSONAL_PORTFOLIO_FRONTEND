@@ -17,6 +17,7 @@ const UserFormModal = ({ setUserId, title, userDetails, setUserDetails, onClose,
                             name: "",
                             email: "",
                             password: "",
+                            imageUrl: "",
                             roles: {
                                 admin: false,
                                 user: false,
@@ -43,6 +44,15 @@ const UserFormModal = ({ setUserId, title, userDetails, setUserDetails, onClose,
                             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring focus:ring-blue-300 transition duration-150"
                             value={userDetails?.email}
                             onChange={(e) => setUserDetails((prev) => ({ ...prev, email: e.target.value }))}
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium mb-1">Image URL:</label>
+                        <input
+                            type="imageUrl"
+                            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring focus:ring-blue-300 transition duration-150"
+                            value={userDetails?.imageUrl}
+                            onChange={(e) => setUserDetails((prev) => ({ ...prev, imageUrl: e.target.value }))}
                         />
                     </div>
                     <div className="mb-4">

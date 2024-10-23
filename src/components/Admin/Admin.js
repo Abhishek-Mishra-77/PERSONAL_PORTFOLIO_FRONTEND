@@ -41,7 +41,7 @@ function Admin() {
             }
         }
 
-    }, [token, navigate]);
+    }, [token, navigate, location]);
 
 
 
@@ -51,9 +51,6 @@ function Admin() {
         setCurrentPageName(pageName);
         setMobileMenuOpen(false);
     };
-
-    
-
 
     return (
         <>
@@ -111,6 +108,11 @@ function Admin() {
                                                 className="block px-4 py-2 text-sm w-full text-left text-gray-700 hover:bg-gray-100"
                                             >
                                                 Profile
+                                            </button>
+                                            <button
+                                                className="block px-4 py-2 text-sm w-full text-left text-gray-700 hover:bg-gray-100"
+                                            >
+                                                Social
                                             </button>
                                             <button
                                                 onClick={() => { localStorage.removeItem('token'); navigate('/auth'); }}

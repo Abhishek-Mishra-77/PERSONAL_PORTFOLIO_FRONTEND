@@ -16,6 +16,7 @@ const MyProfile = () => {
         name: "",
         email: "",
         password: "",
+        imageUrl: "",
         roles: {
             admin: false,
             user: false,
@@ -46,7 +47,7 @@ const MyProfile = () => {
 
     const onCreateUserHandler = async (e) => {
         e.preventDefault();
-        if (!userDetails.name || !userDetails.email || !userDetails.password) {
+        if (!userDetails.name || !userDetails.email || !userDetails.password || !userDetails.imageUrl) {
             toast.error("All fields are required");
             return;
         }
@@ -68,6 +69,7 @@ const MyProfile = () => {
                 name: "",
                 email: "",
                 password: "",
+                imageUrl: "",
                 roles: {
                     admin: false,
                     user: false,
@@ -103,7 +105,7 @@ const MyProfile = () => {
 
     // Handler for editing a user
     const onUserEditHandler = async () => {
-        if (!userDetails.name || !userDetails.email || !userDetails.password) {
+        if (!userDetails.name || !userDetails.email || !userDetails.imageUrl || !userDetails.roles) {
             toast.error("All fields are required");
             return;
         }
@@ -128,6 +130,7 @@ const MyProfile = () => {
                 name: "",
                 email: "",
                 password: "",
+                imageUrl: "",
                 roles: {
                     admin: false,
                     user: false,
@@ -196,6 +199,7 @@ const MyProfile = () => {
                                             ...prev,
                                             name: user.name,
                                             email: user.email,
+                                            imageUrl: user.imageUrl,
                                             roles: {
                                                 admin: user.roles?.admin ?? false,
                                                 user: user.roles?.user ?? true,
