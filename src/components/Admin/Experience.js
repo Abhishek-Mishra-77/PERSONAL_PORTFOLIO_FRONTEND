@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import ExperienceModal from '../Modals/ExperienceModal';
+import ConfirmationModal from '../Modals/ConfirmationModal';
 
 
 function Experience() {
@@ -51,7 +52,18 @@ function Experience() {
     // });
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [experiences, setExperiences] = useState([]);
-    const [selectedExperience, setSelectedExperience] = useState(null);
+    const [experience, setExperience] = useState({
+        company: '',
+        designation: '',
+        duration: '',
+        type: '',
+        location: '',
+        description: '',
+        website: '',
+    });
+    const [experienceId, setExperienceId] = useState("");
+    const [confirmationModal, setConfirmationModal] = useState(false);
+
 
 
 
@@ -67,6 +79,61 @@ function Experience() {
         fetchExperienceData();
     }, [])
 
+
+    const onCreateAndUpdateExperience = async (e) => {
+        e.preventDefault();
+        if (!experience.company || !experience.designation || !experience.duration || !experience.type || !experience.location || !experience.description || !experience.website) {
+            toast.error('Please fill all the fields');
+            return
+        }
+
+        try {
+            const token = JSON.parse(localStorage.getItem('token'));
+            const URL = experience?._id ? `${process.env.REACT_APP_SERVER_IP}/experience/update/${experience?._id}` : `${process.env.REACT_APP_SERVER_IP}/experience/create`;
+            await axios.post(URL, experience, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            toast.success('Experience created successfully');
+        } catch (error) {
+            console.error('Error creating experience:', error);
+            toast.error('Failed to create experience');
+        }
+        finally {
+            setShowCreateModal(false);
+            setExperience({
+                company: '',
+                designation: '',
+                duration: '',
+                type: '',
+                location: '',
+                description: '',
+                website: '',
+            });
+        }
+    };
+
+    const onRemoveExperience = async () => {
+        try {
+            const token = JSON.parse(localStorage.getItem('token'));
+            await axios.delete(`${process.env.REACT_APP_SERVER_IP}/experience/remove/${experienceId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const filteredExperiences = experiences.filter((experience) => experience._id !== experienceId);
+            setExperiences(filteredExperiences);
+            toast.success('Experience removed successfully');
+        } catch (error) {
+            console.error('Error removing experience:', error);
+            toast.error('Failed to remove experience');
+        }
+        finally {
+            setConfirmationModal(false);
+            setExperienceId('');
+        }
+    };
 
 
     return (
@@ -95,7 +162,7 @@ function Experience() {
                     </svg>
                 </span>
             </button>
-            <div className="mx-auto max-w-screen-2xl sm:px-6 lg:px-8 lg:py-16">
+            <div className="mx-auto max-w-screen-2xl sm:px-6 lg:px-8 lg:py-16 mt-4">
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                     {experiences?.map((data) => (
                         <article key={data._id} className="rounded-xl border-2 border-gray-200 bg-white shadow-lg transition-transform transform hover:scale-105">
@@ -121,6 +188,10 @@ function Experience() {
                             </div>
                             <div className="flex gap-x-3 items-center text-gray-500 p-8">
                                 <button
+                                    onClick={() => {
+                                        setExperience(data);
+                                        setShowCreateModal(true);
+                                    }}
                                     className="flex items-center gap-2 text-xs text-yellow-500 border border-yellow-500 px-3 py-1 rounded hover:bg-yellow-500 hover:text-white transition"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -129,7 +200,10 @@ function Experience() {
                                     Edit
                                 </button>
                                 <button
-
+                                    onClick={() => {
+                                        setExperienceId(data._id)
+                                        setConfirmationModal(true)
+                                    }}
                                     className="flex items-center gap-2 text-xs text-red-600 border border-red-600 px-3 py-1 rounded hover:bg-red-600 hover:text-white transition"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -146,7 +220,20 @@ function Experience() {
 
             {showCreateModal &&
                 <ExperienceModal
+                    experience={experience}
+                    setExperience={setExperience}
                     setIsModalOpen={setShowCreateModal}
+                    onCreateAndUpdateExperience={onCreateAndUpdateExperience}
+                />}
+
+
+            {confirmationModal &&
+                <ConfirmationModal
+                    heading="Delete Experience"
+                    message="Are you sure you want to delete this experience?"
+                    setOnConfirm={setConfirmationModal}
+                    onFunctionHandler={onRemoveExperience}
+                    setRemoveId={setExperienceId}
                 />}
         </section>
 
