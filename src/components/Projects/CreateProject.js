@@ -46,7 +46,23 @@ const CreateProjectPage = ({ projectDetails,
             <div className="bg-white rounded-lg p-4 sm:p-6 w-full shadow-lg">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-2xl font-bold text-blue-600">Create Project</h2>
-                    <button onClick={() => setIsProjectModal(false)} className="text-2xl">  <FaBackward /></button>
+                    <button onClick={() => {
+                        setIsProjectModal(false)
+                        setProjectDetails({
+                            company: '',
+                            description: '',
+                            duration: '',
+                            githubLink: '',
+                            imageUrl: '',
+                            liveLink: '',
+                            outcomes: '',
+                            role: '',
+                            showLinks: false,
+                            status: '',
+                            title: '',
+                            technologies: [''],
+                        })
+                    }} className="text-2xl">  <FaBackward /></button>
                 </div>
                 <form onSubmit={onCreateAndUpdateProjectHandler} className="mt-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">

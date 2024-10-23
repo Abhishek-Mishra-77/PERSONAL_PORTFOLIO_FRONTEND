@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { FaEnvelope, FaPhone, FaLocationArrow } from 'react-icons/fa';
 import { social_media } from '../Common/Common';
 
 const Contact = () => {
@@ -10,17 +9,17 @@ const Contact = () => {
     contact_info: [
       {
         _id: 'a3',
-        logo: <FaEnvelope />,
+        logo: "mail-outline",
         text: 'abhishekmishra992016@gmail.com'
       },
       {
         _id: 'a4',
-        logo: <FaPhone />,
+        logo: "call-outline",
         text: '+91 8577887978'
       },
       {
         _id: 'a5',
-        logo: <FaLocationArrow />,
+        logo: "location-outline",
         text: 'Bhadohi, Uttar Pradesh'
       },
     ]
@@ -40,7 +39,7 @@ const Contact = () => {
               <div className='space-y-4'>
                 {contact_Details?.contact_info.map(info => (
                   <div key={info._id} className='flex items-center space-x-3 overflow-x-auto cursor-pointer'>
-                    <div className='text-2xl text-gray-500'>{info.logo}</div>
+                    <div className='text-2xl text-gray-500'><ion-icon name={info.logo}></ion-icon></div>
                     <p className='text-lg text-gray-500 break-all'>{info.text}</p>
                   </div>
                 ))}
@@ -90,7 +89,7 @@ const Contact = () => {
 
           <div className='flex justify-center mt-12 '>
             {social_media.map(social => (
-              <a className='p-4 text-4xl hover:text-blue-500 transition-colors duration-300' href={social.link} target='_blank' rel='noopener noreferrer'>
+              <a key={social._id} className='p-4 text-4xl hover:text-blue-500 transition-colors duration-300' href={social.link} target='_blank' rel='noopener noreferrer'>
                 <ion-icon name={social.Symbol}></ion-icon>
               </a>
             ))}

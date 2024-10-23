@@ -1,6 +1,8 @@
 import React from 'react'
+import { social_media } from '../Common/Common'
 
 const Footer = () => {
+
   return (
     <div className='bg-gray-200 text-sm p-2 text-center text-white '>
       <div className='mt-16'>
@@ -9,18 +11,13 @@ const Footer = () => {
           If you're looking for a skilled Software Engineer with a track record of delivering exceptional results, feel free to reach out. I’m always excited to explore new collaborations and opportunities.
         </p>
         <div className='flex justify-center space-x-6'>
-          <a href="mailto:abhishekmishra992016@gmail.com" className='text-cyan-600 hover:text-cyan-400'>
-            <ion-icon name="mail-outline" class="text-3xl"></ion-icon> Email
-          </a>
-          <a href="https://www.linkedin.com/in/abhishekmishra77/" target="_blank" rel="noopener noreferrer" className='text-cyan-600 hover:text-cyan-400'>
-            <ion-icon name="logo-linkedin" class="text-3xl"></ion-icon> LinkedIn
-          </a>
-          <a href="https://github.com/Abhishek-Mishra-77" target="_blank" rel="noopener noreferrer" className='text-cyan-600 hover:text-cyan-400'>
-            <ion-icon name="logo-github" class="text-3xl"></ion-icon> GitHub
-          </a>
+          {social_media.map((item, index) => (
+            <a key={index} target='_blank' rel='noopener noreferrer' href={item.link} className='text-cyan-600 hover:text-cyan-400'>
+              <ion-icon name={item.Symbol} class="text-3xl"></ion-icon>
+            </a>
+          ))}
         </div>
       </div>
-
     </div>
   )
 }

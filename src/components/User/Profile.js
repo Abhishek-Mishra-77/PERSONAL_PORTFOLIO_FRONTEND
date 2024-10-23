@@ -2,24 +2,25 @@ import React from 'react';
 import profile from "../../assets/profile/profilephoto.jpg"
 import { FaArrowDown } from "react-icons/fa";
 import { FaLocationArrow } from "react-icons/fa6";
+import { social_media } from '../Common/Common';
 
-export const social_media = [
-  {
-    _id: 'd1',
-    Symbol: 'logo-linkedin',
-    link: 'https://www.linkedin.com/in/abhishek-mishra-342494237/'
-  },
-  {
-    _id: 'd2',
-    Symbol: "logo-github",
-    link: 'https://github.com/Abhishek-Mishra-77'
-  },
-  {
-    _id: 'd3',
-    Symbol: "logo-whatsapp",
-    link: 'https://wa.me/8577887978'
-  },
-]
+// export const social_media = [
+//   {
+//     _id: 'd1',
+//     Symbol: 'logo-linkedin',
+//     link: 'https://www.linkedin.com/in/abhishek-mishra-342494237/'
+//   },
+//   {
+//     _id: 'd2',
+//     Symbol: "logo-github",
+//     link: 'https://github.com/Abhishek-Mishra-77'
+//   },
+//   {
+//     _id: 'd3',
+//     Symbol: "logo-whatsapp",
+//     link: 'https://wa.me/8577887978'
+//   },
+// ]
 
 const Profile = () => {
   const profileDetails = {
