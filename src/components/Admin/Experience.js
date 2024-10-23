@@ -63,8 +63,8 @@ function Experience() {
     });
     const [experienceId, setExperienceId] = useState("");
     const [confirmationModal, setConfirmationModal] = useState(false);
-
-
+    const [currentPage, setCurrentPage] = useState(1);
+    const contactsPerPage = 3;
 
 
     useEffect(() => {
@@ -78,7 +78,6 @@ function Experience() {
         };
         fetchExperienceData();
     }, [])
-
 
     const onCreateAndUpdateExperience = async (e) => {
         e.preventDefault();
@@ -113,7 +112,6 @@ function Experience() {
             });
         }
     };
-
     const onRemoveExperience = async () => {
         try {
             const token = JSON.parse(localStorage.getItem('token'));
@@ -133,6 +131,15 @@ function Experience() {
             setConfirmationModal(false);
             setExperienceId('');
         }
+    };
+
+    const totalPages = Math.ceil(experiences?.length / contactsPerPage);
+    const indexOfLastContact = currentPage * contactsPerPage;
+    const indexOfFirstContact = indexOfLastContact - contactsPerPage;
+    const currentExperiences = experiences?.slice(indexOfFirstContact, indexOfLastContact);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
     };
 
 
@@ -164,7 +171,7 @@ function Experience() {
             </button>
             <div className="mx-auto max-w-screen-2xl sm:px-6 lg:px-8 lg:py-16 mt-4">
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    {experiences?.map((data) => (
+                    {currentExperiences?.map((data) => (
                         <article key={data._id} className="rounded-xl border-2 border-gray-200 bg-white shadow-lg transition-transform transform hover:scale-105">
                             <div className="flex justify-start p-2">
                                 <strong className="-mb-[2px] -me-[2px] inline-flex items-center gap-1 rounded-lg bg-green-500 px-3 py-1.5 text-white transition-colors hover:bg-green-700">
@@ -215,6 +222,26 @@ function Experience() {
 
                         </article>
                     ))}
+                </div>
+                {/* Pagination Controls */}
+                <div className="flex justify-between mt-4">
+                    <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className="px-4 py-2 bg-gray-300 text-gray-700 rounded disabled:opacity-50 transition"
+                    >
+                        Previous
+                    </button>
+                    <span className="self-center text-sm text-gray-700">
+                        Page {currentPage} of {totalPages}
+                    </span>
+                    <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className="px-4 py-2 bg-gray-300 text-gray-700 rounded disabled:opacity-50 transition"
+                    >
+                        Next
+                    </button>
                 </div>
             </div>
 

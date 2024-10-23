@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen, setProjectDetails }) => {
+const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen, setProjectDetails  ,currentPage, handlePageChange,totalPages}) => {
     return (
         <div>
             <button
@@ -81,6 +81,26 @@ const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen,
                         </li>
                     ))}
                 </ul>
+                  {/* Pagination Controls */}
+                  <div className="flex justify-between mt-4">
+                    <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className="px-4 py-2 bg-gray-300 text-gray-700 rounded disabled:opacity-50 transition"
+                    >
+                        Previous
+                    </button>
+                    <span className="self-center text-sm text-gray-700">
+                        Page {currentPage} of {totalPages}
+                    </span>
+                    <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className="px-4 py-2 bg-gray-300 text-gray-700 rounded disabled:opacity-50 transition"
+                    >
+                        Next
+                    </button>
+                </div>
             </div>
         </div>
     )

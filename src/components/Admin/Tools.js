@@ -22,6 +22,9 @@ const Tools = () => {
     const [isToolModalOpen, setToolModalOpen] = useState(false);
     const [toolId, setToolId] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1);
+    const contactsPerPage = 4;
+
 
 
     useEffect(() => {
@@ -111,6 +114,15 @@ const Tools = () => {
     };
 
 
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+
+    const totalPages = Math.ceil(tools?.length / contactsPerPage);
+    const indexOfLastContact = currentPage * contactsPerPage;
+    const indexOfFirstContact = indexOfLastContact - contactsPerPage;
+    const currentTools = tools?.slice(indexOfFirstContact, indexOfLastContact);
 
     return (
         <Fragment>
@@ -140,7 +152,7 @@ const Tools = () => {
             </button>
             <div className="p-4">
                 <ul className="divide-y divide-gray-100 ">
-                    {tools && tools?.map((data) => {
+                    {currentTools && currentTools?.map((data) => {
                         const LogoComponent = getIconComponent(data.logo);
                         return (
                             <li className="flex justify-between rounded-xl mt-2 gap-x-6 py-5 bg-gray-100 p-4">
@@ -171,6 +183,26 @@ const Tools = () => {
                         )
                     })}
                 </ul>
+                {/* Pagination Controls */}
+                <div className="flex justify-between mt-4">
+                    <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className="px-4 py-2 bg-gray-300 text-gray-700 rounded disabled:opacity-50 transition"
+                    >
+                        Previous
+                    </button>
+                    <span className="self-center text-sm text-gray-700">
+                        Page {currentPage} of {totalPages}
+                    </span>
+                    <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className="px-4 py-2 bg-gray-300 text-gray-700 rounded disabled:opacity-50 transition"
+                    >
+                        Next
+                    </button>
+                </div>
             </div>
 
             {isToolModalOpen && <SkillModal

@@ -25,6 +25,8 @@ const Projects = () => {
     const [isProjectModal, setIsProjectModal] = useState(false);
     const [removeId, setRemoveId] = useState("");
     const [isOpenModal, setIsModalOpen] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const contactsPerPage = 4;
 
     useEffect(() => {
         const fetchProjects = async () => {
@@ -122,16 +124,28 @@ const Projects = () => {
     }
 
 
+    const totalPages = Math.ceil(projects?.length / contactsPerPage);
+    const indexOfLastContact = currentPage * contactsPerPage;
+    const indexOfFirstContact = indexOfLastContact - contactsPerPage;
+    const currentProjects = projects?.slice(indexOfFirstContact, indexOfLastContact);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+
     return (
         <Fragment>
             {!isProjectModal ?
                 <AllProjects
                     setProjectDetails={setProjectDetails}
                     setRemoveId={setRemoveId}
-                    projects={projects}
+                    projects={currentProjects}
                     setIsModalOpen={setIsModalOpen}
                     setIsProjectModal={setIsProjectModal}
-
+                    handlePageChange={handlePageChange}
+                    currentPage={currentPage}
+                    totalPages={totalPages}
                 />
                 :
                 <CreateProject
