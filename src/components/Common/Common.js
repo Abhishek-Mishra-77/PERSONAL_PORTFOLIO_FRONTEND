@@ -1,4 +1,4 @@
-
+import axios from "axios"
 
 export const social_media = [
     {
@@ -20,3 +20,18 @@ export const social_media = [
         name: "WHATSAPP"
     },
 ]
+
+export const getUserDetails = async () => {
+    try {
+        const token = JSON.parse(localStorage.getItem('token'));
+        const res = await axios.get(`${process.env.REACT_APP_SERVER_IP}/auth/singleuser`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        return res.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+

@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { FaBars, FaBell, FaTimes, FaUser, FaCogs, FaEnvelope } from 'react-icons/fa';
 import profile_img from "../../assets/profile/profilephoto.jpg";
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
+import axios from 'axios';
+import { getUserDetails } from "../../components/Common/Common";
 
-const user = {
-    name: 'Abhishek Mishra',
-    email: 'abhishekmishra992016@gmail.com',
-    imageUrl: profile_img,
-};
+// const user = {
+//     name: 'Abhishek Mishra',
+//     email: 'abhishekmishra992016@gmail.com',
+//     imageUrl: profile_img,
+// };
 
 const navigation = [
     { name: 'ABOUT', href: 'about', icon: <FaUser />, current: true },
@@ -29,6 +31,7 @@ function Admin() {
     const token = localStorage.getItem("token");
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [user, setUser] = useState(null);
     const location = useLocation();
 
     useEffect(() => {
@@ -44,6 +47,17 @@ function Admin() {
     }, [token, navigate, location]);
 
 
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const response = await getUserDetails();
+                setUser(response);
+            } catch (error) {
+                console.error('Error fetching user:', error);
+            }
+        }
+        fetchUser();
+    }, [])
 
 
     const handleNavigation = (pageName) => {
@@ -95,7 +109,7 @@ function Admin() {
                                         className="flex items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                     >
                                         <span className="sr-only">Open user menu</span>
-                                        <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                                        <img className="h-8 w-8 rounded-full" src={user?.imageUrl} alt="profile" />
                                     </button>
 
                                     {dropdownOpen && (
