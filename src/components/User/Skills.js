@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as IoIcons from 'react-icons/io';
-import * as SiIcons from 'react-icons/si';
-import * as TbIcons from 'react-icons/tb';
-import * as IOIcons from 'react-icons/io5';
-import * as RIIcons from 'react-icons/ri';
+// import React, { useEffect, useState } from 'react';
+// import * as FaIcons from 'react-icons/fa';
+// import * as IoIcons from 'react-icons/io';
+// import * as SiIcons from 'react-icons/si';
+// import * as TbIcons from 'react-icons/tb';
+// import * as IOIcons from 'react-icons/io5';
+// import * as RIIcons from 'react-icons/ri';
 import { FaHtml5 } from "react-icons/fa";
 import { FaCss3Alt } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
@@ -21,7 +21,7 @@ import { FaAws } from "react-icons/fa";
 import { TbBrandReactNative } from "react-icons/tb";
 import { FaBootstrap } from "react-icons/fa";
 
-import axios from 'axios';
+// import axios from 'axios';
 
 const skillDetails = {
   skills: [
@@ -120,36 +120,36 @@ const skillDetails = {
 
 
 const Skills = () => {
-  const [skills, setSkills] = useState([]);
+  // const [skills, setSkills] = useState([]);
 
-  useEffect(() => {
-    const fetchSkills = async () => {
-      try {
-        const token = JSON.parse(localStorage.getItem("token"));
-        const response = await axios.get(`${process.env.REACT_APP_SERVER_IP}/skill/getall`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setSkills(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchSkills();
-  }, []);
+  // useEffect(() => {
+  //   const fetchSkills = async () => {
+  //     try {
+  //       const token = JSON.parse(localStorage.getItem("token"));
+  //       const response = await axios.get(`${process.env.REACT_APP_SERVER_IP}/skill/getall`, {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       });
+  //       setSkills(response.data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchSkills();
+  // }, []);
 
-  const getIconComponent = (iconName) => {
-    const allIcons = {
-      ...FaIcons,
-      ...IoIcons,
-      ...SiIcons,
-      ...TbIcons,
-      ...IOIcons,
-      ...RIIcons
-    };
-    return allIcons[iconName] || FaIcons.FaQuestionCircle;
-  };
+  // const getIconComponent = (iconName) => {
+  //   const allIcons = {
+  //     ...FaIcons,
+  //     ...IoIcons,
+  //     ...SiIcons,
+  //     ...TbIcons,
+  //     ...IOIcons,
+  //     ...RIIcons
+  //   };
+  //   return allIcons[iconName] || FaIcons.FaQuestionCircle;
+  // };
 
   return (
     <section id='skills' className='py-10 bg-white relative'>
