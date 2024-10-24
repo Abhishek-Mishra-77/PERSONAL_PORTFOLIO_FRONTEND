@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen, setProjectDetails  ,currentPage, handlePageChange,totalPages}) => {
+const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen, setProjectDetails, currentPage, handlePageChange, totalPages }) => {
     return (
         <div>
             <button
@@ -50,6 +50,9 @@ const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen,
                                 <div className="min-w-0 flex-auto">
                                     <p className="text-sm font-semibold leading-6 text-gray-900">{project?.title}</p>
                                     <p className="mt-1 truncate text-xs leading-5 text-gray-500">{project?.company}</p>
+                                    <a target="_blank" rel="noopener noreferrer" href={project?.liveLink} className="underline">
+                                        <p className="mt-1 truncate text-xs leading-5 text-gray-500">{project?.liveLink}</p>
+                                    </a>
                                 </div>
                             </div>
                             <div className="flex gap-x-3 items-center text-gray-500 flex-wrap">
@@ -81,8 +84,8 @@ const AllProjects = ({ projects, setIsProjectModal, setRemoveId, setIsModalOpen,
                         </li>
                     ))}
                 </ul>
-                  {/* Pagination Controls */}
-                  <div className="flex justify-between mt-4">
+                {/* Pagination Controls */}
+                <div className="flex justify-between mt-4">
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}

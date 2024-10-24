@@ -139,7 +139,6 @@ const CreateProjectPage = ({ projectDetails,
                             <option value="" disabled>
                                 Select Status
                             </option>
-                            <option value="In Progress">In Progress</option>
                             <option value="Completed">Completed</option>
                             <option value="Ongoing">Ongoing</option>
                         </select>
@@ -166,6 +165,7 @@ const CreateProjectPage = ({ projectDetails,
                     <div className="flex justify-between">
                         <h3 className="font-semibold mb-2 text-blue-600">Technologies</h3>
                         <button
+                            type="button"
                             onClick={addTechnology}
                             className="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 transition duration-200 ease-in-out"
                         >

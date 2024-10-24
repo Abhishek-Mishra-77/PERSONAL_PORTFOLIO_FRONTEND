@@ -6,7 +6,15 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 function ProfileEditor() {
-    const [profileData, setProfileData] = useState(null);
+    const [profileData, setProfileData] = useState({
+        name: "",
+        available: "",
+        designation: "",
+        imageUrl: "",
+        description: "",
+        resumeLink: "",
+        skills: [],
+    });
 
     useEffect(() => {
         const fetchProfileData = async () => {
@@ -52,7 +60,7 @@ function ProfileEditor() {
     const addSkillInputHandler = () => {
         setProfileData((prev) => ({
             ...prev,
-            skills: [...prev.skills, ""],
+            skills: [...(prev.skills || []), ""],
         }));
     };
 
@@ -96,9 +104,7 @@ function ProfileEditor() {
         }
     };
 
-    if (!profileData) {
-        return <div>Loading...</div>;
-    }
+
 
     return (
         <div className="max-w-4xl mx-auto mt-8 p-8 bg-white shadow-lg rounded-lg">

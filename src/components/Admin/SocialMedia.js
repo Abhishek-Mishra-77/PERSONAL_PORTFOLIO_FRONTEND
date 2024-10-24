@@ -7,7 +7,7 @@ import ConfirmationModal from '../Modals/ConfirmationModal';
 const SocialMedia = () => {
     const [socials, setSocials] = useState([]);
     const [isSocialModal, setSocialModal] = useState(false);
-    const [social, setSocial] = useState({ Symbol: '', link: '' });
+    const [social, setSocial] = useState({ Symbol: '', link: '', name: '' });
     const [socialId, setSocialId] = useState("");
     const [isConfirmationModal, setIsConfirmationModal] = useState(false);
 
@@ -48,6 +48,7 @@ const SocialMedia = () => {
             console.error('Error creating social:', error);
         }
     };
+
 
 
     const onRemoveSocialHandler = async () => {
@@ -109,7 +110,8 @@ const SocialMedia = () => {
                                         </span>
                                     </div>
                                     <div className="min-w-0 flex-auto">
-                                        <p className="font-semibold leading-6 text-gray-500">{data?.Symbol}</p>
+                                        <p className="font-semibold leading-6  text-gray-500">{data?.Symbol}</p>
+                                        <p className="font-semibold text-sm leading-6 text-gray-500">{data?.name}</p>
                                         <a href={data?.link} target="_blank" rel="noopener noreferrer" className='hover:text-blue-500 underline'>  <p className="mt-1 truncate text-xs leading-5 text-gray-500">{data?.link}</p></a>
                                     </div>
                                 </div>

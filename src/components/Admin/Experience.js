@@ -77,7 +77,7 @@ function Experience() {
             }
         };
         fetchExperienceData();
-    }, [])
+    }, [showCreateModal, setShowCreateModal])
 
     const onCreateAndUpdateExperience = async (e) => {
         e.preventDefault();

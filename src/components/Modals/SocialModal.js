@@ -13,11 +13,25 @@ const SkillModal = ({ heading, setSocialModal, social, setSocial, onCreateAndUpd
                             setSocial({
                                 Symbol: '',
                                 link: '',
+                                name: '',
                             })
                         }}
                         className='text-2xl'>   <GiCrossMark /></button>
                 </div>
 
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+                        Name
+                    </label>
+                    <input
+                        id="name"
+                        type="text"
+                        value={social?.name}
+                        onChange={(e) => setSocial({ ...social, name: e.target.value })}
+                        className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-500"
+                        placeholder="Enter social link"
+                    />
+                </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="level">
                         Link
